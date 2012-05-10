@@ -1,16 +1,30 @@
-Infomation
-==========================================================================================
-jQuery Plugin
-	Name       : jquery.addInputArea
+# Infomation
+	Type       : jQuery Plugin
+	Name       : jquery.addInputArea.js
 	Version    : 2.0
 	Update     : 2012-05-10
 	Author     : Yuusaku Miyazaki (宮崎 雄策) (toumin.m7@gmail.com)
-	Author-URI : http://d.hatena.ne.jp/sutara_lumpur/
-	License    :
-		MIT License (http://www.opensource.org/licenses/mit-license.php)
-==========================================================================================
+	Author-URI : http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562
+	License    : MIT License (http://www.opensource.org/licenses/mit-license.php)
 
-オプション
+
+# Plugin Options (English)
+	-----------------------------------------
+	name          : cls_del
+	description   : The name of CSS class of the delete-button.
+	initial value : ($(elem).attr('id')) ? $(elem).attr('id')+'_del' : 'afp_del'
+	-----------------------------------------
+	name          : btn_del
+	description   : The form of the delete-button. jQuery object.
+	initial value : ($(elem).attr('id')) ? $(elem).attr('id')+'_del' : 'afp_del'
+	-----------------------------------------
+	name          : btn_add
+	description   : The jQuery selector to find the add-button. jQuery object.
+	initial value : ($(elem).attr('id')) ? '#'+$(elem).attr('id')+'_add' : '#afp_add'
+	-----------------------------------------
+
+
+# オプション (Japanese)
 	-----------------------------------------
 	名前 : cls_del
 	説明 : 削除ボタンに共通するCSSクラス名
