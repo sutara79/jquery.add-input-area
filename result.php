@@ -1,18 +1,22 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>結果表示ページ</title>
+		<title>Result</title>
 	</head>
 	<body>
-		<p>フォーム送信された値を、PHPの『print_r($_POST);』で表示します。</p>
+		<h3>print_r($_POST);</h3>
+		<div style="font-size:16px;">
 		<?php
 			if($_POST['submit']){
 				echo '<pre>';
 				print_r($_POST);
 				echo '</pre>';
 			}
+			
+			$r = ($_POST['lang'] == 'en') ? 'index.html' : 'index-ja.html';
 		?>
-		<a href="index.html" style="font-weight:bold">戻る</a>
+		</div>
+		<a href="<?php echo $r ?>" style="font-weight:bold">Back</a>
 	</body>
 </html>

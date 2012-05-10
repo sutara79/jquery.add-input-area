@@ -1,0 +1,18 @@
+v2.1 (2012-05-11)
+	(English)
+	The default language used was changed into English.
+
+	(Japanese)
+	デフォルトの言語を英語に変更しました。
+	
+
+v2.0 (2012-05-10)
+	(English)
+	The list could be fluctuated even if how many input-area were contained.
+
+	(Japanese)
+	複数の入力欄を持つリストも増減できるようになりました。
+	
+
+v1.0 (2012-05-09)
+	Plug-in was exhibited newly.

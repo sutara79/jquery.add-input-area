@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8">
 		<title>jquery.addInputArea.js</title>
@@ -23,54 +23,55 @@
 	</head>
 	<body>
 		<h1>jquery.addInputArea.2.1.js</h1>
-		<p>Last update:2012-05-11</p>
-		<p><a href="index-ja.html">日本語 (Japanese)</a></p>
+		<p>最終更新日:2012-05-11</p>
+		<p><a href="index.html">英語 (English)</a></p>
 		<p>
-			You can add or delete the list of text-box or text-area.
+			テキストボックス、またはテキストエリアを動的に追加・削除します。<br>
+			ver2.0から、複数の入力欄を一括して増減できるようになりました。
 		</p>
 		<form action="result.php" method="POST">
-			<input type="hidden" name="lang" value="en">
+			<input type="hidden" name="lang" value="ja">
+
 
 			<section>
-				<h3>Basic</h3>
+				<h3>基本</h3>
 				<ol id="list1">
 					<li><input type="text" size="40" name="list1_0"></li>
 				</ol>
-				<input type="button" value="Add" id="list1_add"><br>
-				<input type="submit" value="Send" name="submit">
+				<input type="button" value="項目を追加" id="list1_add"><br>
+				<input type="submit" value="フォーム送信します" name="submit">
 
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="<span class="green">list1</span>"&gt;
 	&lt;li&gt;&lt;input type="text" size="40"&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;input type="button" value="Add" id="<span class="green">list1_add</span>"&gt;
+&lt;input type="button" value="項目を追加" id="<span class="green">list1_add</span>"&gt;
 
 <span class="gray">(JavaScript)</span>
 $('<span class="green">#list1</span>').addInputArea();
 </pre>
 
 				<p>
-					You have to set both the id attribute of list element and add-button.<br>
-					The id attribute of add-button should be "list-id" + "_add".<br>
-					Like "list1_add".<br>
-					You can save time and effort by following naming convention.
+					設定が必要な値は、リストのid属性と、追加ボタンのid属性です。<br>
+					追加ボタンのid属性は、" (リストのid属性)+'_add' "の形式で記述することで、<br>
+					プラグインに渡すオプションの数を減らすことができます。
 				</p>
 			</section>
 
 
 			<section>
-				<h3>Options</h3>
+				<h3>オプションを指定</h3>
 				<ol id="list2">
-					<li><textarea name="list2_0"></textarea></li>
+					<li><textarea name="list2_0">あにゃまる探偵キルミンずぅ DVD 第1巻</textarea></li>
 				</ol>
 				<input type="button" value="Add!" id="add_button02"><br>
-				<input type="submit" value="Send" name="submit">
+				<input type="submit" value="フォーム送信します" name="submit">
 
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="list2"&gt;
-	&lt;li&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;textarea&gt;あにゃまる探偵キルミンずぅ DVD 第1巻&lt;/textarea&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;input type="button" value="Add!" id="<span class="green">add_button02</span>"&gt;
 
@@ -82,26 +83,26 @@ $('#list2').addInputArea({
 </pre>
 
 				<p>
-					You can set options for plug-in.<br>
-					Please look at "README" for details.
+					プラグインにはオプションを渡すことができます。<br>
+					詳しくは README をご覧ください。
 				</p>
 			</section>
 
 
 			<section>
-				<h3>The ornament by CSS and images</h3>
+				<h3>CSS、画像による装飾</h3>
 				<ul id="list3">
 					<li><input type="text" size="40" name="list3_0"></li>
 				</ul>
-				<a href="javascript:void(0)" id="list3_add">Add</a><br>
-				<input type="submit" value="Send" name="submit">
+				<a href="javascript:void(0)" id="list3_add">項目を追加</a><br>
+				<input type="submit" value="フォーム送信します" name="submit">
 
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ul id="list3"&gt;
 	&lt;li&gt;&lt;input type="text" size="40"&gt;&lt;/li&gt;
 &lt;/ul&gt;
-<span class="green">&lt;a href="javascript:void(0)" id="list3_add"&gt;</span>Add&lt;/a&gt;
+<span class="green">&lt;a href="javascript:void(0)" id="list3_add"&gt;</span>項目を追加&lt;/a&gt;
 
 <span class="gray">(CSS)</span>
 <span class="green">#list3_add</span> {
@@ -124,35 +125,35 @@ $('#list3').addInputArea({
 </pre>
 
 				<p>
-					You can decorate add-button and delete-button with CSS or images. 
+					追加ボタン、削除ボタンはCSSや画像で装飾できます。
 				</p>
 			</section>
 
 
 			<section>
-				<h3>The list which contains some input areas</h3>
+				<h3>複数の入力欄を一括して増減</h3>
 				<ul id="list4">
 					<li>
 						<div>
-							<label for="list4_name_0">Name</label>
+							<label for="list4_name_0">名前</label>
 							<input type="text" size="40" name="list4_name_0"><br>
-							<label for="list4_mail_0">Email</label>
+							<label for="list4_mail_0">メールアドレス</label>
 							<input type="text" size="40" name="list4_mail_0">
 						</div>
 					</li>
 				</ul>
 				<div style="clear:left;"></div>
-				<input type="button" value="Add" id="list4_add"><br>
-				<input type="submit" value="Send" name="submit">
+				<input type="button" value="項目を追加" id="list4_add"><br>
+				<input type="submit" value="フォーム送信します" name="submit">
 
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ul id="list4"&gt;
 	&lt;li&gt;
 		&lt;div&gt;
-			&lt;label for="list4_name_0"&gt;Name&lt;/label&gt;
+			&lt;label for="list4_name_0"&gt;名前&lt;/label&gt;
 			&lt;input type="text" size="40" name="list4_name_0"&gt;&lt;br&gt;
-			&lt;label for="list4_mail_0"&gt;Email&lt;/label&gt;
+			&lt;label for="list4_mail_0"&gt;メールアドレス&lt;/label&gt;
 			&lt;input type="text" size="40" name="list4_mail_0"&gt;
 		&lt;/div&gt;
 	&lt;/li&gt;
@@ -162,7 +163,8 @@ $('#list3').addInputArea({
 $('#list4').addInputArea();
 </pre>
 				<p>
-					The list can be fluctuated even if how many input-area were contained.
+					複数の入力欄を扱う場合も、特にオプションを必要としません。<br>
+					なお、id,name属性だけでなく、for属性も増減に応じて末尾の番号が変化します。
 				</p>
 			</section>
 
