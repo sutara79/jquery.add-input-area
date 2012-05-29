@@ -1,3 +1,17 @@
+v3.0 ()
+	(English)
+	The 'cls_del' option was deleted.
+	The 'area_var' and 'area_del' options were added.
+	The method of numbering by the 'name_format' attribute was added.
+	The definition of 'btn_del' and 'btn_add' option was changed.
+	
+	(Japanese)
+	'cls_del'オプションは廃止されました。
+	'area_var'と'area_del'オプションが新たに追加されました。
+	独自属性の'name_format'による連番生成の手段が追加されました。
+	'btn_del'と'btn_add'オプションの定義が変更されました。
+
+
 v2.1 (2012-05-11)
 	(English)
 	The default language used was changed into English.

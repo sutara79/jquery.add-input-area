@@ -13,10 +13,8 @@
 				print_r($_POST);
 				echo '</pre>';
 			}
-			
-			$r = ($_POST['lang'] == 'en') ? 'index.html' : 'index-ja.html';
 		?>
 		</div>
-		<a href="<?php echo $r ?>" style="font-weight:bold">Back</a>
+		<a href="index.html" style="font-weight:bold">Back</a>
 	</body>
 </html>

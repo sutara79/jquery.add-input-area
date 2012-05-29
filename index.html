@@ -4,107 +4,152 @@
 		<meta charset="UTF-8">
 		<title>jquery.addInputArea.js</title>
 		<link rel="stylesheet" type="text/css" href="sample.css">
-		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-		<script type="text/javascript" src="jquery.addInputArea.2.1.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.addInputArea.3.0.js"></script>
+		<script type="text/javascript" src="sample.js"></script>
 		<script type="text/javascript">
 			jQuery(document).ready(function($){
 				$('#list1').addInputArea();
 				$('#list2').addInputArea({
-					btn_add : '#add_button02',
-					btn_del : $('<button>').text('Delete!'),
+					area_var : '.var_area02',
+					btn_add  : '.add_button02',
+					btn_del  : '.del_button02'
 				});
-				$('#list3').addInputArea({
-					cls_del : 'list3_del',
-					btn_del : $('<img>').attr('src', 'img_del.png')
+				$('#list3').addInputArea();
+				$('#list4').addInputArea({
+					area_del : '.del_area04'
 				});
-				$('#list4').addInputArea();
 			});
 		</script>	
 	</head>
 	<body>
-		<h1>jquery.addInputArea.2.1.js</h1>
-		<p>Last update:2012-05-11</p>
-		<p><a href="index-ja.html">日本語 (Japanese)</a></p>
-		<p>
+		<h1>jquery.addInputArea.3.0.js</h1>
+		<nav id="language">
+			<button id="lang_en">English</button>
+			<button id="lang_ja">Japanese</button>
+		</nav>
+		<p>Last update:2012-05-29</p>
+		<p class="lang_en">
 			You can add or delete the list of text-box or text-area.
 		</p>
-		<form action="result.php" method="POST">
-			<input type="hidden" name="lang" value="en">
+		<p class="lang_ja">
+			テキストボックス、またはテキストエリアを動的に追加・削除します。
+		</p>
 
-			<section>
-				<h3>Basic</h3>
+		<section>
+			<h3>
+				<span class="lang_en">Basic</span>
+				<span class="lang_ja">基本</span>
+			</h3>
+			<form action="result.php" method="POST">
 				<ol id="list1">
-					<li><input type="text" size="40" name="list1_0"></li>
+					<li class="list1_var">
+						<input type="text" size="40" name="list1_0">
+						<button class="list1_del">Delete</button>
+					</li>
 				</ol>
-				<input type="button" value="Add" id="list1_add"><br>
+				<input type="button" value="Add" class="list1_add"><br>
 				<input type="submit" value="Send" name="submit">
-
+			</form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="<span class="green">list1</span>"&gt;
-	&lt;li&gt;&lt;input type="text" size="40"&gt;&lt;/li&gt;
+	&lt;li class="<span class="green">list1</span><span class="red">_var</span>"&gt;
+		&lt;input type="text" size="40"&gt;
+		&lt;button class="<span class="green">list1</span><span class="red">_del</span>"&gt;Delete&lt;/button&gt;
+	&lt;/li&gt;
 &lt;/ol&gt;
-&lt;input type="button" value="Add" id="<span class="green">list1_add</span>"&gt;
+&lt;input type="button" value="Add" class="<span class="green">list1</span><span class="red">_add</span>"&gt;
 
 <span class="gray">(JavaScript)</span>
 $('<span class="green">#list1</span>').addInputArea();
 </pre>
 
-				<p>
-					You have to set both the id attribute of list element and add-button.<br>
-					The id attribute of add-button should be "list-id" + "_add".<br>
-					Like "list1_add".<br>
-					You can save time and effort by following naming convention.
-				</p>
-			</section>
+			<p class="lang_en">
+				You can save time and effort by following naming convention.
+			</p>
+			<p class="lang_ja">
+				増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
+				命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。<br>
+				詳しくは'README'をご覧ください。
+			</p>
+		</section>
 
 
-			<section>
-				<h3>Options</h3>
+		<section>
+			<h3>
+				<span class="lang_en">Options</span>
+				<span class="lang_ja">オプション</span>
+			</h3>
+			<form action="result.php" method="POST">
 				<ol id="list2">
-					<li><textarea name="list2_0"></textarea></li>
+					<li class="var_area02">
+						<textarea name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+						<button class="del_button02">Delete</button>
+					</li>
 				</ol>
-				<input type="button" value="Add!" id="add_button02"><br>
+				<input type="button" value="Add!" class="add_button02"><br>
 				<input type="submit" value="Send" name="submit">
-
+			</form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="list2"&gt;
-	&lt;li&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;/li&gt;
+	&lt;li class="<span class="green">var_area02</span>"&gt;
+		&lt;textarea
+			<span class="red">name_format</span>="<span class="green">data[posts][mail][%d]</span>"
+			<span class="red">name</span>="<span class="green">data[posts][mail][0]</span>"&gt;
+		&lt;/textarea&gt;
+		&lt;button class="<span class="green">del_button02</span>"&gt;Delete&lt;/button&gt;
+	&lt;/li&gt;
 &lt;/ol&gt;
-&lt;input type="button" value="Add!" id="<span class="green">add_button02</span>"&gt;
+&lt;input type="button" value="Add!" class="<span class="green">add_button02</span>"&gt;
 
 <span class="gray">(JavaScript)</span>
 $('#list2').addInputArea({
-	btn_add : '<span class="green">#add_button02</span>',
-	btn_del : $('&lt;button&gt;').text('Delete!'),
+	area_var : '<span class="green">.var_area02</span>',
+	btn_add  : '<span class="green">.add_button02</span>',
+	btn_del  : '<span class="green">.del_button02</span>'
 });
 </pre>
 
-				<p>
-					You can set options for plug-in.<br>
-					Please look at "README" for details.
-				</p>
-			</section>
+			<p class="lang_en">
+				You can set options for plug-in.<br>
+				Please look at "README" for details.
+			</p>
+			<p class="lang_ja">
+				プラグインにはオプションを渡すことができます。<br>
+				詳しくは README をご覧ください。
+			</p>
+		</section>
 
 
-			<section>
-				<h3>The ornament by CSS and images</h3>
+		<section>
+			<h3>
+				<span class="lang_en">The ornament by CSS and images</span>
+				<span class="lang_ja">CSSや画像に依る装飾</span>
+			</h3>
+			<form action="result.php" method="POST">
 				<ul id="list3">
-					<li><input type="text" size="40" name="list3_0"></li>
+					<li class="list3_var">
+						<input type="text" size="40" name="list3_0">
+						<img class="list3_del" src="img_del.png">
+					</li>
 				</ul>
-				<a href="javascript:void(0)" id="list3_add">Add</a><br>
+				<a href="javascript:void(0)" class="list3_add">Add</a><br>
 				<input type="submit" value="Send" name="submit">
-
+			</form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ul id="list3"&gt;
-	&lt;li&gt;&lt;input type="text" size="40"&gt;&lt;/li&gt;
+	&lt;li class="list3_var"&gt;
+		&lt;input type="text" size="40" name="list3_0"&gt;
+		<span class="green">&lt;img class="list3_del" src="img_del.png"&gt;</span>
+	&lt;/li&gt;
 &lt;/ul&gt;
-<span class="green">&lt;a href="javascript:void(0)" id="list3_add"&gt;</span>Add&lt;/a&gt;
+<span class="green">&lt;a href="javascript:void(0)" class="list3_add"&gt;Add&lt;/a&gt;&lt;br&gt;</span>
 
 <span class="gray">(CSS)</span>
-<span class="green">#list3_add</span> {
+<span class="green">.list3_add</span> {
 	display:block;
 	width:100px;
 	padding:4px 8px;
@@ -117,55 +162,76 @@ $('#list2').addInputArea({
 }
 
 <span class="gray">(JavaScript)</span>
-$('#list3').addInputArea({
-	cls_del : 'list3_del',
-	btn_del : <span class="green">$('&lt;img&gt;').attr('src', 'img_del.png')</span>
-});
+$('#list3').addInputArea();
 </pre>
 
-				<p>
-					You can decorate add-button and delete-button with CSS or images. 
-				</p>
-			</section>
+			<p class="lang_en">
+				You can decorate add-button and delete-button with CSS or images. 
+			</p>
+			<p class="lang_ja">
+				追加ボタン、削除ボタンはCSSや画像で装飾できます。
+			</p>
+		</section>
 
 
-			<section>
-				<h3>The list which contains some input areas</h3>
-				<ul id="list4">
-					<li>
-						<div>
-							<label for="list4_name_0">Name</label>
-							<input type="text" size="40" name="list4_name_0"><br>
-							<label for="list4_mail_0">Email</label>
-							<input type="text" size="40" name="list4_mail_0">
-						</div>
-					</li>
-				</ul>
-				<div style="clear:left;"></div>
-				<input type="button" value="Add" id="list4_add"><br>
+		<section>
+			<h3>
+				<span class="lang_en">The list which contains some input areas</span>
+				<span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+			</h3>
+			<form action="result.php" method="POST">
+				<table id="list4">
+					<tbody>
+						<tr class="list4_var">
+							<td>
+								<label for="list4_name_0">Name</label>
+								<input type="text" size="40" name="list4_name_0">
+							</td>
+							<td>
+								<label for="list4_mail_0">Mail</label>
+								<input type="text" size="40" name="list4_mail_0">
+							</td>
+							<td class="del_area04">
+								<button class="list4_del">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<input type="button" value="Add" class="list4_add"><br>
 				<input type="submit" value="Send" name="submit">
-
+			</form>
 <pre>
 <span class="gray">(HTML)</span>
-&lt;ul id="list4"&gt;
-	&lt;li&gt;
-		&lt;div&gt;
-			&lt;label for="list4_name_0"&gt;Name&lt;/label&gt;
-			&lt;input type="text" size="40" name="list4_name_0"&gt;&lt;br&gt;
-			&lt;label for="list4_mail_0"&gt;Email&lt;/label&gt;
-			&lt;input type="text" size="40" name="list4_mail_0"&gt;
-		&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table id="list4"&gt;
+	&lt;tbody&gt;
+		&lt;tr class="list4_var"&gt;
+			&lt;td&gt;
+				&lt;label for="list4_name_0"&gt;Name&lt;/label&gt;
+				&lt;input type="text" size="40" name="list4_name_0"&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+				&lt;label for="list4_mail_0"&gt;Mail&lt;/label&gt;
+				&lt;input type="text" size="40" name="list4_mail_0"&gt;
+			&lt;/td&gt;
+			&lt;td class="<span class="green">del_area04</span>"&gt;
+				&lt;button class="list4_del"&gt;Delete&lt;/button&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;input type="button" value="Add" class="list4_add"&gt;&lt;br&gt;
 
 <span class="gray">(JavaScript)</span>
-$('#list4').addInputArea();
+$('#list4').addInputArea({
+	area_del : '<span class="green">.del_area04</span>'
+});
 </pre>
-				<p>
-					The list can be fluctuated even if how many input-area were contained.
-				</p>
-			</section>
-
-		</form>
+			<p class="lang_en">
+				The list can be fluctuated even if how many input-area were contained.
+			</p>
+			<p class="lang_ja">
+				複数の入力欄を扱う場合も、特にオプションを必要としません。
+			</p>
+		</section>
 	</body>
 </html>

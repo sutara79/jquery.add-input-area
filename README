@@ -1,59 +1,80 @@
 # Infomation
 	Type       : jQuery Plugin
 	Name       : jquery.addInputArea.js
-	Version    : 2.1
-	Update     : 2012-05-11
+	Version    : 3.0
+	Update     : 
 	Author     : Yuusaku Miyazaki (宮崎 雄策) (toumin.m7@gmail.com)
 	Author-URI : http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562
 	Demo       : http://www.usamimi.info/~sutara/sample/addInputArea/
 	License    : MIT License (http://www.opensource.org/licenses/mit-license.php)
 
 
-# Plugin Options (English)
-	-----------------------------------------
-	name          : cls_del
-	description   : The name of CSS class of the delete-button.
-	initial value : ($(elem).attr('id')) ? $(elem).attr('id')+'_del' : 'afp_del'
-	-----------------------------------------
+# The 'name' Attribute
+	(English)
+	The 'name' attribute of the text-box to fluctuate is named automatically.
+		(ex1) foo_0, foo_1, foo_2. or bar0, bar1, bar2.
+	On the other hand, you can set original method of numbering using 'name_format' attribute.
+		(ex2) name_format="foo_%d_bar"            -> foo_0_bar, foo_1_bar, foo_2_bar...
+		(ex3) name_format="data[posts][mail][%d]" -> data[posts][mail][0], data[posts][mail][1] 
+
+	(Japanese)
+	増減する入力欄のname属性は自動で付与されます。
+	他方で、独自属性'name_format'を使うことにより柔軟な連番生成も可能です。
+	CakePHPへの対応などで役立ちます。
+	
+
+# Plugin Options
+	(English)
+	------------------------------------------------------------------------------------
+	name          : area_var
+	description   : The name of CSS class of the item name to fluctuate.
+	initial value : (id) ? '.' + id + '_var' : '.aia_var'
+	------------------------------------------------------------------------------------
+	name          : area_del
+	description   : The name of CSS class of the delete-area.
+	initial value : false
+	------------------------------------------------------------------------------------
 	name          : btn_del
-	description   : The form of the delete-button. jQuery object.
-	initial value : $('<button>').text('Delete')
-	-----------------------------------------
+	description   : The name of CSS class of the delete-button.
+	initial value : (id) ? '.' + id + '_del' : '.aia_del'
+	------------------------------------------------------------------------------------
 	name          : btn_add
-	description   : The jQuery selector to find the add-button. jQuery object.
-	initial value : ($(elem).attr('id')) ? '#'+$(elem).attr('id')+'_add' : '#afp_add'
-	-----------------------------------------
+	description   : The name of CSS class of the add-button.
+	initial value : (id) ? '.' + id + '_add' : '.aia_add'
+	------------------------------------------------------------------------------------
+	
 
+	(Japanese)
+	------------------------------------------------------------------------------------
+	名前 : area_var
+	説明 : 動的に増減する要素に共通するCSSクラス名
+	初期値 :
+		リストのid属性に'_var'を加えたもの。
+		リストにid属性がなければ(そんなことは考えられないが)、'aia_var'。
+		実際のソースは下記。
+		(id) ? '.' + id + '_var' : '.aia_var'
 
-# オプション (Japanese)
-	-----------------------------------------
-	名前 : cls_del
+	------------------------------------------------------------------------------------
+	名前 : area_del
+	説明 : 削除エリアに共通するCSSクラス名
+	初期値 : false
+
+	------------------------------------------------------------------------------------
+	名前 : btn_del
 	説明 : 削除ボタンに共通するCSSクラス名
 	初期値 :
 		リストのid属性に'_del'を加えたもの。
-		リストにid属性がなければ(そんなことは考えられないが)、'afp_del'。
+		リストにid属性がなければ(そんなことは考えられないが)、'aia_del'。
 		実際のソースは下記。
-		($(elem).attr('id')) ? $(elem).attr('id')+'_del' : 'afp_del'
+		(id) ? '.' + id + '_del' : '.aia_del'
 
-	-----------------------------------------
-	名前 : btn_del
-	説明 :
-		削除ボタンのひな形。
-		jQueryオブジェクトで指定する。
-	初期値 : 
-		$('<button>').text('Delete')
-		※CSSクラスは指定する必要はない。
-		別のオプション"cls_del"の値が付加される。
-
-	-----------------------------------------
+	------------------------------------------------------------------------------------
 	名前 : btn_add
-	説明 :
-		追加ボタンを特定するためのセレクタ。
-		id属性で指定する場合、'hoge_id'ではなく、'#hoge_id'と記述する。
+	説明 : 追加ボタンのCSSクラス名
 	初期値 : 
 		リストのid属性に'_add'を加えたもの。
-		リストにid属性がなければ(そんなことは考えられないが)、'#afp_add'。
+		リストにid属性がなければ(そんなことは考えられないが)、'.aia_add'。
 		実際のソースは下記。
-		($(elem).attr('id')) ? '#'+$(elem).attr('id')+'_add' : '#afp_add'
+		(id) ? '.' + id + '_add' : '.aia_add'
 
-	-----------------------------------------
+	------------------------------------------------------------------------------------

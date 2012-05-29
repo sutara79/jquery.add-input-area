@@ -1,4 +1,4 @@
-#list3_add {
+.list3_add {
 	display:block;
 	width:100px;
 	padding:4px 8px;
@@ -9,19 +9,21 @@
 	border:2px solid #37f;
 	border-radius:4px;
 }
-#list4 > li {
-	clear:left;
-	list-style:none;
-}
-#list4 > li div {
-	border:2px solid #aaa;
-	padding:8px;
-	margin:4px 0;
-	float:left;
+#list4, #list4 td {
+	border:1px solid #666;
+	border-collapse:collapse;
 }
 #section_list > li {
 	border-bottom:1px dashed #666;
 	margin-bottom:2em;
+}
+nav#language {
+	padding:4px;
+	border:1px solid #aaa;
+	background:#eef;
+	position:fixed;
+	top:0px;
+	right:0px;
 }
 h3 {
 	margin-top:3em;
