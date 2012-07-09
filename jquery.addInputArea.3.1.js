@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.3.0
+jquery.addInputArea.3.1
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -14,8 +14,8 @@ MIT License
 			//オプションを使用準備
 			options = initOptions(this, options);
 
-			//はじめに、削除ボタンを非表示にする
-			$(this).find(options.area_del).hide();
+			//削除ボタンを表示状態を決定する
+			setDelBtnVisibility(this, options);
 
 			//イベントハンドラ設定
 			setEventHandler(this, options);
@@ -42,6 +42,14 @@ MIT License
 		}, options);
 		if (!options.area_del) options.area_del = options.btn_del;
 		return options;
+	}
+	//***************************************
+	//削除ボタンを表示状態を決定する
+	//***************************************
+	function setDelBtnVisibility(elem, options) {
+		if ($(elem).find(options.area_var).length == 1) {
+			$(elem).find(options.area_del).hide();
+		}
 	}
 	//***************************************
 	//イベントハンドラ設定
