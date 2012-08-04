@@ -1,3 +1,11 @@
+v3.2 (2012-08-05)
+	(English)
+	* The 'maximum' option which set the maximum number of items was added.
+
+	(Japanese)
+	* 増減する要素の最大数を定める、"maximum"オプションを新設しました。
+
+
 v3.1 (2012-07-09)
 	(English)
 	* Delete-button is displayed when the default number of items is two or more.

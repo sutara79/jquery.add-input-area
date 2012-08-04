@@ -5,7 +5,7 @@
 		<title>jquery.addInputArea.js</title>
 		<link rel="stylesheet" type="text/css" href="sample.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.addInputArea.3.1.js"></script>
+		<script type="text/javascript" src="jquery.addInputArea.3.2.js"></script>
 		<script type="text/javascript" src="sample.js"></script>
 		<script type="text/javascript">
 			jQuery(document).ready(function($){
@@ -19,16 +19,19 @@
 				$('#list4').addInputArea({
 					area_del : '.del_area04'
 				});
+				$('#list5').addInputArea({
+					maximum : 4
+				});
 			});
 		</script>	
 	</head>
 	<body>
-		<h1>jquery.addInputArea.3.1.js</h1>
+		<h1>jquery.addInputArea.3.2.js</h1>
 		<nav id="language">
 			<button id="lang_en">English</button>
 			<button id="lang_ja">Japanese</button>
 		</nav>
-		<p>Last update:2012-07-09</p>
+		<p>Last update:2012-08-05</p>
 		<p class="lang_en">
 			You can add or delete the list of text-box or text-area.
 		</p>
@@ -232,6 +235,34 @@ $('#list4').addInputArea({
 			<p class="lang_ja">
 				複数の入力欄を扱う場合も、特にオプションを必要としません。
 			</p>
+		</section>
+
+		<section>
+			<h3>
+				<span class="lang_en">Maximum number</span>
+				<span class="lang_ja">追加に上限を設ける</span>
+			</h3>
+			<p class="lang_en">
+				You can set the maximum number of textbox.
+			</p>
+			<p class="lang_ja">
+				追加できるテキストボックスの数に上限を設けることができます。
+			</p>
+			<form action="result.php" method="POST">
+				<ol id="list5">
+					<li class="list5_var">
+						<input type="text" size="40" name="list1_0">
+						<button class="list5_del">Delete</button>
+					</li>
+				</ol>
+				<input type="button" value="Add" class="list5_add"><br>
+				<input type="submit" value="Send" name="submit">
+			</form>
+<pre>
+$('#list5').addInputArea({
+	<span class="green">maximum</span> : <span class="red">4</span>
+});
+</pre>
 		</section>
 	</body>
 </html>

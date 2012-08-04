@@ -1,8 +1,8 @@
 # Infomation
 	Type       : jQuery Plugin
 	Name       : jquery.addInputArea.js
-	Version    : 3.1
-	Update     : 2012-07-09
+	Version    : 3.2
+	Update     : 2012-08-05
 	Author     : Yuusaku Miyazaki (宮崎 雄策) (toumin.m7@gmail.com)
 	Author-URI : http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562
 	Demo       : http://www.usamimi.info/~sutara/sample/addInputArea/
@@ -42,6 +42,10 @@
 	description   : The name of CSS class of the add-button.
 	initial value : (id) ? '.' + id + '_add' : '.aia_add'
 	------------------------------------------------------------------------------------
+	name          : maximum
+	description   : The maximum number of items. (numeric)
+	initial value : false (unlimited)
+	------------------------------------------------------------------------------------
 	
 
 	(Japanese)
@@ -76,5 +80,10 @@
 		リストにid属性がなければ(そんなことは考えられないが)、'.aia_add'。
 		実際のソースは下記。
 		(id) ? '.' + id + '_add' : '.aia_add'
+
+	------------------------------------------------------------------------------------
+	名前 : maximum
+	説明 : 増減する要素の最大数 (数値で指定する)
+	初期値 : false (無制限)
 
 	------------------------------------------------------------------------------------

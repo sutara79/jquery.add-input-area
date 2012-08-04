@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.3.1
+jquery.addInputArea.3.2
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -38,7 +38,8 @@ MIT License
 			area_var  : (id) ? '.' + id + '_var' : '.aia_var',
 			area_del  : false,
 			btn_del   : (id) ? '.' + id + '_del' : '.aia_del',
-			btn_add   : (id) ? '.' + id + '_add' : '.aia_add'
+			btn_add   : (id) ? '.' + id + '_add' : '.aia_add',
+			maximum   : false
 		}, options);
 		if (!options.area_del) options.area_del = options.btn_del;
 		return options;
@@ -81,6 +82,14 @@ MIT License
 			});
 
 			$(elem).append(new_list);
+
+			//追加上限
+			if (
+				options.maximum !== false &&
+				$(elem).find(options.area_var).length >= options.maximum
+			) {
+				$(options.btn_add).hide();
+			}
 		});
 		//--------------------------------------------------------
 		//『削除』ボタンを押した場合の処理
@@ -97,7 +106,15 @@ MIT License
 			if(len_list == 1) $(elem).find(options.area_del).hide();
 
 			//入力欄の番号を振り直す
-			setNameAttribute(elem, options);			
+			setNameAttribute(elem, options);
+
+			//追加上限
+			if (
+				options.maximum !== false &&
+				$(elem).find(options.area_var).length < options.maximum
+			) {
+				$(options.btn_add).show();
+			}		
 		});
 	}
 	//***************************************
