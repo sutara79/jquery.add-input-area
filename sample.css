@@ -1,3 +1,23 @@
+#container {
+	width:960px;
+	margin:auto;
+}
+nav {
+	width:240px;
+	margin-right:20px;
+	float:left;
+}
+nav li {
+	margin-bottom:0.5em;
+}
+article {
+	width:700px;
+	float:left;
+}
+.right {
+	width:100%;
+	text-align:right;
+}
 .list3_add {
 	display:block;
 	width:100px;
@@ -13,11 +33,15 @@
 	border:1px solid #666;
 	border-collapse:collapse;
 }
+#list6 table, #list6 th, #list6 td {
+	border : 1px solid #aaa;
+	border-collapse : collapse;
+}
 #section_list > li {
 	border-bottom:1px dashed #666;
 	margin-bottom:2em;
 }
-nav#language {
+#language {
 	padding:4px;
 	border:1px solid #aaa;
 	background:#eef;
@@ -26,7 +50,7 @@ nav#language {
 	right:0px;
 }
 h3 {
-	margin-top:3em;
+	margin-top:1em;
 	border-left:8px solid #395;
 	border-bottom:2px solid #395;
 	padding:4px 8px;
@@ -43,3 +67,4 @@ p, pre {
 .green { color:#3f5; }
 .red   { color:#f53; }
 .gray  { color:#bbc; }
+.bold  { font-weight:bold; }

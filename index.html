@@ -1,66 +1,105 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>jquery.addInputArea.js</title>
-		<link rel="stylesheet" type="text/css" href="sample.css">
-		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.addInputArea.3.2.js"></script>
-		<script type="text/javascript" src="sample.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function($){
-				$('#list1').addInputArea();
-				$('#list2').addInputArea({
-					area_var : '.var_area02',
-					btn_add  : '.add_button02',
-					btn_del  : '.del_button02'
-				});
-				$('#list3').addInputArea();
-				$('#list4').addInputArea({
-					area_del : '.del_area04'
-				});
-				$('#list5').addInputArea({
-					maximum : 4
-				});
-			});
-		</script>	
-	</head>
-	<body>
-		<h1>jquery.addInputArea.3.2.js</h1>
-		<nav id="language">
-			<button id="lang_en">English</button>
-			<button id="lang_ja">Japanese</button>
-		</nav>
-		<p>Last update:2012-08-05</p>
-		<p class="lang_en">
-			You can add or delete the list of text-box or text-area.
-		</p>
-		<p class="lang_ja">
-			テキストボックス、またはテキストエリアを動的に追加・削除します。
-		</p>
-
-		<section>
-			<h3>
-				<span class="lang_en">Basic</span>
-				<span class="lang_ja">基本</span>
-			</h3>
-			<form action="result.php" method="POST">
-				<ol id="list1">
-					<li class="list1_var">
-						<input type="text" size="40" name="list1_0">
-						<button class="list1_del">Delete</button>
-					</li>
-				</ol>
-				<input type="button" value="Add" class="list1_add"><br>
-				<input type="submit" value="Send" name="submit">
-			</form>
+    <head>
+        <meta charset="UTF-8">
+        <title>jquery.addInputArea.js</title>
+        <link rel="stylesheet" type="text/css" href="sample.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.addInputArea.4.0.js"></script>
+        <script type="text/javascript" src="sample.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $('#list1').addInputArea();
+                $('#list2').addInputArea({
+                    area_var : '.var_area02',
+                    btn_add  : '.add_button02',
+                    btn_del  : '.del_button02'
+                });
+                $('#list3').addInputArea();
+                $('#list4').addInputArea({
+                    area_del : '.del_area04'
+                });
+                $('#list5').addInputArea({
+                    maximum : 4
+                });
+                $('#list6').addInputArea();
+                $('#list7').addInputArea();
+            });
+        </script>    
+    </head>
+    <body>
+        <h1>jquery.addInputArea.4.0.js</h1>
+        <div id="language">
+            <button id="lang_en">English</button>
+            <button id="lang_ja">Japanese</button>
+        </div>
+        <p>Last update:2012-08-08</p>
+        <p class="lang_en">
+            You can add or delete the form-items.
+        </p>
+        <p class="lang_ja">
+            フォーム部品を動的に追加・削除します。
+        </p>
+        <div id="container">
+            <nav id="index">
+                <h3>
+                    <span class="lang_en">Contents</span>
+                    <span class="lang_ja">目次</span>
+                </h3>
+                <ol>
+                    <li><a href="#index_01">
+                        <span class="lang_en">Basic</span>
+                        <span class="lang_ja">基本</span>
+                    </a></li>
+                    <li><a href="#index_02">
+                        <span class="lang_en">Options</span>
+                        <span class="lang_ja">オプション</span>
+                    </a></li>
+                    <li><a href="#index_03">
+                        <span class="lang_en">The ornament by CSS and images</span>
+                        <span class="lang_ja">CSSや画像による装飾</span>
+                    </a></li>
+                    <li><a href="#index_04">
+                        <span class="lang_en">The list which contains some input areas</span>
+                        <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+                    </a></li>
+                    <li><a href="#index_05">
+                        <span class="lang_en">Maximum number</span>
+                        <span class="lang_ja">追加に上限を設ける</span>
+                    </a></li>
+                    <li><a href="#index_06">
+                        <span class="lang_en">All form-items</span>
+                        <span class="lang_ja">全てのフォーム部品に対応</span>
+                       </a></li>
+                    <li><a href="#index_07">
+                        <span class="lang_en">Do not format</span>
+                        <span class="lang_ja">value値を初期化させない設定</span>
+                    </a></li>
+                </ol>
+            </nav>
+            <article>
+                <section id="index_01">
+                    <h3>
+                        <span class="lang_en">Basic</span>
+                        <span class="lang_ja">基本</span>
+                    </h3>
+                    <form action="result.php" method="POST">
+                        <ol id="list1">
+                            <li class="list1_var">
+                                <input type="text" size="40" name="list1_0" id="sss_0">
+                                <button class="list1_del">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add" class="list1_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="<span class="green">list1</span>"&gt;
-	&lt;li class="<span class="green">list1</span><span class="red">_var</span>"&gt;
-		&lt;input type="text" size="40"&gt;
-		&lt;button class="<span class="green">list1</span><span class="red">_del</span>"&gt;Delete&lt;/button&gt;
-	&lt;/li&gt;
+    &lt;li class="<span class="green">list1</span><span class="red">_var</span>"&gt;
+        &lt;input type="text" size="40"&gt;
+        &lt;button class="<span class="green">list1</span><span class="red">_del</span>"&gt;Delete&lt;/button&gt;
+    &lt;/li&gt;
 &lt;/ol&gt;
 &lt;input type="button" value="Add" class="<span class="green">list1</span><span class="red">_add</span>"&gt;
 
@@ -68,201 +107,349 @@
 $('<span class="green">#list1</span>').addInputArea();
 </pre>
 
-			<p class="lang_en">
-				You can save time and effort by following naming convention.
-			</p>
-			<p class="lang_ja">
-				増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
-				命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。<br>
-				詳しくは'README'をご覧ください。
-			</p>
-		</section>
+                    <p class="lang_en">
+                        You can save time and effort by following naming convention.
+                    </p>
+                    <p class="lang_ja">
+                        増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
+                        命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。<br>
+                        詳しくは'README'をご覧ください。
+                    </p>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
 
 
-		<section>
-			<h3>
-				<span class="lang_en">Options</span>
-				<span class="lang_ja">オプション</span>
-			</h3>
-			<form action="result.php" method="POST">
-				<ol id="list2">
-					<li class="var_area02">
-						<textarea name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
-						<button class="del_button02">Delete</button>
-					</li>
-				</ol>
-				<input type="button" value="Add!" class="add_button02"><br>
-				<input type="submit" value="Send" name="submit">
-			</form>
+                <section id="index_02">
+                    <h3>
+                        <span class="lang_en">Options</span>
+                        <span class="lang_ja">オプション</span>
+                    </h3>
+                    <form action="result.php" method="POST">
+                        <ol id="list2">
+                            <li class="var_area02">
+                                <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
+                                <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+                                <button class="del_button02">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add!" class="add_button02"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ol id="list2"&gt;
-	&lt;li class="<span class="green">var_area02</span>"&gt;
-		&lt;textarea
-			<span class="red">name_format</span>="<span class="green">data[posts][mail][%d]</span>"
-			<span class="red">name</span>="<span class="green">data[posts][mail][0]</span>"&gt;
-		&lt;/textarea&gt;
-		&lt;button class="<span class="green">del_button02</span>"&gt;Delete&lt;/button&gt;
-	&lt;/li&gt;
+    &lt;li class="<span class="green">var_area02</span>"&gt;
+        &lt;label
+            <span class="red">for</span>="<span class="green">posts_0_mail</span>"
+            <span class="red">id_format</span>="<span class="green">posts_%d_mail</span>"
+        &gt;Mail&lt;/label&gt;
+        &lt;textarea
+            <span class="red">id</span>="<span class="green">posts_0_mail</span>"
+            <span class="red">id_format</span>="<span class="green">posts_%d_mail</span>"
+            <span class="red">name</span>="<span class="green">data[posts][mail][0]</span>"
+            <span class="red">name_format</span>="<span class="green">data[posts][mail][%d]</span>"
+        &gt;&lt;/textarea&gt;
+        &lt;button class="<span class="green">del_button02</span>"&gt;Delete&lt;/button&gt;
+    &lt;/li&gt;
 &lt;/ol&gt;
-&lt;input type="button" value="Add!" class="<span class="green">add_button02</span>"&gt;
+&lt;input type="button" value="Add!" class="<span class="green">add_button02</span>"&gt;&lt;br&gt;
 
 <span class="gray">(JavaScript)</span>
 $('#list2').addInputArea({
-	area_var : '<span class="green">.var_area02</span>',
-	btn_add  : '<span class="green">.add_button02</span>',
-	btn_del  : '<span class="green">.del_button02</span>'
+    area_var : '<span class="green">.var_area02</span>',
+    btn_add  : '<span class="green">.add_button02</span>',
+    btn_del  : '<span class="green">.del_button02</span>'
 });
 </pre>
 
-			<p class="lang_en">
-				You can set options for plug-in.<br>
-				Please look at "README" for details.
-			</p>
-			<p class="lang_ja">
-				プラグインにはオプションを渡すことができます。<br>
-				詳しくは README をご覧ください。
-			</p>
-		</section>
+                    <p class="lang_en">
+                        You can set options for plug-in.<br>
+                        Please look at "README" for details.
+                    </p>
+                    <p class="lang_ja">
+                        プラグインにはオプションを渡すことができます。<br>
+                        詳しくは README をご覧ください。
+                    </p>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
 
 
-		<section>
-			<h3>
-				<span class="lang_en">The ornament by CSS and images</span>
-				<span class="lang_ja">CSSや画像による装飾</span>
-			</h3>
-			<form action="result.php" method="POST">
-				<ul id="list3">
-					<li class="list3_var">
-						<input type="text" size="40" name="list3_0">
-						<img class="list3_del" src="img_del.png">
-					</li>
-				</ul>
-				<a href="javascript:void(0)" class="list3_add">Add</a><br>
-				<input type="submit" value="Send" name="submit">
-			</form>
+                <section id="index_03">
+                    <h3>
+                        <span class="lang_en">The ornament by CSS and images</span>
+                        <span class="lang_ja">CSSや画像による装飾</span>
+                    </h3>
+                    <form action="result.php" method="POST">
+                        <ul id="list3">
+                            <li class="list3_var">
+                                <input type="text" size="40" name="list3_0">
+                                <img class="list3_del" src="img_del.png">
+                            </li>
+                        </ul>
+                        <a href="javascript:void(0)" class="list3_add">Add</a><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;ul id="list3"&gt;
-	&lt;li class="list3_var"&gt;
-		&lt;input type="text" size="40" name="list3_0"&gt;
-		<span class="green">&lt;img class="list3_del" src="img_del.png"&gt;</span>
-	&lt;/li&gt;
+    &lt;li class="list3_var"&gt;
+        &lt;input type="text" size="40" name="list3_0"&gt;
+        <span class="green">&lt;img class="list3_del" src="img_del.png"&gt;</span>
+    &lt;/li&gt;
 &lt;/ul&gt;
 <span class="green">&lt;a href="javascript:void(0)" class="list3_add"&gt;Add&lt;/a&gt;&lt;br&gt;</span>
 
 <span class="gray">(CSS)</span>
 <span class="green">.list3_add</span> {
-	display:block;
-	width:100px;
-	padding:4px 8px;
-	text-decoration:none;
-	text-align:center;
-	color:#fff;
-	background:#24b;
-	border:2px solid #37f;
-	border-radius:4px;
+    display:block;
+    width:100px;
+    padding:4px 8px;
+    text-decoration:none;
+    text-align:center;
+    color:#fff;
+    background:#24b;
+    border:2px solid #37f;
+    border-radius:4px;
 }
 
 <span class="gray">(JavaScript)</span>
 $('#list3').addInputArea();
 </pre>
 
-			<p class="lang_en">
-				You can decorate add-button and delete-button with CSS or images. 
-			</p>
-			<p class="lang_ja">
-				追加ボタン、削除ボタンはCSSや画像で装飾できます。
-			</p>
-		</section>
+                    <p class="lang_en">
+                        You can decorate add-button and delete-button with CSS or images. 
+                    </p>
+                    <p class="lang_ja">
+                        追加ボタン、削除ボタンはCSSや画像で装飾できます。
+                    </p>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
 
 
-		<section>
-			<h3>
-				<span class="lang_en">The list which contains some input areas</span>
-				<span class="lang_ja">複数の入力欄を包含する増減エリア</span>
-			</h3>
-			<form action="result.php" method="POST">
-				<table id="list4">
-					<tbody>
-						<tr class="list4_var">
-							<td>
-								<label for="list4_name_0">Name</label>
-								<input type="text" size="40" name="list4_name_0">
-							</td>
-							<td>
-								<label for="list4_mail_0">Mail</label>
-								<input type="text" size="40" name="list4_mail_0">
-							</td>
-							<td class="del_area04">
-								<button class="list4_del">Delete</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="button" value="Add" class="list4_add"><br>
-				<input type="submit" value="Send" name="submit">
-			</form>
+                <section id="index_04">
+                    <h3>
+                        <span class="lang_en">The list which contains some input areas</span>
+                        <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+                    </h3>
+                    <form action="result.php" method="POST">
+                        <table id="list4">
+                            <tbody>
+                                <tr class="list4_var">
+                                    <td>
+                                        <label for="list4_name_0">Name</label>
+                                        <input type="text" size="20" name="list4_name_0">
+                                    </td>
+                                    <td>
+                                        <label for="list4_mail_0">Mail</label>
+                                        <input type="text" size="20" name="list4_mail_0">
+                                    </td>
+                                    <td class="del_area04">
+                                        <button class="list4_del">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <input type="button" value="Add" class="list4_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
 <pre>
 <span class="gray">(HTML)</span>
 &lt;table id="list4"&gt;
-	&lt;tbody&gt;
-		&lt;tr class="list4_var"&gt;
-			&lt;td&gt;
-				&lt;label for="list4_name_0"&gt;Name&lt;/label&gt;
-				&lt;input type="text" size="40" name="list4_name_0"&gt;
-			&lt;/td&gt;
-			&lt;td&gt;
-				&lt;label for="list4_mail_0"&gt;Mail&lt;/label&gt;
-				&lt;input type="text" size="40" name="list4_mail_0"&gt;
-			&lt;/td&gt;
-			&lt;td class="<span class="green">del_area04</span>"&gt;
-				&lt;button class="list4_del"&gt;Delete&lt;/button&gt;
-			&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
+    &lt;tbody&gt;
+        &lt;tr class="list4_var"&gt;
+            &lt;td&gt;
+                &lt;label for="list4_name_0"&gt;Name&lt;/label&gt;
+                &lt;input type="text" size="20" name="list4_name_0"&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;label for="list4_mail_0"&gt;Mail&lt;/label&gt;
+                &lt;input type="text" size="20" name="list4_mail_0"&gt;
+            &lt;/td&gt;
+            &lt;td class="<span class="green">del_area04</span>"&gt;
+                &lt;button class="list4_del"&gt;Delete&lt;/button&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;input type="button" value="Add" class="list4_add"&gt;&lt;br&gt;
 
 <span class="gray">(JavaScript)</span>
 $('#list4').addInputArea({
-	area_del : '<span class="green">.del_area04</span>'
+    area_del : '<span class="green">.del_area04</span>'
 });
 </pre>
-			<p class="lang_en">
-				The list can be fluctuated even if how many input-area were contained.
-			</p>
-			<p class="lang_ja">
-				複数の入力欄を扱う場合も、特にオプションを必要としません。
-			</p>
-		</section>
+                    <p class="lang_en">
+                        The list can be fluctuated even if how many input-area were contained.
+                    </p>
+                    <p class="lang_ja">
+                        複数の入力欄を扱う場合も、特にオプションを必要としません。
+                    </p>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
 
-		<section>
-			<h3>
-				<span class="lang_en">Maximum number</span>
-				<span class="lang_ja">追加に上限を設ける</span>
-			</h3>
-			<p class="lang_en">
-				You can set the maximum number of textbox.
-			</p>
-			<p class="lang_ja">
-				追加できるテキストボックスの数に上限を設けることができます。
-			</p>
-			<form action="result.php" method="POST">
-				<ol id="list5">
-					<li class="list5_var">
-						<input type="text" size="40" name="list1_0">
-						<button class="list5_del">Delete</button>
-					</li>
-				</ol>
-				<input type="button" value="Add" class="list5_add"><br>
-				<input type="submit" value="Send" name="submit">
-			</form>
+                <section id="index_05">
+                    <h3>
+                        <span class="lang_en">Maximum number</span>
+                        <span class="lang_ja">追加に上限を設ける</span>
+                    </h3>
+                    <p class="lang_en">
+                        You can set the maximum number of textbox.
+                    </p>
+                    <p class="lang_ja">
+                        追加できるテキストボックスの数に上限を設けることができます。
+                    </p>
+                    <form action="result.php" method="POST">
+                        <ol id="list5">
+                            <li class="list5_var">
+                                <input type="text" size="40" name="list5_0">
+                                <button class="list5_del">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add" class="list5_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
 <pre>
 $('#list5').addInputArea({
-	<span class="green">maximum</span> : <span class="red">4</span>
+    <span class="green">maximum</span> : <span class="red">4</span>
 });
 </pre>
-		</section>
-	</body>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
+
+                <section id="index_06">
+                    <h3>
+                        <span class="lang_en">All form-items</span>
+                        <span class="lang_ja">全てのフォーム部品に対応</span>
+                    </h3>
+                    <p class="lang_en">
+                        You can add or delete all of form-items.
+                    </p>
+                    <p class="lang_ja">
+                        テキストボックスだけでなく、すべてのフォーム部品を増減できるようになりました。
+                    </p>
+                    <div id="list6">
+                        <div class="list6_var">
+                            <table>
+                                <thead>
+                                    <tr><th>type</th><th>element</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>no-type</td><td><input name="list6_5_0"></td></tr>
+                                    <tr><td>text</td><td><input type="text" name="list6_0_0"></td></tr>
+                                    <tr><td>textarea</td><td><textarea name="list6_1_0"></textarea></td></tr>
+                                    <tr><td>radio</td><td>
+                                        <input type="radio" name="list6_2_0" value="aaa">
+                                        <input type="radio" name="list6_2_0" value="bbb">
+                                        <input type="radio" name="list6_2_0" value="ccc">
+                                    </td></tr>
+                                    <tr><td>checkbox</td><td>
+                                        <input type="checkbox" name="list6_3_a_0" value="aaa">
+                                        <input type="checkbox" name="list6_3_b_0" value="bbb">
+                                        <input type="checkbox" name="list6_3_c_0" value="ccc">
+                                    </td></tr>
+                                    <tr><td>select</td><td>
+                                        <select name="list6_4_0">
+                                            <option value="a">aaa</option>
+                                            <option value="b">bbb</option>
+                                            <option value="c">ccc</option>
+                                        </select>
+                                    </td></tr>
+                                    <tr><td>hidden</td><td><input type="hidden" name="list6_6_0" value="aaaaa"></td></tr>
+                                    <tr><td>search</td><td><input type="search" name="list6_7_0"></td></tr>
+                                    <tr><td>tel</td><td><input type="tel" name="list6_8_0"></td></tr>
+                                    <tr><td>url</td><td><input type="url" name="list6_9_0"></td></tr>
+                                    <tr><td>email</td><td><input type="email" name="list6_10_0"></td></tr>
+                                    <tr><td>password</td><td><input type="password" name="list6_11_0"></td></tr>
+                                    <tr><td>datetime</td><td><input type="datetime" name="list6_12_0"></td></tr>
+                                    <tr><td>date</td><td><input type="date" name="list6_13_0"></td></tr>
+                                    <tr><td>month</td><td><input type="month" name="list6_14_0"></td></tr>
+                                    <tr><td>week</td><td><input type="week" name="list6_15_0"></td></tr>
+                                    <tr><td>time</td><td><input type="time" name="list6_16_0"></td></tr>
+                                    <tr><td>datetime-local</td><td><input type="datetime-local" name="list6_17_0"></td></tr>
+                                    <tr><td>number</td><td><input type="number" name="list6_18_0"></td></tr>
+                                    <tr><td>range</td><td><input type="range" name="list6_19_0" min="0" max="100"></td></tr>
+                                    <tr><td>color</td><td><input type="color" name="list6_20_0"></td></tr>
+                                    <tr><td>file</td><td><input type="file" name="list6_21_0"></td></tr>
+                                    <tr><td>submit</td><td><input type="submit" name="list6_22_0" value="submit"></td></tr>
+                                    <tr><td>image</td><td><input type="image" name="list6_23_0"></td></tr>
+                                    <tr><td>reset</td><td><input type="reset" name="list6_24_0" value="reset"></td></tr>
+                                    <tr><td>button</td><td><input type="button" name="list6_25_0" value="button"></td></tr>
+                                    <tr><td>button_tag</td><td><button name="list6_26_0">button_tag</button></td></tr>
+                            </table>
+                            <button class="list6_del">Delete</button>
+                        </div>
+                    </div>
+                    <input type="button" value="Add" class="list6_add">
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
+
+                <section id="index_07">
+                    <h3>
+                        <span class="lang_en">Do not format</span>
+                        <span class="lang_ja">value値を初期化させない設定</span>
+                    </h3>
+                    <p class="lang_en">
+                        You can prevent initialization.<br>
+                        Please click "Add" button.
+                    </p>
+                    <p class="lang_ja">
+                        入力欄を増やす際、初期化を阻止することができます。
+                    </p>
+                    <form action="result.php" method="POST">
+                        <ol id="list7">
+                            <li class="list7_var">
+                                <input type="text" size="40" name="list7_a_0" value="will be initialized."><br>
+                                <input type="text" size="40" name="list7_b_0" empty_val="false" value="will NOT be initialized."><br>
+                                <button class="list7_del">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add" class="list7_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
+                    <p class="lang_en">
+                        However, the following elements and types will certainly be initialized.
+                    </p>
+                    <p class="lang_ja">
+                        ただし、以下の要素、タイプは、必ず初期化されてしまいます。
+                    </p>
+                    <p class="red bold">textarea, select, file, color</p>
+<pre>
+<span class="gray">(HTML)</span>
+&lt;li class="list7_var"&gt;
+    &lt;input type="text" size="40" name="list7_a_0"
+        value="will be initialized."&gt;&lt;br&gt;
+    &lt;input type="text" size="40" name="list7_b_0"
+        value="will NOT be initialized." <span class="green">empty_val</span>="<span class="red">false</span>"&gt;&lt;br&gt;
+    &lt;button class="list7_del"&gt;Delete&lt;/button&gt;
+&lt;/li&gt;
+
+<span class="gray">(JavaScript)</span>
+$('#list7').addInputArea();
+</pre>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
+            </article>
+        </div>
+    </body>
 </html>

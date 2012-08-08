@@ -1,3 +1,15 @@
+v4.0 (2012-08-08)
+	(English)
+	* The method of numbering by the 'id_format' attribute was added.
+	* The original attribute "empty_val" is added.
+	* You can add or delete all of form-items.
+	
+	(Japanese)
+	* 独自属性の'id_format'による、id属性およびfor属性の連番生成の手段が追加されました。
+	* 独自属性"empty_val"によって、フォーム部品の値の初期化を防ぐこともできるようになりました。
+	* HTML5で新規に追加されたtypeも含めて、すべてのフォーム部品を増減のリストに含めることができるようになりました。
+
+
 v3.2 (2012-08-05)
 	(English)
 	* The 'maximum' option which set the maximum number of items was added.

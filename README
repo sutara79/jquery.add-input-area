@@ -1,8 +1,8 @@
 # Infomation
 	Type       : jQuery Plugin
 	Name       : jquery.addInputArea.js
-	Version    : 3.2
-	Update     : 2012-08-05
+	Version    : 4.0
+	Update     : 2012-08-08
 	Author     : Yuusaku Miyazaki (宮崎 雄策) (toumin.m7@gmail.com)
 	Author-URI : http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562
 	Demo       : http://www.usamimi.info/~sutara/sample/addInputArea/
@@ -11,15 +11,16 @@
 
 # The 'name' Attribute
 	(English)
-	The 'name' attribute of the text-box to fluctuate is named automatically.
+	The 'name' and 'id' attribute of the item to fluctuate is named automatically.
 		(ex1) foo_0, foo_1, foo_2. or bar0, bar1, bar2.
-	On the other hand, you can set original method of numbering using 'name_format' attribute.
+	On the other hand, you can set original method of numbering using 'name_format' or 'id_format' attribute.
 		(ex2) name_format="foo_%d_bar"            -> foo_0_bar, foo_1_bar, foo_2_bar...
-		(ex3) name_format="data[posts][mail][%d]" -> data[posts][mail][0], data[posts][mail][1] 
+		(ex3) name_format="data[posts][mail][%d]" -> data[posts][mail][0], data[posts][mail][1]
+		(ex4) <input id_format="foo_%d_bar" name_format="[foo][bar][%d]">
 
 	(Japanese)
-	増減する入力欄のname属性は自動で付与されます。
-	他方で、独自属性'name_format'を使うことにより柔軟な連番生成も可能です。
+	増減する入力欄のname,id属性は自動で付与されます。
+	他方で、独自属性'name_format'や'id_format'を使うことにより柔軟な連番生成も可能です。
 	CakePHPへの対応などで役立ちます。
 	
 

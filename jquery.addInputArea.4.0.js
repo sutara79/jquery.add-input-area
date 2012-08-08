@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.3.2
+jquery.addInputArea.4.0
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -72,13 +72,30 @@ MIT License
 
 			$(new_list).find('[name]').each(function(idx, obj) {
 				//name, id属性を変更
-				setChangedName(obj, len_list);
+				changeAttrAlongFormat(obj, len_list, 'name');
+				changeAttrAlongFormat(obj, len_list, 'id');
+
+
 				//val, textを空にする。
-				$(obj).val('').text('');
+				if ($(obj).attr('empty_val') != 'false') {
+					if (
+						$(obj).attr('type') == 'checkbox' ||
+						$(obj).attr('type') == 'radio'
+					) {
+						obj.checked = false;
+					} else if (
+						$(obj).attr('type') != 'submit' &&
+						$(obj).attr('type') != 'reset'  &&
+						$(obj).attr('type') != 'image'  &&
+						$(obj).attr('type') != 'button'
+					) {
+						$(obj).val('');
+					}
+				}
 			});
 			$(new_list).find('[for]').each(function(idx, obj) {
 				//for属性を変更
-				setChangedName(obj, len_list);
+				changeAttrAlongFormat(obj, len_list, 'for');
 			});
 
 			$(elem).append(new_list);
@@ -127,14 +144,42 @@ MIT License
 		$(elem).find(options.area_var).each(function(idx, obj) {
 			$(obj).find('[name]').each(function(idx_2, obj_2) {
 				//name, id属性を変更
-				setChangedName(obj_2, idx);
+				changeAttrAlongFormat(obj_2, idx, 'name');
 			});
 			$(obj).find('[for]').each(function(idx_2, obj_2) {
 				//for属性を変更
-				setChangedName(obj_2, idx);
+				changeAttrAlongFormat(obj_2, idx, 'for');
 			});
 		});
 	}
+	//***************************************
+	//id, for, nameの各属性の通し番号を変更する
+	//***************************************
+	//@called 基幹, setNameAttribute
+	//@params obj obj (プラグインを適用するリスト)
+	//@params num idx 通し番号を変更する値
+	//@params str type 属性の名前 
+	function changeAttrAlongFormat(obj, idx, type) {
+		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
+			var changed =  $(obj).attr(type).replace(
+				/((?:(?![0-9]+$).)+)[0-9]+$/,
+				function() { return arguments[1] + idx }
+			);
+		} else {
+			if (
+				type == 'name' &&
+				$(obj).attr('name_format')
+			) {
+				var changed = $(obj).attr('name_format').replace('%d', idx);
+			} else if (
+				$(obj).attr('id_format')
+			) {
+				var changed = $(obj).attr('id_format').replace('%d', idx);
+			}
+		}
+		$(obj).attr(type, changed);
+	}
+	/*
 	function setChangedName(obj, idx) {
 		var type = ($(obj).attr('name')) ? 'name' : 'for';
 		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
@@ -148,4 +193,5 @@ MIT License
 		$(obj).attr(type, changed);
 		if (type == 'name') $(obj).attr('id', changed);
 	}
+	*/
 })(jQuery);
