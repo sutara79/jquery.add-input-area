@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.4.0
+jquery.addInputArea.4.1
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -145,6 +145,7 @@ MIT License
 			$(obj).find('[name]').each(function(idx_2, obj_2) {
 				//name, id属性を変更
 				changeAttrAlongFormat(obj_2, idx, 'name');
+				changeAttrAlongFormat(obj_2, idx, 'id');
 			});
 			$(obj).find('[for]').each(function(idx_2, obj_2) {
 				//for属性を変更
@@ -179,19 +180,4 @@ MIT License
 		}
 		$(obj).attr(type, changed);
 	}
-	/*
-	function setChangedName(obj, idx) {
-		var type = ($(obj).attr('name')) ? 'name' : 'for';
-		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
-			var changed =  $(obj).attr(type).replace(
-				/((?:(?![0-9]+$).)+)[0-9]+$/,
-				function() { return arguments[1] + idx }
-			);
-		} else if($(obj).attr('name_format')){
-			var changed = $(obj).attr('name_format').replace('%d', idx);
-		}
-		$(obj).attr(type, changed);
-		if (type == 'name') $(obj).attr('id', changed);
-	}
-	*/
 })(jQuery);

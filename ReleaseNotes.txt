@@ -1,3 +1,14 @@
+v4.1 (2012-08-11)
+	(English)
+	* The error that "id" is not numbered definitely
+	  when an item is deleted
+	  is correncted.
+
+	(Japanese)
+	* 要素が削除された場合の番号の振り直しが
+	  正しく行われないバグを修正しました。
+
+
 v4.0 (2012-08-08)
 	(English)
 	* The method of numbering by the 'id_format' attribute was added.
