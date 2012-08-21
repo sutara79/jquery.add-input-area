@@ -5,7 +5,7 @@
         <title>jquery.addInputArea.js</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="jquery.addInputArea.4.1.js"></script>
+        <script type="text/javascript" src="jquery.addInputArea.4.2.js"></script>
         <script type="text/javascript" src="sample.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function($){
@@ -24,23 +24,33 @@
                 });
                 $('#list6').addInputArea();
                 $('#list7').addInputArea();
+                $('#list8').addInputArea();
+                //セレクトボックスの値の変更で発火するイベント。
+                //追加アイテムに対しても適用するため、"live()"を使う。
+                $('#list8').find('select').live('change', function() {
+                    var input = $(this).parents('li').find('[type="text"]');
+
+                    //セレクトボックスの値に応じて、テキストボックスの有効無効を切り替える
+                    if ($(this).val() == 'disable') $(input).attr('disabled', 'disabled');
+                    else $(input).removeAttr('disabled');
+                });
             });
         </script>    
     </head>
     <body>
-        <h1>jquery.addInputArea.4.1.js</h1>
-        <div id="language">
-            <button id="lang_en">English</button>
-            <button id="lang_ja">Japanese</button>
-        </div>
-        <p>Last update:2012-08-11</p>
-        <p class="lang_en">
-            You can add or delete the form-items.
-        </p>
-        <p class="lang_ja">
-            フォーム部品を動的に追加・削除します。
-        </p>
         <div id="container">
+            <h1>jquery.addInputArea.4.2.js</h1>
+            <div id="language">
+                <button id="lang_en">English</button>
+                <button id="lang_ja">Japanese</button>
+            </div>
+            <p>Last update:2012-08-21</p>
+            <p class="lang_en">
+                You can add or delete the form-items.
+            </p>
+            <p class="lang_ja">
+                フォーム部品を動的に追加・削除します。
+            </p>
             <nav id="index">
                 <h3>
                     <span class="lang_en">Contents</span>
@@ -74,6 +84,10 @@
                     <li><a href="#index_07">
                         <span class="lang_en">Do not format</span>
                         <span class="lang_ja">value値を初期化させない設定</span>
+                    </a></li>
+                    <li><a href="#index_08">
+                        <span class="lang_en">Initialize correctly</span>
+                        <span class="lang_ja">正しい初期化</span>
                     </a></li>
                 </ol>
             </nav>
@@ -443,6 +457,59 @@ $('#list5').addInputArea({
 
 <span class="gray">(JavaScript)</span>
 $('#list7').addInputArea();
+</pre>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
+
+                <section id="index_08">
+                    <h3>
+                        <span class="lang_en">Initialize correctly</span>
+                        <span class="lang_ja">正しい初期化</span>
+                    </h3>
+                    <p class="lang_en">
+                        (v4.2 or later) The added item can be correctly initialized.
+                    </p>
+                    <p class="lang_ja">
+                        (v4.2以降) 追加された要素の初期化が、より正確に行われるようになりました。
+                    </p>
+                    <form action="result.php" method="POST">
+                        <ol id="list8">
+                            <li class="list8_var">
+                                <select name="list8_mask_0">
+                                    <option value="able">able</option>
+                                    <option value="disable">disable</option>
+                                </select>
+                                <input type="text" size="30" name="list8_text_0">
+                                <button class="list8_del">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add" class="list8_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
+<pre>
+<span class="gray">(HTML)</span>
+&lt;li class="list8_var"&gt;
+    &lt;select name="list8_mask_0"&gt;
+        &lt;option value="able"&gt;able&lt;/option&gt;
+        &lt;option value="disable"&gt;disable&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="text" size="30" name="list8_text_0"&gt;
+    &lt;button class="list8_del"&gt;Delete&lt;/button&gt;
+&lt;/li&gt;
+
+<span class="gray">(JavaScript)</span>
+$('#list8').addInputArea();
+$('#list8').find('select').live('change', function() {
+    var input = $(this).parents('li').find('[type="text"]');
+    if ($(this).val() == 'disable') {
+        $(input).attr('disabled', 'disabled');
+    } else {
+        else $(input).removeAttr('disabled');
+    }
+});
 </pre>
                 </section>
                 <div class="right"><a href="#index">

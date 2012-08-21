@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.4.1
+jquery.addInputArea.4.2
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -22,6 +22,9 @@ MIT License
 
 			//入力欄の番号を振り直す
 			setNameAttribute(this, options);
+
+			//クローン元を保管する
+			saveOriginal(this, options);
 		});
 	};
 	//***************************************
@@ -63,18 +66,14 @@ MIT License
 		//『追加』ボタンを押した場合の処理
 		//--------------------------------------------------------
 		$(options.btn_add).click(function(ev) {
-			//入力欄が2つ以上になるので、削除ボタンを表示する
-			$(elem).find(options.area_del).show();
-
 			//品目入力欄を追加
 			var len_list = $(elem).find(options.area_var).length;
-			var new_list = $(elem).find(options.area_var).eq(0).clone();
+			var new_list = $(options.original).clone();
 
 			$(new_list).find('[name]').each(function(idx, obj) {
 				//name, id属性を変更
 				changeAttrAlongFormat(obj, len_list, 'name');
 				changeAttrAlongFormat(obj, len_list, 'id');
-
 
 				//val, textを空にする。
 				if ($(obj).attr('empty_val') != 'false') {
@@ -99,6 +98,8 @@ MIT License
 			});
 
 			$(elem).append(new_list);
+			//入力欄が2つ以上になるので、削除ボタンを表示する
+			$(elem).find(options.area_del).show();
 
 			//追加上限
 			if (
@@ -179,5 +180,14 @@ MIT License
 			}
 		}
 		$(obj).attr(type, changed);
+	}
+	//***************************************
+	//クローン元を保管する
+	//***************************************
+	//@called 基幹
+	//@params obj elem (プラグインを適用するリスト)
+	//@params obj options (ユーザから送られたオプション)
+	function saveOriginal(elem, options) {
+		options['original'] = $(elem).find(options.area_var).eq(0).clone();
 	}
 })(jQuery);

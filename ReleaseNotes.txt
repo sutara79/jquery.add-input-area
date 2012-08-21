@@ -1,3 +1,10 @@
+v4.2 (2012-08-21)
+	(English)
+	* The added item can be correctly initialized. 
+
+	(Japanese)
+	* 追加された要素の初期化が、より正確に行われるようになりました。
+
 v4.1 (2012-08-11)
 	(English)
 	* The error that "id" is not numbered definitely
