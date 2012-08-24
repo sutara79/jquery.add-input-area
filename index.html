@@ -5,7 +5,7 @@
         <title>jquery.addInputArea.js</title>
         <link rel="stylesheet" type="text/css" href="sample.css">
         <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="jquery.addInputArea.4.2.js"></script>
+        <script type="text/javascript" src="jquery.addInputArea.4.3.js"></script>
         <script type="text/javascript" src="sample.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function($){
@@ -34,17 +34,26 @@
                     if ($(this).val() == 'disable') $(input).attr('disabled', 'disabled');
                     else $(input).removeAttr('disabled');
                 });
+                //クローン元へのイベントは、プラグイン適用前に設定しておくこと。
+                $('#list9_0')
+                	.focus(function() {
+                		$(this).next().text('Focus!');
+		            })
+		            .blur(function() {
+		            	$(this).next().text('Blur!');
+		            });
+                $('#list9').addInputArea();
             });
         </script>    
     </head>
     <body>
         <div id="container">
-            <h1>jquery.addInputArea.4.2.js</h1>
+            <h1>jquery.addInputArea.4.3.js</h1>
             <div id="language">
                 <button id="lang_en">English</button>
                 <button id="lang_ja">Japanese</button>
             </div>
-            <p>Last update:2012-08-21</p>
+            <p>Last update:2012-08-24</p>
             <p class="lang_en">
                 You can add or delete the form-items.
             </p>
@@ -88,6 +97,10 @@
                     <li><a href="#index_08">
                         <span class="lang_en">Initialize correctly</span>
                         <span class="lang_ja">正しい初期化</span>
+                    </a></li>
+                    <li><a href="#index_09">
+                        <span class="lang_en">Make a copy of event</span>
+                        <span class="lang_ja">イベントのコピー</span>
                     </a></li>
                 </ol>
             </nav>
@@ -510,6 +523,47 @@ $('#list8').find('select').live('change', function() {
         else $(input).removeAttr('disabled');
     }
 });
+</pre>
+                </section>
+                <div class="right"><a href="#index">
+                    <span class="lang_en">To contents</span>
+                    <span class="lang_ja">目次へ</span>
+                </a></div>
+
+                <section id="index_09">
+                    <h3>
+                        <span class="lang_en">Make a copy of event</span>
+                        <span class="lang_ja">イベントのコピー</span>
+                    </h3>
+                    <p class="lang_en">
+                    	(v4.3 or later)<br>
+                        The event at each form-items can be correctly copied.<br>
+                        But, you should set events before applying plugin.
+                    </p>
+                    <p class="lang_ja">
+                    	(v4.3 以降)<br>
+                        フォーム部品に対して設定したイベントもコピーされます。<br>
+                        ただし、クローン元へのイベントは、プラグイン適用前に<br>
+                        設定しておかなければなりません。
+                    </p>
+                    <form action="result.php" method="POST">
+                        <ol id="list9">
+                            <li class="list9_var">
+                                <input type="text" size="30" name="list9_0" id="list9_0">
+                                <div></div>
+                                <button class="list9_del">Delete</button>
+                            </li>
+                        </ol>
+                        <input type="button" value="Add" class="list9_add"><br>
+                        <input type="submit" value="Send" name="submit">
+                    </form>
+<pre>
+<span class="gray">(JavaScript)</span>
+<span class="red">//Set events before applying plugin.</span>
+$('#list9_0')
+    .focus(function() { $(this).next().text('Focus!') })
+    .blur(function()  { $(this).next().text('Blur!') });
+$('#list9').addInputArea();
 </pre>
                 </section>
                 <div class="right"><a href="#index">

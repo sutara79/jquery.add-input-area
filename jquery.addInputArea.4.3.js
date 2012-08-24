@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.4.2
+jquery.addInputArea.4.3
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -68,7 +68,7 @@ MIT License
 		$(options.btn_add).click(function(ev) {
 			//品目入力欄を追加
 			var len_list = $(elem).find(options.area_var).length;
-			var new_list = $(options.original).clone();
+			var new_list = $(options.original).clone(true);
 
 			$(new_list).find('[name]').each(function(idx, obj) {
 				//name, id属性を変更
@@ -188,6 +188,6 @@ MIT License
 	//@params obj elem (プラグインを適用するリスト)
 	//@params obj options (ユーザから送られたオプション)
 	function saveOriginal(elem, options) {
-		options['original'] = $(elem).find(options.area_var).eq(0).clone();
+		options['original'] = $(elem).find(options.area_var).eq(0).clone(true);
 	}
 })(jQuery);
