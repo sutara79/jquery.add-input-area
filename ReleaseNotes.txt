@@ -1,3 +1,11 @@
+v4.4 (2013-02-17)
+	(English)
+	* It supported jQuery-1.9.
+
+	(Japanese)
+	* jQuery 1.9に対応しました。
+
+
 v4.3 (2012-08-24)
 	(English)
 	* The event at each form-items can be correctly copied.
@@ -15,6 +23,7 @@ v4.2 (2012-08-21)
 
 	(Japanese)
 	* 追加された要素の初期化が、より正確に行われるようになりました。
+
 
 v4.1 (2012-08-11)
 	(English)

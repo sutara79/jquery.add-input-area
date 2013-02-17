@@ -1,59 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8">
         <title>jquery.addInputArea.js</title>
-        <link rel="stylesheet" type="text/css" href="sample.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="jquery.addInputArea.4.3.js"></script>
-        <script type="text/javascript" src="sample.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function($){
-                $('#list1').addInputArea();
-                $('#list2').addInputArea({
-                    area_var : '.var_area02',
-                    btn_add  : '.add_button02',
-                    btn_del  : '.del_button02'
-                });
-                $('#list3').addInputArea();
-                $('#list4').addInputArea({
-                    area_del : '.del_area04'
-                });
-                $('#list5').addInputArea({
-                    maximum : 4
-                });
-                $('#list6').addInputArea();
-                $('#list7').addInputArea();
-                $('#list8').addInputArea();
-                //セレクトボックスの値の変更で発火するイベント。
-                //追加アイテムに対しても適用するため、"live()"を使う。
-                $('#list8').find('select').live('change', function() {
-                    var input = $(this).parents('li').find('[type="text"]');
-
-                    //セレクトボックスの値に応じて、テキストボックスの有効無効を切り替える
-                    if ($(this).val() == 'disable') $(input).attr('disabled', 'disabled');
-                    else $(input).removeAttr('disabled');
-                });
-                //クローン元へのイベントは、プラグイン適用前に設定しておくこと。
-                $('#list9_0')
-                	.focus(function() {
-                		$(this).next().text('Focus!');
-		            })
-		            .blur(function() {
-		            	$(this).next().text('Blur!');
-		            });
-                $('#list9').addInputArea();
-            });
-        </script>    
+        <link rel="stylesheet" href="sample.css">
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="jquery.addInputArea.4.4.js"></script>
+        <script src="sample.js"></script>
     </head>
     <body>
         <div id="container">
-            <h1>jquery.addInputArea.4.3.js</h1>
+            <h1>jquery.addInputArea.4.4.js</h1>
             <div id="language">
                 <button id="lang_en">English</button>
                 <button id="lang_ja">Japanese</button>
             </div>
-            <p>Last update:2012-08-24</p>
+            <p>Last update:2013-02-17</p>
             <p class="lang_en">
                 You can add or delete the form-items.
             </p>
@@ -515,7 +477,7 @@ $('#list7').addInputArea();
 
 <span class="gray">(JavaScript)</span>
 $('#list8').addInputArea();
-$('#list8').find('select').live('change', function() {
+$('#list8').on('change', 'select', function() {
     var input = $(this).parents('li').find('[type="text"]');
     if ($(this).val() == 'disable') {
         $(input).attr('disabled', 'disabled');

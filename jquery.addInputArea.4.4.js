@@ -1,6 +1,6 @@
 /*
 jQuery Plugin
-jquery.addInputArea.4.3
+jquery.addInputArea.4.4
 Yuusaku Miyazaki (toumin.m7@gmail.com)
 MIT License
 */
@@ -112,7 +112,7 @@ MIT License
 		//--------------------------------------------------------
 		//『削除』ボタンを押した場合の処理
 		//--------------------------------------------------------
-		$(elem).find(options.btn_del).live('click', function(ev){
+		$(elem).on('click', options.btn_del, function(ev){
 			ev.preventDefault();
 			//品目入力欄を削除
 			var idx = $(elem).find(options.btn_del).index(ev.target);
