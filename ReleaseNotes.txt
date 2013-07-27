@@ -1,3 +1,11 @@
+v4.5 (2013-07-27)
+	(English)
+	* The structure of the source code was improved.
+
+	(Japanese)
+	* ソースコードの構造を改善しました。
+
+
 v4.4 (2013-02-17)
 	(English)
 	* It supported jQuery-1.9.
