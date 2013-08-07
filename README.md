@@ -116,7 +116,7 @@ false // It means unlimited.
 Yuusaku Miyazaki (宮崎 雄策)
 
 * [Mail](toumin.m7@gmail.com)
-* [Blog](http://d.hatena.ne.jp/sutara_lumpur/20120421/1335009088)
+* [Blog](http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562)
 
 
 ## License
