@@ -1,6 +1,6 @@
 /**
  * jQuery Plugin
- * jquery.addInputArea.4.4
+ * jquery.addInputArea.4.6
  * Yuusaku Miyazaki (toumin.m7@gmail.com)
  * MIT License
  */
@@ -38,6 +38,7 @@ $.extend(addInputArea.prototype, {
 			area_del  : false,
 			btn_del   : (id) ? '.' + id + '_del' : '.aia_del',
 			btn_add   : (id) ? '.' + id + '_add' : '.aia_add',
+			after_add : false,
 			maximum   : false
 		}, option);
 		if (!this.option.area_del) this.option.area_del = this.option.btn_del;
@@ -88,26 +89,28 @@ $.extend(addInputArea.prototype, {
 				}
 			});
 			$(new_list).find('[for]').each(function(idx, obj) {
-				//for属性を変更
+				// for属性を変更
 				self._changeAttrAlongFormat(obj, len_list, 'for');
 			});
 
 			$(self.elem).append(new_list);
-			//入力欄が2つ以上になるので、削除ボタンを表示する
+			// 入力欄が2つ以上になるので、削除ボタンを表示する
 			$(self.elem).find(self.option.area_del).show();
 
-			//追加上限
+			// 追加上限
 			if (
 				self.option.maximum !== false &&
 				$(self.elem).find(self.option.area_var).length >= self.option.maximum
 			) {
 				$(self.option.btn_add).hide();
 			}
+			// 追加後の処理があれば実行する
+			if (typeof self.option.after_add == 'function') self.option.after_add();
 		});
 		//--------------------------------
 		//『削除』ボタンを押した場合の処理
 		//--------------------------------
-		$(self.elem).on('click', self.option.btn_del, function(ev){
+		$(self.elem).on('click', self.option.btn_del, function(ev) {
 			ev.preventDefault();
 			//品目入力欄を削除
 			var idx = $(self.elem).find(self.option.btn_del).index(ev.target);

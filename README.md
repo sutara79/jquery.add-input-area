@@ -62,7 +62,7 @@ $('#list').addInputArea({
 The name of CSS class of the item name to fluctuate.  
 (動的に増減する要素に共通するCSSクラス名)
 
-#### initial value
+###### initial value
 
 ``` javascript
 (id) ? '.' + id + '_var' : '.aia_var'
@@ -73,7 +73,7 @@ The name of CSS class of the item name to fluctuate.
 The name of CSS class of the delete-area.  
 (削除エリアに共通するCSSクラス名)
 
-#### initial value
+###### initial value
 
 ``` javascript
 false
@@ -84,7 +84,7 @@ false
 The name of CSS class of the delete-button.  
 (削除ボタンに共通するCSSクラス名)
 
-#### initial value
+###### initial value
 
 ``` javascript
 (id) ? '.' + id + '_del' : '.aia_del'
@@ -95,7 +95,7 @@ The name of CSS class of the delete-button.
 The name of CSS class of the add-button.  
 (追加ボタンのCSSクラス名)
 
-#### initial value
+###### initial value
 
 ``` javascript
 (id) ? '.' + id + '_add' : '.aia_add'
@@ -106,10 +106,21 @@ The name of CSS class of the add-button.
 The maximum number of items. (numeric)  
 (増減する要素の最大数 (数値で指定する))
 
-#### initial value
+###### initial value
 
 ``` javascript
 false // It means unlimited.
+```
+
+- - -
+### after_add
+The function which executes after adding. (function)  
+(追加後に実行される処理。関数で指定する)
+
+###### initial value
+
+``` javascript
+false
 ```
 
 ## Author
