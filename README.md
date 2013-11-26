@@ -10,7 +10,7 @@ A jQuery plugin for adding or deleting form-items.
 If you obey a naming convention, `name` and `id` attribute is named automatically.  
 (命名規則に従えば、`name`, `id`属性は自動で付与されます。)
 
-``` html
+```html
 (default)
 <input type="text" name="foo_0">
 
@@ -36,7 +36,7 @@ On the other hand, you can set original method of numbering using `name_format` 
 
 #### example 2.
 
-``` html
+```html
 (default)
 <input type="text" name_format="data[posts][mail][%d]" name="data[posts][mail][0]">
 
