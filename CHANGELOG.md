@@ -1,5 +1,8 @@
 # Change Log
 
+### v4.6.1 (2014-04-14)
+- Source code was a little rearranged.
+  (ソースコードを少し整理しました。)
 
 ### v4.6 (2013-11-25)
 - The `after_add` option was added.

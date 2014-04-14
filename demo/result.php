@@ -15,6 +15,6 @@
 		}
 		?>
 		</div>
-		<a href="index.html" style="font-weight:bold">Back</a>
+		<a href="../index.html" style="font-weight:bold">Back</a>
 	</body>
 </html>

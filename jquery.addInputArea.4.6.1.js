@@ -1,6 +1,6 @@
 /**
  * jQuery Plugin
- * jquery.addInputArea.4.6
+ * jquery.addInputArea.4.6.1
  * Yuusaku Miyazaki (toumin.m7@gmail.com)
  * MIT License
  */
@@ -8,15 +8,13 @@
 
 $.fn.addInputArea = function(option) {
 	return this.each(function() {
-		(new addInputArea).init(this, option);
+		Object.create(addInputArea).init(this, option);
 	});
 };
-
-var addInputArea = function() {};
-
-$.extend(addInputArea.prototype, {
-	// ***************************************
-	// 初期化
+var addInputArea = {
+	/**
+	 * 初期化
+	 */
 	init: function(elem, option) {
 		this.elem = elem;
 		return this
@@ -26,8 +24,9 @@ $.extend(addInputArea.prototype, {
 			.setNameAttribute()
 			.saveOriginal();
 	},
-	//***************************************
-	// オプションを使用準備
+	/**
+	 * オプションを使用準備
+	 */
 	setOption: function(option) {
 		var id = $(this.elem).attr('id');
 		this.option =  $.extend({
@@ -42,22 +41,24 @@ $.extend(addInputArea.prototype, {
 		if (!this.option.area_del) this.option.area_del = this.option.btn_del;
 		return this;
 	},
-	// ***************************************
-	//削除ボタンを表示状態を決定する
+	/**
+	 * 削除ボタンの表示状態を決定する
+	 */
 	setDelBtnVisibility: function() {
 		if ($(this.elem).find(this.option.area_var).length == 1) {
 			$(this.elem).find(this.option.area_del).hide();
 		}
 		return this;
 	},
-	// ***************************************
-	// イベントハンドラ設定
+	/**
+	 * イベントハンドラ設定
+	 */
 	setEventHandler: function() {
+		var self = this;
 		// --------------------------------
 		//『追加』ボタンを押した場合の処理
 		// --------------------------------
-		var self = this;
-		$(this.option.btn_add).click(function(ev) {
+		$(document).on('click', this.option.btn_add, function(ev) {
 			// 品目入力欄を追加
 			var len_list = $(self.elem).find(self.option.area_var).length;
 			var new_list = $(self.option.original).clone(true);
@@ -126,12 +127,13 @@ $.extend(addInputArea.prototype, {
 				$(self.elem).find(self.option.area_var).length < self.option.maximum
 			) {
 				$(self.option.btn_add).show();
-			}		
+			}
 		});
 		return this;
 	},
-	// ***************************************
-	// 入力欄の番号を振り直す
+	/**
+	 * 入力欄の番号を振り直す
+	 */
 	setNameAttribute: function() {
 		var self = this;
 		$(this.elem).find(this.option.area_var).each(function(idx, obj) {
@@ -147,18 +149,20 @@ $.extend(addInputArea.prototype, {
 		});
 		return this;
 	},
-	// ***************************************
-	// クローン元を保管する
+	/**
+	 * クローン元を保管する
+	 */
 	saveOriginal: function() {
 		this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(true);
 		return this;
 	},
-	// ***************************************
-	// 入力欄の番号を振り直す
-	// @called setEventHandler, setNameAttribute
-	// @params object obj  (プラグインを適用するリスト)
-	// @params number idx  通し番号を変更する値
-	// @params string type 属性の名前 
+	/**
+	 * 入力欄の番号を振り直す
+	 * @called setEventHandler, setNameAttribute
+	 * @params object obj  (プラグインを適用するリスト)
+	 * @params number idx  通し番号を変更する値
+	 * @params string type 属性の名前
+	 */
 	_changeAttrAlongFormat: function(obj, idx, type) {
 		var changed = null;
 		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
@@ -174,6 +178,6 @@ $.extend(addInputArea.prototype, {
 		}
 		$(obj).attr(type, changed);
 	}
-});
+};
 
 })(jQuery);
