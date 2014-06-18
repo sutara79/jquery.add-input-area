@@ -1,5 +1,9 @@
 # Change Log
 
+### v4.6.2 (2014-06-18)
+- JSDoc was made.
+  (ソースコードを理解しやすくするために、JSDocを作成しました。)
+
 ### v4.6.1 (2014-04-14)
 - Source code was a little rearranged.
   (ソースコードを少し整理しました。)

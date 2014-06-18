@@ -1,63 +1,83 @@
 /**
- * jQuery Plugin
- * jquery.addInputArea.4.6.1
- * Yuusaku Miyazaki (toumin.m7@gmail.com)
- * MIT License
+ * @file jQuery Plugin: jquery.addInputArea
+ * @version 4.6.2
+ * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
+ * @license MIT License
  */
+
 (function($) {
 
+/**
+ * @desc プラグインをjQueryのプロトタイプに追加する
+ * @global
+ * @memberof jQuery
+ * @param {Object} [option] オプションを格納した連想配列
+ * @param {string} [option.attr_name] - 増減する要素のid属性の命名規則
+ * @param {string} [option.area_var] - 増減する要素に共通するCSSクラス名
+ * @param {string} [option.area_del] - 削除ボタンとともに表示・非表示が切り替わる削除エリアに共通するCSSクラス名。
+ * @param {string} [option.btn_del] - 削除ボタンに共通するCSSクラス名
+ * @param {string} [option.btn_add] - 追加ボタンに共通するCSSクラス名
+ * @param {Function} [option.after_add] - 追加後に実行する関数
+ * @param {number} [option.maximum] - 最大増加数
+ */
 $.fn.addInputArea = function(option) {
 	return this.each(function() {
-		Object.create(addInputArea).init(this, option);
+		new AddInputArea(this, option);
 	});
 };
-var addInputArea = {
+
+/**
+ * @global
+ * @constructor
+ * @classdesc 要素ごとに適用される処理を集めたクラス
+ * @param {Object} elem - プラグインを適用するHTML要素
+ * @param {Object} option - オプションを格納した連想配列
+ */
+function AddInputArea(elem, option) {
+	this.elem = elem;
+	this.option = option;
+
+	this._setOption();
+	this._setDelBtnVisibility();
+	this._ehAddBtn();
+	this._ehDelBtn();
+	this._setNameAttribute();
+	this._saveOriginal();
+}
+
+$.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	/**
-	 * 初期化
+	 * オプションの初期化
 	 */
-	init: function(elem, option) {
-		this.elem = elem;
-		return this
-			.setOption(option)
-			.setDelBtnVisibility()
-			.setEventHandler()
-			.setNameAttribute()
-			.saveOriginal();
-	},
-	/**
-	 * オプションを使用準備
-	 */
-	setOption: function(option) {
+	_setOption: function() {
 		var id = $(this.elem).attr('id');
 		this.option =  $.extend({
 			attr_name : (id) ? id  + '_%d'       : 'aia_%d',
 			area_var  : (id) ? '.' + id + '_var' : '.aia_var',
-			area_del  : false,
+			area_del  : '',
 			btn_del   : (id) ? '.' + id + '_del' : '.aia_del',
 			btn_add   : (id) ? '.' + id + '_add' : '.aia_add',
-			after_add : false,
-			maximum   : false
-		}, option);
+			after_add : null,
+			maximum   : 0
+		}, this.option);
 		if (!this.option.area_del) this.option.area_del = this.option.btn_del;
-		return this;
 	},
+
 	/**
-	 * 削除ボタンの表示状態を決定する
+	 * 削除ボタンの表示状態を決定する。<br>
+	 * 増減する項目がひとつなら、削除ボタンは表示しない。
 	 */
-	setDelBtnVisibility: function() {
+	_setDelBtnVisibility: function() {
 		if ($(this.elem).find(this.option.area_var).length == 1) {
 			$(this.elem).find(this.option.area_del).hide();
 		}
-		return this;
 	},
+
 	/**
-	 * イベントハンドラ設定
+	 * 追加ボタンのイベントハンドラ
 	 */
-	setEventHandler: function() {
+	_ehAddBtn: function() {
 		var self = this;
-		// --------------------------------
-		//『追加』ボタンを押した場合の処理
-		// --------------------------------
 		$(document).on('click', this.option.btn_add, function(ev) {
 			// 品目入力欄を追加
 			var len_list = $(self.elem).find(self.option.area_var).length;
@@ -96,7 +116,7 @@ var addInputArea = {
 
 			// 追加上限
 			if (
-				self.option.maximum !== false &&
+				self.option.maximum > 0 &&
 				$(self.elem).find(self.option.area_var).length >= self.option.maximum
 			) {
 				$(self.option.btn_add).hide();
@@ -104,37 +124,39 @@ var addInputArea = {
 			// 追加後の処理があれば実行する
 			if (typeof self.option.after_add == 'function') self.option.after_add();
 		});
-		// --------------------------------
-		//『削除』ボタンを押した場合の処理
-		// --------------------------------
+	},
+
+	/**
+	 * 削除ボタンのイベントハンドラ
+	 */
+	_ehDelBtn: function() {
+		var self = this;
 		$(self.elem).on('click', self.option.btn_del, function(ev) {
 			ev.preventDefault();
 			//品目入力欄を削除
 			var idx = $(self.elem).find(self.option.btn_del).index(ev.target);
 			$(self.elem).find(self.option.area_var).eq(idx).remove();
 
-			var len_list = $(self.elem).find(self.option.area_var).length;
-
-			// 入力欄がひとつになるなら、削除ボタンは不要なので非表示にする
-			if(len_list == 1) $(self.elem).find(self.option.area_del).hide();
+			// 削除ボタンの表示状態を決定する
+			self._setDelBtnVisibility();
 
 			// 入力欄の番号を振り直す
-			self.setNameAttribute();
+			self._setNameAttribute();
 
 			// 追加上限
 			if (
-				self.option.maximum !== false &&
+				self.option.maximum > 0 &&
 				$(self.elem).find(self.option.area_var).length < self.option.maximum
 			) {
 				$(self.option.btn_add).show();
 			}
 		});
-		return this;
 	},
+
 	/**
-	 * 入力欄の番号を振り直す
+	 * 増減項目のid,name,for属性の番号を一括して振り直す
 	 */
-	setNameAttribute: function() {
+	_setNameAttribute: function() {
 		var self = this;
 		$(this.elem).find(this.option.area_var).each(function(idx, obj) {
 			$(obj).find('[name]').each(function(idx_2, obj_2) {
@@ -147,21 +169,20 @@ var addInputArea = {
 				self._changeAttrAlongFormat(obj_2, idx, 'for');
 			});
 		});
-		return this;
 	},
+
 	/**
 	 * クローン元を保管する
 	 */
-	saveOriginal: function() {
+	_saveOriginal: function() {
 		this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(true);
-		return this;
 	},
+
 	/**
 	 * 入力欄の番号を振り直す
-	 * @called setEventHandler, setNameAttribute
-	 * @params object obj  (プラグインを適用するリスト)
-	 * @params number idx  通し番号を変更する値
-	 * @params string type 属性の名前
+	 * @param {Object} obj - 番号を変更すべき項目を持つHTML要素
+	 * @param {number} idx - 変更する値
+	 * @param {string} type - 属性の名前
 	 */
 	_changeAttrAlongFormat: function(obj, idx, type) {
 		var changed = null;
@@ -174,10 +195,11 @@ var addInputArea = {
 			changed = (type == 'name' && $(obj).attr('name_format')) ?
 				$(obj).attr('name_format').replace('%d', idx) :
 				($(obj).attr('id_format')) ?
-					$(obj).attr('id_format').replace('%d', idx) : false;
+					$(obj).attr('id_format').replace('%d', idx) :
+					false;
 		}
 		$(obj).attr(type, changed);
 	}
-};
+}); // end of "$.extend"
 
-})(jQuery);
+})( /** namespace */ jQuery);
