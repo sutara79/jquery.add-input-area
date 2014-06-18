@@ -5,6 +5,8 @@ A jQuery plugin for adding or deleting form-items.
 ## Demo
 [http://www.usamimi.info/~sutara/sample/addInputArea/](http://www.usamimi.info/~sutara/sample/addInputArea/)
 
+## JSDoc (Japanese)
+[http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/](http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/)
 
 ## Note: 'name' attribute
 If you obey a naming convention, `name` and `id` attribute is named automatically.  
@@ -76,7 +78,7 @@ The name of CSS class of the delete-area.
 ###### initial value
 
 ``` javascript
-false
+''
 ```
 
 - - -
@@ -109,7 +111,7 @@ The maximum number of items. (numeric)
 ###### initial value
 
 ``` javascript
-false // It means unlimited.
+0 // It means unlimited.
 ```
 
 - - -
@@ -120,7 +122,7 @@ The function which executes after adding. (function)
 ###### initial value
 
 ``` javascript
-false
+null
 ```
 
 ## Author
