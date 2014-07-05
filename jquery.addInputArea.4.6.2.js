@@ -4,7 +4,6 @@
  * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
  * @license MIT License
  */
-
 (function($) {
 
 /**
@@ -32,6 +31,9 @@ $.fn.addInputArea = function(option) {
  * @classdesc 要素ごとに適用される処理を集めたクラス
  * @param {Object} elem - プラグインを適用するHTML要素
  * @param {Object} option - オプションを格納した連想配列
+ *
+ * @prop {Object} elem - プラグインを適用するHTML要素
+ * @prop {Object} option - オプションを格納した連想配列
  */
 function AddInputArea(elem, option) {
 	this.elem = elem;
@@ -47,7 +49,8 @@ function AddInputArea(elem, option) {
 
 $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	/**
-	 * オプションの初期化
+	 * @private
+	 * @desc オプションの初期化
 	 */
 	_setOption: function() {
 		var id = $(this.elem).attr('id');
@@ -64,7 +67,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 削除ボタンの表示状態を決定する。<br>
+	 * @private
+	 * @desc 削除ボタンの表示状態を決定する。<br>
 	 * 増減する項目がひとつなら、削除ボタンは表示しない。
 	 */
 	_setDelBtnVisibility: function() {
@@ -74,7 +78,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 追加ボタンのイベントハンドラ
+	 * @private
+	 * @desc 追加ボタンのイベントハンドラ
 	 */
 	_ehAddBtn: function() {
 		var self = this;
@@ -127,7 +132,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 削除ボタンのイベントハンドラ
+	 * @private
+	 * @desc 削除ボタンのイベントハンドラ
 	 */
 	_ehDelBtn: function() {
 		var self = this;
@@ -154,7 +160,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 増減項目のid,name,for属性の番号を一括して振り直す
+	 * @private
+	 * @desc 増減項目のid,name,for属性の番号を一括して振り直す
 	 */
 	_setNameAttribute: function() {
 		var self = this;
@@ -172,14 +179,16 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * クローン元を保管する
+	 * @private
+	 * @desc クローン元を保管する
 	 */
 	_saveOriginal: function() {
 		this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(true);
 	},
 
 	/**
-	 * 入力欄の番号を振り直す
+	 * @private
+	 * @desc 入力欄の番号を振り直す
 	 * @param {Object} obj - 番号を変更すべき項目を持つHTML要素
 	 * @param {number} idx - 変更する値
 	 * @param {string} type - 属性の名前
