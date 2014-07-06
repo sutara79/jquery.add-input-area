@@ -46,6 +46,17 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).ready(function($) {
+
+	// ページ内リンクのスクロール
+	$('a[href^=#]').click(function() {
+		var href= $(this).attr("href");
+		var target = $(href == "#" || href == "" ? 'html' : href);
+		var position = target.offset().top - 10;
+		$('body,html').animate({scrollTop: position}, 200, 'swing');
+		history.pushState('', '', $(this)[0].href);
+		return false;
+	});
+
 	// 英語・日本語切り替え
 	$('#language button').click(function(ev) {
 		$('*[class*=lang_]').hide();
@@ -54,4 +65,10 @@ jQuery(document).ready(function($) {
 		$(ev.target).attr('disabled', 'disabled');
 	});
 	$('#lang_en').trigger('click');
+
+	// 追尾スクロール (英語・日本語切り替えよりも後にすること)
+	$('nav').simpleScrollFollow({
+		min_width: 992,
+		limit_elem: $('article')
+	});
 });

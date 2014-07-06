@@ -2,21 +2,22 @@
 <html lang="ja">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<title>jquery.addInputArea.js</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="demo/sample.css">
 	</head>
 	<body>
-		<header>
+		<header class="jumbotron">
 			<div class="container">
 				<h1>jquery.addInputArea
-					<small class="lang_en">
-						Add or delete Form elements.
-					</small>
-					<small class="lang_ja">
-						フォーム部品を動的に追加・削除します。
-					</small>
 				</h1>
+				<p class="lang_en">
+					Add or delete Form elements.
+				</p>
+				<p class="lang_ja">
+					フォーム部品を動的に追加・削除します。
+				</p>
 				<dl class="dl-horizontal">
 					<dt>Version</dt><dd>4.6.2</dd>
 					<dt>Update</dt><dd>2014-06-18</dd>
@@ -35,7 +36,7 @@
 						<button id="lang_ja" class="btn btn-default">Japanese</button>
 					</div>
 					<h3>
-						<span class="lang_en">Contents</span>
+						<span class="lang_en">Index</span>
 						<span class="lang_ja">目次</span>
 					</h3>
 					<div class="list-group">
@@ -124,10 +125,6 @@ $('<span class="green">#list1</span>').addInputArea();
 							</p>
 						 </div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_02" class="panel panel-primary">
 						<div class="panel-heading">
@@ -185,10 +182,6 @@ $('#list2').addInputArea({
 							</p>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_03" class="panel panel-primary">
 						<div class="panel-heading">
@@ -230,10 +223,6 @@ $('#list3').addInputArea();
 							追加ボタン、削除ボタンはCSSや画像で装飾できます。
 						</p>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_04" class="panel panel-primary">
 						<div class="panel-heading">
@@ -287,10 +276,6 @@ $('#list4').addInputArea({
 							複数の入力欄を扱う場合も、特にオプションを必要としません。
 						</p>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_05" class="panel panel-primary">
 						<div class="panel-heading">
@@ -324,10 +309,6 @@ $('#list5').addInputArea({
 </pre>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_06" class="panel panel-primary">
 						<div class="panel-heading">
@@ -398,10 +379,6 @@ $('#list5').addInputArea({
 							<input type="button" value="Add" class="list6_add">
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_07" class="panel panel-primary">
 						<div class="panel-heading">
@@ -452,10 +429,6 @@ $('#list7').addInputArea();
 </pre>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_08" class="panel panel-primary">
 						<div class="panel-heading">
@@ -510,10 +483,6 @@ $('#list8').on('change', 'select', function() {
 </pre>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_09" class="panel panel-primary">
 						<div class="panel-heading">
@@ -538,7 +507,7 @@ $('#list8').on('change', 'select', function() {
 								<ol id="list9">
 									<li class="list9_var">
 										<input type="text" size="30" name="list9_0" id="list9_0">
-										<div></div>
+										<span></span>
 										<button class="list9_del">Delete</button>
 									</li>
 								</ol>
@@ -555,10 +524,6 @@ $('#list9').addInputArea();
 </pre>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 
 					<section id="index_10" class="panel panel-primary">
 						<div class="panel-heading">
@@ -583,7 +548,6 @@ $('#list9').addInputArea();
 								<ol id="list10">
 									<li class="list10_var">
 										<input type="text" size="30" name="list10_0" id="list10_0">
-										<div></div>
 										<button class="list10_del">Delete</button>
 									</li>
 								</ol>
@@ -600,10 +564,6 @@ $('#list10').addInputArea({
 </pre>
 						</div>
 					</section>
-					<div class="right"><a href="#index">
-						<span class="lang_en">To contents</span>
-						<span class="lang_ja">目次へ</span>
-					</a></div>
 				</article>
 			</div><!-- .row -->
 		</div><!-- .container -->
@@ -612,11 +572,15 @@ $('#list10').addInputArea({
 				powered by <a href="http://www.usamimi.info/new/index.html">usamimi.info</a>, <a href="http://getbootstrap.com/">Bootstrap</a>
 			</div>
 		</footer>
+		<div id="jump_to_top">
+			<a href="#" class="btn btn-default">Top</a>
+		</div>
 
 		<!-- JavaScript -->
 		<script src="http://code.jquery.com/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="jquery.addInputArea.4.6.2.js"></script><!-- necessary -->
+		<script src="demo/jquery.simpleScrollFollow.1.2.js"></script>
 		<script src="demo/sample.js"></script>
 	</body>
 </html>
