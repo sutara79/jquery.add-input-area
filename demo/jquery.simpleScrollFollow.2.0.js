@@ -1,6 +1,6 @@
 /**
  * @file jQuery Plugin: jquery.simpleScrollFollow
- * @version 1.2
+ * @version 2.0
  * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
  * @license MIT License
  */
@@ -38,11 +38,13 @@ $.fn.simpleScrollFollow = function(option) {
  * @prop {number} follow.offset_top - 追尾要素の元々のオフセット・トップ
  * @prop {number} follow.offset_bottom - 追尾要素の元々のオフセット・ボトム
  * @prop {number} follow.position_top - 追尾要素の元々のポジション・トップ
+ * @prop {Object} timer - 連続したリサイズの発火を防ぐための遅延用のタイマー
  */
 function SimpleScrollFollow(elem, option) {
-	this.setOption(option);
-	this.setFollow(elem);
+	this.setOption(this, option);
+	this.setFollow(this, elem);
 	this._ehScroll();
+	this._ehResize();
 }
 
 $.extend(SimpleScrollFollow.prototype, /** @lends SimpleScrollFollow.prototype */ {
@@ -52,32 +54,55 @@ $.extend(SimpleScrollFollow.prototype, /** @lends SimpleScrollFollow.prototype *
 	 */
 	setEnabled: function(bool) {
 		this.option.enabled = bool;
-		if (!this.option.enabled) $(this.follow.elem).css('top', this.follow.position_top);
+		if (!this.option.enabled) this.moveDefaultPosition(this);
+	},
+
+	/**
+	 * @desc 元の位置に戻る
+	 * @param {Object} self - このクラスのインスタンスオブジェクト
+	 */
+	moveDefaultPosition: function(self) {
+	 // JavaScriptでの追加設定を削除し、CSSで設定した値に戻す
+		$(self.follow.elem)
+			.css({
+				position: '',
+				top: '',
+				bottom: '',
+				left: '',
+				right: '',
+			})
+			.width('');
 	},
 
 	/**
 	 * @desc 追尾要素の設定をする
+	 * @param {Object} self - このクラスのインスタンスオブジェクト
 	 * @param {Object} elem - プラグインを適用するHTML要素
+	 * @return {Object} - 追尾要素
 	 */
-	setFollow: function(elem) {
+	setFollow: function(self, elem) {
 		var follow = {};
 		follow.elem = elem;
+		follow.width = $(follow.elem).width();
 		follow.offset_top = $(follow.elem).offset().top;
 		follow.offset_bottom = this._calcOffsetBottom(follow.elem);
+		follow.offset_left = $(follow.elem).offset().left;
 
 		// topの元の位置を記憶する前に、topの値がautoの場合はゼロに設定する。
-		if ($(follow.elem).css('top') == 'auto') $(follow.elem).css('top', 0);
-		follow.position_top = Number($(follow.elem).css('top').replace(/px$/, ''));
+		follow.position_top = ($(follow.elem).css('top') == 'auto') ?
+			0 :
+			Number($(follow.elem).css('top').replace(/px$/, ''));
 
-		this.follow = follow;
+		self.follow = follow;
 	},
 
 	/**
 	 * @desc オプションを初期化する
+	 * @param {Object} self - このクラスのインスタンスオブジェクト
 	 * @param {Object} option - オプションを格納した連想配列
 	 */
-	setOption: function(option) {
-		this.option =  $.extend({
+	setOption: function(self, option) {
+		self.option = $.extend({
 			enabled: true,
 			limit_elem: $('body'),
 			min_width: 0,
@@ -115,7 +140,7 @@ $.extend(SimpleScrollFollow.prototype, /** @lends SimpleScrollFollow.prototype *
 
 			// 最低幅を下回る場合は即座に終了する
 			if (!window.matchMedia('(min-width: ' + self.option.min_width +'px)').matches) {
-				$(self.follow.elem).css('top', self.follow.position_top);
+				self.moveDefaultPosition(self);
 				return false;
 			}
 
@@ -160,33 +185,107 @@ $.extend(SimpleScrollFollow.prototype, /** @lends SimpleScrollFollow.prototype *
 				}
 			}
 			*/
-
 			if (win.scroll_top  < self.follow.offset_top) { // 画面上辺は上限より上か?
-				// 要素上端は上限へ
-				$(self.follow.elem).css('top', self.follow.position_top);
+				// absolute: 要素上端は上限へ
+				$(self.follow.elem)
+					.css({
+						position: 'absolute',
+						top: '',
+						bottom: '',
+						left: '',
+						right: ''
+					})
+					.width(self.follow.width);
 			} else if (win.scroll_top > limit.offset_bottom) { // 画面上辺は下限より下か?
-				// 要素下端は下限へ
-				$(self.follow.elem).css('top', limit.offset_bottom - self.follow.offset_bottom + self.follow.position_top);
+				// absolute: 要素下端は下限へ
+				$(self.follow.elem)
+					.css({
+						position: 'absolute',
+						top: limit.offset_bottom - self.follow.offset_top - (current.offset_bottom - current.offset_top) + self.follow.position_top_num,
+						bottom: 'auto',
+						left: '',
+						right: ''
+					})
+					.width(self.follow.width);
 			} else if ((win.scroll_bottom - win.scroll_top) > (current.offset_bottom -current.offset_top)) { // 画面高は要素高より高いか?
 				if ((limit.offset_bottom - win.scroll_top) < (current.offset_bottom -current.offset_top)) { // 下限 - 画面上辺 は、要素高より短いか?
-					// 要素下端は下限へ
-					$(self.follow.elem).css('top', limit.offset_bottom - self.follow.offset_bottom + self.follow.position_top);
+					// absolute: 要素下端は下限へ
+					$(self.follow.elem)
+						.css({
+							position: 'absolute',
+							top: limit.offset_bottom - self.follow.offset_top - (current.offset_bottom - current.offset_top) + self.follow.position_top,
+							bottom: 'auto',
+							left: '',
+							right: ''
+						})
+						.width(self.follow.width);
 				} else {
-					// 要素上端は画面上辺へ
-					$(self.follow.elem).css('top', win.scroll_top - self.follow.offset_top + self.follow.position_top);
+					// fixed: 要素上端は画面上辺へ
+					$(self.follow.elem)
+						.css({
+							position: 'fixed',
+							top: 0,
+							bottom: 'auto',
+							left: self.follow.offset_left,
+							right: 'auto'
+						})
+						.width(self.follow.width);
 				}
 			} else {
 				if (win.scroll_bottom > limit.offset_bottom) { // 画面下辺は下限より下か?
-					// 要素下端は下限へ
-					$(self.follow.elem).css('top', limit.offset_bottom - self.follow.offset_bottom + self.follow.position_top);
-				} else if ((win.scroll_bottom - self.follow.offset_top) > (current.offset_bottom -current.offset_top)) { // 画面下辺 - 上限 は、要素高より長いか?
-					// 要素下端は画面下辺へ
-					$(self.follow.elem).css('top', win.scroll_bottom - self.follow.offset_bottom + self.follow.position_top);
+					// absolute: 要素下端は下限へ
+					$(self.follow.elem)
+						.css({
+							position: 'absolute',
+							top: limit.offset_bottom - self.follow.offset_top - (current.offset_bottom - current.offset_top) + self.follow.position_top,
+							bottom: 'auto',
+							left: '',
+							right: ''
+						})
+						.width(self.follow.width);
+				} else if ((win.scroll_bottom - self.follow.offset_top) > (current.offset_bottom - current.offset_top)) { // 画面下辺 - 上限 は、要素高より長いか?
+					// fixed: 要素下端は画面下辺へ
+					$(self.follow.elem)
+						.css({
+							position: 'fixed',
+							top: 'auto',
+							bottom: 0,
+							left: self.follow.offset_left,
+							right: 'auto'
+						})
+						.width(self.follow.width);
 				} else {
-					// 要素上端は上限へ
-					$(self.follow.elem).css('top', self.follow.position_top);
+					// absolute: 要素上端は上限へ
+					$(self.follow.elem)
+						.css({
+							position: 'absolute',
+							top: '',
+							bottom: '',
+							left: '',
+							right: ''
+						})
+						.width(self.follow.width);
 				}
 			}
+		});
+	},
+
+	/**
+	 * @private
+	 * @desc イベントハンドラ: 画面リサイズ
+	 */
+	_ehResize: function() {
+		this.timer = false;
+		var self = this;
+		$(window).resize(function() {
+			if (self.timer !== false) {
+				clearTimeout(self.timer);
+			}
+			self.timer = setTimeout(function() {
+				self.moveDefaultPosition(self);
+				self.setFollow(self, self.follow.elem);
+				$(window).trigger('scroll');
+			}, 200);
 		});
 	},
 }); // endo of "$.extend"

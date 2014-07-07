@@ -1,5 +1,55 @@
 @charset "utf-8";
 
+#contents {
+	position: relative;
+}
+
+/* for PC */
+@media screen and (min-width:992px) {
+	nav {
+		position: absolute;
+		box-sizing: border-box;
+		width: 33%;
+		top: 0px;
+		left: auto;
+		right: auto;
+		bottom: auto;
+	}
+
+	article {
+		position: relative;
+		box-sizing: border-box;
+		width: 65%;
+		top: 0px;
+		left: 35%;
+		right: auto;
+		bottom: auto;
+	}
+}
+
+/* for Smart Phone */
+@media screen and (max-width:991px) {
+	nav {
+		position: static;
+		width: 100%;
+		top: auto;
+		left: auto;
+		right: auto;
+		bottom: auto;
+	}
+
+	article {
+		position: static;
+		width: 100%;
+		top: auto;
+		left: auto;
+		right: auto;
+		bottom: auto;
+	}
+}
+
+
+
 body {
 	-webkit-text-size-adjust: 100%;
 }
