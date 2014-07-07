@@ -9,6 +9,7 @@
 	nav {
 		position: absolute;
 		box-sizing: border-box;
+		padding: 0;
 		width: 33%;
 		top: 0px;
 		left: auto;
@@ -19,6 +20,7 @@
 	article {
 		position: relative;
 		box-sizing: border-box;
+		padding: 0;
 		width: 65%;
 		top: 0px;
 		left: 35%;
@@ -31,6 +33,8 @@
 @media screen and (max-width:991px) {
 	nav {
 		position: static;
+		box-sizing: border-box;
+		padding: 0 16px;
 		width: 100%;
 		top: auto;
 		left: auto;
@@ -40,6 +44,8 @@
 
 	article {
 		position: static;
+		box-sizing: border-box;
+		padding: 0 16px;
 		width: 100%;
 		top: auto;
 		left: auto;
