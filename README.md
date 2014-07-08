@@ -1,14 +1,37 @@
 # jquery.addInputArea
-A jQuery plugin for adding or deleting form-items.
+A jQuery plugin for adding or deleting Form elements.
 
 
 ## Demo
 [http://www.usamimi.info/~sutara/sample/addInputArea/](http://www.usamimi.info/~sutara/sample/addInputArea/)
 
-## JSDoc (Japanese)
+## JSDoc
 [http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/](http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/)
 
-## Note: 'name' attribute
+## Usage
+
+###### HTML
+```html
+<head>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="jquery.addInputArea.4.6.2.js"></script>
+</head>
+<body>
+	<ol id="list1">
+		<li class="list1_var">
+			<input type="text" size="40" name="list1_0" id="list1_0">
+			<button class="list1_del">Delete</button>
+		</li>
+	</ol>
+	<input type="button" value="Add" class="list1_add">
+```
+
+###### JavaScript
+```javascript
+$('#list1').addInputArea();
+```
+
+## Attention
 If you obey a naming convention, `name` and `id` attribute is named automatically.  
 (命名規則に従えば、`name`, `id`属性は自動で付与されます。)
 
@@ -47,83 +70,8 @@ On the other hand, you can set original method of numbering using `name_format` 
 <input type="text" name_format="data[posts][mail][%d]" name="data[posts][mail][2]">	
 ```
 
-## Options
-you can set some properties of this plugin like following.  
-(下記のようにオプションを指定できます。)
-
-``` javascript
-$('#list').addInputArea({
-    area_var : '.foo_area',
-    btn_add  : '.bar_button',
-    btn_del  : '.baz_button'
-});
-```
-
-- - -
-### area_var
-The name of CSS class of the item name to fluctuate.  
-(動的に増減する要素に共通するCSSクラス名)
-
-###### initial value
-
-``` javascript
-(id) ? '.' + id + '_var' : '.aia_var'
-```
-
-- - -
-### area_del
-The name of CSS class of the delete-area.  
-(削除エリアに共通するCSSクラス名)
-
-###### initial value
-
-``` javascript
-''
-```
-
-- - -
-### btn_del
-The name of CSS class of the delete-button.  
-(削除ボタンに共通するCSSクラス名)
-
-###### initial value
-
-``` javascript
-(id) ? '.' + id + '_del' : '.aia_del'
-```
-
-- - -
-### btn_add
-The name of CSS class of the add-button.  
-(追加ボタンのCSSクラス名)
-
-###### initial value
-
-``` javascript
-(id) ? '.' + id + '_add' : '.aia_add'
-```
-
-- - -
-### maximum
-The maximum number of items. (numeric)  
-(増減する要素の最大数 (数値で指定する))
-
-###### initial value
-
-``` javascript
-0 // It means unlimited.
-```
-
-- - -
-### after_add
-The function which executes after adding. (function)  
-(追加後に実行される処理。関数で指定する)
-
-###### initial value
-
-``` javascript
-null
-```
+#### How to use on CakePHP
+http://runnable.com/U7vCAlCwvQZzFZBO/how-to-use-jquery-addinputarea-on-cakephp
 
 ## Author
 Yuusaku Miyazaki (宮崎 雄策)

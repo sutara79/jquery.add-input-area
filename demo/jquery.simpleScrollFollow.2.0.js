@@ -13,8 +13,8 @@
  * @param {Object} [option] オプションを格納した連想配列
  * @param {boolean|undefined} [option.instance=undefined] - プラグインを呼び出すとき、jQueryオブジェクトではなく、インスタンスを返すかどうかの真偽値
  * @param {boolean} [option.enabled=true] - スクロールを有効にするかどうかの真偽値
- * @param {Object} [option.limit_elem='window'] - 追尾要素のスクロールの下限の基準となる要素のオブジェクト
- * @param {number} [option.min_width=0] - 追尾スクロールを有効にする最低限の幅
+ * @param {Object|string} [option.limit_elem='window'] - 追尾要素のスクロールの下限の基準となる要素のjQueryオブジェクト、またはセレクタ文字列
+ * @param {number} [option.min_width=0] - 追尾スクロールを有効にする最低限の画面幅
  * @return {Object|Array} - jQueryオブジェクト、または、インスタンスを返すオプションが有効な場合はインスタンスの配列
  */
 $.fn.simpleScrollFollow = function(option) {

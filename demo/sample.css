@@ -9,8 +9,8 @@
 	nav {
 		position: absolute;
 		box-sizing: border-box;
-		padding: 0;
-		width: 33%;
+		padding: 0 15px;
+		width: 34%;
 		top: 0px;
 		left: auto;
 		right: auto;
@@ -20,10 +20,10 @@
 	article {
 		position: relative;
 		box-sizing: border-box;
-		padding: 0;
-		width: 65%;
+		padding: 0 15px;
+		width: 66%;
 		top: 0px;
-		left: 35%;
+		left: 34%;
 		right: auto;
 		bottom: auto;
 	}
@@ -34,7 +34,7 @@
 	nav {
 		position: static;
 		box-sizing: border-box;
-		padding: 0 16px;
+		padding: 0 15px;
 		width: 100%;
 		top: auto;
 		left: auto;
@@ -45,7 +45,7 @@
 	article {
 		position: static;
 		box-sizing: border-box;
-		padding: 0 16px;
+		padding: 0 15px;
 		width: 100%;
 		top: auto;
 		left: auto;
@@ -53,8 +53,6 @@
 		bottom: auto;
 	}
 }
-
-
 
 body {
 	-webkit-text-size-adjust: 100%;
@@ -65,7 +63,7 @@ footer {
 }
 
 footer div {
-	padding: 1em 0;
+	padding: 16px 0px;
 	text-align: right;
 }
 
