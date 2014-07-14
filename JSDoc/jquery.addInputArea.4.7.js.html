@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: jquery.addInputArea.4.6.2.js</title>
+    <title>JSDoc: Source: jquery.addInputArea.4.7.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: jquery.addInputArea.4.6.2.js</h1>
+    <h1 class="page-title">Source: jquery.addInputArea.4.7.js</h1>
 
     
 
@@ -27,11 +27,10 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * @file jQuery Plugin: jquery.addInputArea
- * @version 4.6.2
+ * @version 4.7
  * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
  * @license MIT License
  */
-
 (function($) {
 
 /**
@@ -59,6 +58,9 @@ $.fn.addInputArea = function(option) {
  * @classdesc 要素ごとに適用される処理を集めたクラス
  * @param {Object} elem - プラグインを適用するHTML要素
  * @param {Object} option - オプションを格納した連想配列
+ *
+ * @prop {Object} elem - プラグインを適用するHTML要素
+ * @prop {Object} option - オプションを格納した連想配列
  */
 function AddInputArea(elem, option) {
 	this.elem = elem;
@@ -74,7 +76,8 @@ function AddInputArea(elem, option) {
 
 $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	/**
-	 * オプションの初期化
+	 * @private
+	 * @desc オプションの初期化
 	 */
 	_setOption: function() {
 		var id = $(this.elem).attr('id');
@@ -91,7 +94,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 削除ボタンの表示状態を決定する。&lt;br>
+	 * @private
+	 * @desc 削除ボタンの表示状態を決定する。&lt;br>
 	 * 増減する項目がひとつなら、削除ボタンは表示しない。
 	 */
 	_setDelBtnVisibility: function() {
@@ -101,7 +105,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 追加ボタンのイベントハンドラ
+	 * @private
+	 * @desc 追加ボタンのイベントハンドラ
 	 */
 	_ehAddBtn: function() {
 		var self = this;
@@ -110,32 +115,33 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 			var len_list = $(self.elem).find(self.option.area_var).length;
 			var new_list = $(self.option.original).clone(true);
 
-			$(new_list).find('[name]').each(function(idx, obj) {
-				// name, id属性を変更
-				self._changeAttrAlongFormat(obj, len_list, 'name');
-				self._changeAttrAlongFormat(obj, len_list, 'id');
+			$(new_list)
+				.find('[name]').each(function(idx, obj) {
+					// name, id属性を変更
+					self._changeAttrAlongFormat(obj, len_list, 'name');
+					self._changeAttrAlongFormat(obj, len_list, 'id');
 
-				// val, textを空にする。
-				if ($(obj).attr('empty_val') != 'false') {
-					if (
-						$(obj).attr('type') == 'checkbox' ||
-						$(obj).attr('type') == 'radio'
-					) {
-						obj.checked = false;
-					} else if (
-						$(obj).attr('type') != 'submit' &amp;&amp;
-						$(obj).attr('type') != 'reset'  &amp;&amp;
-						$(obj).attr('type') != 'image'  &amp;&amp;
-						$(obj).attr('type') != 'button'
-					) {
-						$(obj).val('');
+					// val, textを空にする。
+					if ($(obj).attr('empty_val') != 'false') {
+						if (
+							$(obj).attr('type') == 'checkbox' ||
+							$(obj).attr('type') == 'radio'
+						) {
+							obj.checked = false;
+						} else if (
+							$(obj).attr('type') != 'submit' &amp;&amp;
+							$(obj).attr('type') != 'reset'  &amp;&amp;
+							$(obj).attr('type') != 'image'  &amp;&amp;
+							$(obj).attr('type') != 'button'
+						) {
+							$(obj).val('');
+						}
 					}
-				}
-			});
-			$(new_list).find('[for]').each(function(idx, obj) {
-				// for属性を変更
-				self._changeAttrAlongFormat(obj, len_list, 'for');
-			});
+				}).end()
+				.find('[for]').each(function(idx, obj) {
+					// for属性を変更
+					self._changeAttrAlongFormat(obj, len_list, 'for');
+				});
 
 			$(self.elem).append(new_list);
 			// 入力欄が2つ以上になるので、削除ボタンを表示する
@@ -154,7 +160,8 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 削除ボタンのイベントハンドラ
+	 * @private
+	 * @desc 削除ボタンのイベントハンドラ
 	 */
 	_ehDelBtn: function() {
 		var self = this;
@@ -181,49 +188,87 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	},
 
 	/**
-	 * 増減項目のid,name,for属性の番号を一括して振り直す
+	 * @private
+	 * @desc 増減項目のid,name,for属性の番号を一括して振り直す
 	 */
 	_setNameAttribute: function() {
 		var self = this;
 		$(this.elem).find(this.option.area_var).each(function(idx, obj) {
-			$(obj).find('[name]').each(function(idx_2, obj_2) {
-				// name, id属性を変更
-				self._changeAttrAlongFormat(obj_2, idx, 'name');
-				self._changeAttrAlongFormat(obj_2, idx, 'id');
-			}).end()
-			.find('[for]').each(function(idx_2, obj_2) {
-				// for属性を変更
-				self._changeAttrAlongFormat(obj_2, idx, 'for');
-			});
+			$(obj)
+				.find('[name]').each(function() {
+					// name, id属性を変更
+					self._changeAttrAlongFormat(this, idx, 'name');
+					self._changeAttrAlongFormat(this, idx, 'id');
+				}).end()
+				.find('[for]').each(function() {
+					// for属性を変更
+					self._changeAttrAlongFormat(this, idx, 'for');
+				});
 		});
 	},
 
 	/**
-	 * クローン元を保管する
+	 * @private
+	 * @desc クローン元を保管する
 	 */
 	_saveOriginal: function() {
 		this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(true);
 	},
 
 	/**
-	 * 入力欄の番号を振り直す
+	 * @private
+	 * @desc 入力欄の番号を振り直す
 	 * @param {Object} obj - 番号を変更すべき項目を持つHTML要素
 	 * @param {number} idx - 変更する値
-	 * @param {string} type - 属性の名前
+	 * @param {string} type - 属性の名前 (e.g.: id, name, for)
 	 */
 	_changeAttrAlongFormat: function(obj, idx, type) {
 		var changed = null;
-		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
-			changed =  $(obj).attr(type).replace(
-				/((?:(?![0-9]+$).)+)[0-9]+$/,
-				function() { return arguments[1] + idx; }
-			);
+		if (/^.+_\d+$/.test($(obj).attr(type))) {
+			changed =  $(obj).attr(type).replace(/^(.+_)\d+$/, '$1' + idx);
 		} else {
-			changed = (type == 'name' &amp;&amp; $(obj).attr('name_format')) ?
-				$(obj).attr('name_format').replace('%d', idx) :
-				($(obj).attr('id_format')) ?
-					$(obj).attr('id_format').replace('%d', idx) :
-					false;
+			// 命名規則に従っていないのに"name_format"や"id_format"を設定していないと例外を投げる
+			try {
+				switch (type) {
+					case 'name':
+						if ($(obj).attr('name_format')) {
+							changed = $(obj).attr('name_format').replace('%d', idx);
+						} else {
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'&lt;' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+					
+					case 'id':
+						if ($(obj).attr('id_format')) {
+							changed = $(obj).attr('id_format').replace('%d', idx);
+						} else if ($(obj).attr('id')) { // そもそもid属性が存在しない場合を除く
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'&lt;' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+					
+					case 'for':
+						if ($(obj).attr('id_format')) {
+							changed = $(obj).attr('id_format').replace('%d', idx);
+						} else {
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'&lt;' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+				}
+			} catch(e) {
+				alert(e);
+			}
 		}
 		$(obj).attr(type, changed);
 	}
@@ -245,7 +290,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Jun 18 2014 20:30:25 GMT+0900 (JST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Tue Jul 15 2014 04:08:28 GMT+0900 (JST)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,15 +1,19 @@
 # Change Log
 
+### v4.7 (2014-07-15)
+- If `id` attribute of addable element does not exist yet, it is not created.  
+  (増減要素のid属性が未定義の場合はそのまま何もしないようにしました。)
+
 ### v4.6.2 (2014-06-18)
-- JSDoc was made.
+- JSDoc was made.  
   (ソースコードを理解しやすくするために、JSDocを作成しました。)
 
 ### v4.6.1 (2014-04-14)
-- Source code was a little rearranged.
+- Source code was a little rearranged.  
   (ソースコードを少し整理しました。)
 
 ### v4.6 (2013-11-25)
-- The `after_add` option was added.
+- The `after_add` option was added.  
   (`after_add`オプションが新たに追加されました。)
 
 

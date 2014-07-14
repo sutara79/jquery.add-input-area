@@ -46,7 +46,6 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).ready(function($) {
-
 	// ページ内リンクのスクロール
 	$('a[href^=#]').click(function() {
 		var href= $(this).attr("href");

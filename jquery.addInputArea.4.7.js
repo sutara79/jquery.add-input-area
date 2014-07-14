@@ -1,6 +1,6 @@
 /**
  * @file jQuery Plugin: jquery.addInputArea
- * @version 4.6.2
+ * @version 4.7
  * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
  * @license MIT License
  */
@@ -88,32 +88,33 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 			var len_list = $(self.elem).find(self.option.area_var).length;
 			var new_list = $(self.option.original).clone(true);
 
-			$(new_list).find('[name]').each(function(idx, obj) {
-				// name, id属性を変更
-				self._changeAttrAlongFormat(obj, len_list, 'name');
-				self._changeAttrAlongFormat(obj, len_list, 'id');
+			$(new_list)
+				.find('[name]').each(function(idx, obj) {
+					// name, id属性を変更
+					self._changeAttrAlongFormat(obj, len_list, 'name');
+					self._changeAttrAlongFormat(obj, len_list, 'id');
 
-				// val, textを空にする。
-				if ($(obj).attr('empty_val') != 'false') {
-					if (
-						$(obj).attr('type') == 'checkbox' ||
-						$(obj).attr('type') == 'radio'
-					) {
-						obj.checked = false;
-					} else if (
-						$(obj).attr('type') != 'submit' &&
-						$(obj).attr('type') != 'reset'  &&
-						$(obj).attr('type') != 'image'  &&
-						$(obj).attr('type') != 'button'
-					) {
-						$(obj).val('');
+					// val, textを空にする。
+					if ($(obj).attr('empty_val') != 'false') {
+						if (
+							$(obj).attr('type') == 'checkbox' ||
+							$(obj).attr('type') == 'radio'
+						) {
+							obj.checked = false;
+						} else if (
+							$(obj).attr('type') != 'submit' &&
+							$(obj).attr('type') != 'reset'  &&
+							$(obj).attr('type') != 'image'  &&
+							$(obj).attr('type') != 'button'
+						) {
+							$(obj).val('');
+						}
 					}
-				}
-			});
-			$(new_list).find('[for]').each(function(idx, obj) {
-				// for属性を変更
-				self._changeAttrAlongFormat(obj, len_list, 'for');
-			});
+				}).end()
+				.find('[for]').each(function(idx, obj) {
+					// for属性を変更
+					self._changeAttrAlongFormat(obj, len_list, 'for');
+				});
 
 			$(self.elem).append(new_list);
 			// 入力欄が2つ以上になるので、削除ボタンを表示する
@@ -166,15 +167,16 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	_setNameAttribute: function() {
 		var self = this;
 		$(this.elem).find(this.option.area_var).each(function(idx, obj) {
-			$(obj).find('[name]').each(function(idx_2, obj_2) {
-				// name, id属性を変更
-				self._changeAttrAlongFormat(obj_2, idx, 'name');
-				self._changeAttrAlongFormat(obj_2, idx, 'id');
-			}).end()
-			.find('[for]').each(function(idx_2, obj_2) {
-				// for属性を変更
-				self._changeAttrAlongFormat(obj_2, idx, 'for');
-			});
+			$(obj)
+				.find('[name]').each(function() {
+					// name, id属性を変更
+					self._changeAttrAlongFormat(this, idx, 'name');
+					self._changeAttrAlongFormat(this, idx, 'id');
+				}).end()
+				.find('[for]').each(function() {
+					// for属性を変更
+					self._changeAttrAlongFormat(this, idx, 'for');
+				});
 		});
 	},
 
@@ -191,21 +193,55 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 	 * @desc 入力欄の番号を振り直す
 	 * @param {Object} obj - 番号を変更すべき項目を持つHTML要素
 	 * @param {number} idx - 変更する値
-	 * @param {string} type - 属性の名前
+	 * @param {string} type - 属性の名前 (e.g.: id, name, for)
 	 */
 	_changeAttrAlongFormat: function(obj, idx, type) {
 		var changed = null;
-		if (/(?:(?![0-9]+$).)+[0-9]+$/.test($(obj).attr(type))) {
-			changed =  $(obj).attr(type).replace(
-				/((?:(?![0-9]+$).)+)[0-9]+$/,
-				function() { return arguments[1] + idx; }
-			);
+		if (/^.+_\d+$/.test($(obj).attr(type))) {
+			changed =  $(obj).attr(type).replace(/^(.+_)\d+$/, '$1' + idx);
 		} else {
-			changed = (type == 'name' && $(obj).attr('name_format')) ?
-				$(obj).attr('name_format').replace('%d', idx) :
-				($(obj).attr('id_format')) ?
-					$(obj).attr('id_format').replace('%d', idx) :
-					false;
+			// 命名規則に従っていないのに"name_format"や"id_format"を設定していないと例外を投げる
+			try {
+				switch (type) {
+					case 'name':
+						if ($(obj).attr('name_format')) {
+							changed = $(obj).attr('name_format').replace('%d', idx);
+						} else {
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'<' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+					
+					case 'id':
+						if ($(obj).attr('id_format')) {
+							changed = $(obj).attr('id_format').replace('%d', idx);
+						} else if ($(obj).attr('id')) { // そもそもid属性が存在しない場合を除く
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'<' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+					
+					case 'for':
+						if ($(obj).attr('id_format')) {
+							changed = $(obj).attr('id_format').replace('%d', idx);
+						} else {
+							throw new Error(
+								'(jquery.addInputArea)\n' +
+								'Not found "name_format" attribute in\n' +
+								'<' + $(obj)[0].tagName + ' ' + type + '="' + $(obj).attr(type) + '">'
+							);
+						}
+						break;
+				}
+			} catch(e) {
+				alert(e);
+			}
 		}
 		$(obj).attr(type, changed);
 	}

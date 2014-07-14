@@ -32,8 +32,13 @@ $('#list1').addInputArea();
 ```
 
 ## Attention
+You **must** set `name` attribute to addable elements.  
+But `id` attribute is not required.  
+(増減する要素には`name`属性が**必須**です。  
+しかし、`id`属性は必須ではありません。)
+
 If you obey a naming convention, `name` and `id` attribute is named automatically.  
-(命名規則に従えば、`name`, `id`属性は自動で付与されます。)
+(命名規則に従えば、`name`, `id`属性には自動で連番が割り当てられます。)
 
 ```html
 (default)
