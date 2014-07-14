@@ -2,7 +2,7 @@
  * Sample.js for addInputArea
  */
 
-//各サンプルの設定
+// 各サンプルの設定
 jQuery(document).ready(function($) {
 	$('#list1').addInputArea();
 	$('#list2').addInputArea({
@@ -20,16 +20,16 @@ jQuery(document).ready(function($) {
 	$('#list6').addInputArea();
 	$('#list7').addInputArea();
 	$('#list8').addInputArea();
-	//セレクトボックスの値の変更で発火するイベント。
-	//追加アイテムに対しても適用するため、".on()"を使う。
+	// セレクトボックスの値の変更で発火するイベント。
+	// 追加アイテムに対しても適用するため、".on()"を使う。
 	$('#list8').on('change', 'select', function() {
 		var input = $(this).parents('li').find('[type="text"]');
 
-		//セレクトボックスの値に応じて、テキストボックスの有効無効を切り替える
+		// セレクトボックスの値に応じて、テキストボックスの有効無効を切り替える
 		if ($(this).val() == 'disable') $(input).attr('disabled', 'disabled');
 		else $(input).removeAttr('disabled');
 	});
-	//クローン元へのイベントは、プラグイン適用前に設定しておくこと。
+	// クローン元へのイベントは、プラグイン適用前に設定しておくこと。
 	$('#list9_0')
 		.focus(function() {
 			$(this).next().text('Focus!');
