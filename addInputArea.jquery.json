@@ -4,7 +4,8 @@
 	"description": "jQuery plugin for following after scrolling window.",
 	"version": "4.7.0",
 	"keywords": [
-		"form"
+		"form",
+		"input"
 	],
 	"author": {
 		"name": "Yuusaku Miyazaki",
