@@ -1,5 +1,5 @@
 # jquery.addInputArea
-A jQuery plugin for adding or deleting Form elements.
+jQuery plugin for adding or deleting Form elements.
 
 
 ## Demo

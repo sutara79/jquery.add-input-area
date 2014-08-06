@@ -1,7 +1,7 @@
 {
 	"name": "addInputArea",
 	"title": "jquery.addInputArea", 
-	"description": "jQuery plugin for following after scrolling window.",
+	"description": "jQuery plugin for adding or deleting Form elements.",
 	"version": "4.7.0",
 	"keywords": [
 		"form",
@@ -23,5 +23,5 @@
 	},
 	"demo": "http://www.usamimi.info/~sutara/sample/addInputArea/",
 	"docs": "http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc",
-	"bugs": "https://github.com/SutaraLumpur/jquery.addInputArea/issues"
+	"bugs": "https://github.com/SutaraLumpur/jquery.addInputArea.js/issues"
 }
