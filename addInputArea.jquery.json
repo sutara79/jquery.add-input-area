@@ -1,0 +1,27 @@
+{
+	"name": "addInputArea",
+	"title": "jquery.addInputArea", 
+	"description": "jQuery plugin for adding or deleting Form elements.",
+	"version": "4.7.0",
+	"keywords": [
+		"form",
+		"input"
+	],
+	"author": {
+		"name": "Yuusaku Miyazaki",
+		"email": "toumin.m7@gmail.com",
+		"url": "https://github.com/SutaraLumpur"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.9"
+	},
+	"demo": "http://www.usamimi.info/~sutara/sample/addInputArea/",
+	"docs": "http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc",
+	"bugs": "https://github.com/SutaraLumpur/jquery.addInputArea.js/issues"
+}
