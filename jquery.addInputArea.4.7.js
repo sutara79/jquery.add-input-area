@@ -214,7 +214,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 							);
 						}
 						break;
-					
+
 					case 'id':
 						if ($(obj).attr('id_format')) {
 							changed = $(obj).attr('id_format').replace('%d', idx);
@@ -226,7 +226,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 							);
 						}
 						break;
-					
+
 					case 'for':
 						if ($(obj).attr('id_format')) {
 							changed = $(obj).attr('id_format').replace('%d', idx);

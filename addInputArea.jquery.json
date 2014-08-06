@@ -4,10 +4,11 @@
 	"description": "jQuery plugin for following after scrolling window.",
 	"version": "4.7.0",
 	"keywords": [
-		"scroll"
+		"form"
 	],
 	"author": {
 		"name": "Yuusaku Miyazaki",
+		"email": "toumin.m7@gmail.com",
 		"url": "https://github.com/SutaraLumpur"
 	},
 	"licenses": [
@@ -21,5 +22,5 @@
 	},
 	"demo": "http://www.usamimi.info/~sutara/sample/addInputArea/",
 	"docs": "http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc",
-	"download": "https://github.com/SutaraLumpur/jquery.addInputArea/archive/master.zip"
+	"bugs": "https://github.com/SutaraLumpur/jquery.addInputArea/issues"
 }
