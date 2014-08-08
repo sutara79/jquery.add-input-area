@@ -1,4 +1,8 @@
-# Change Log
+# Change Log for jquery.add-input-area
+
+### v4.7.1 (2014-08-08)
+- Plugin name was changed.  
+  (プラグイン名、ファイル名、フォルダ名を変更しました。)
 
 ### v4.7 (2014-07-15)
 - If `id` attribute of addable element does not exist yet, it is not created.  

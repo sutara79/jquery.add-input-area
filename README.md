@@ -1,12 +1,12 @@
-# jquery.addInputArea
+# jquery.add-input-area
 jQuery plugin for adding or deleting Form elements.
 
 
 ## Demo
-[http://www.usamimi.info/~sutara/sample/addInputArea/](http://www.usamimi.info/~sutara/sample/addInputArea/)
+[http://www.usamimi.info/~sutara/sample/add-input-area/](http://www.usamimi.info/~sutara/sample/add-input-area/)
 
 ## JSDoc
-[http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/](http://www.usamimi.info/~sutara/sample/addInputArea/JSDoc/)
+[http://www.usamimi.info/~sutara/sample/add-input-area/jsdoc/](http://www.usamimi.info/~sutara/sample/add-input-area/jsdoc/)
 
 ## Usage
 
@@ -14,7 +14,7 @@ jQuery plugin for adding or deleting Form elements.
 ```html
 <head>
 	<script src="http://code.jquery.com/jquery.min.js"></script>
-	<script src="jquery.addInputArea.4.6.2.js"></script>
+	<script src="jquery.add-input-area.4.6.2.js"></script>
 </head>
 <body>
 	<ol id="list1">
