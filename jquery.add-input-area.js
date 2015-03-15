@@ -140,7 +140,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 		var self = this;
 		$(self.elem).on('click', self.option.btn_del, function(ev) {
 			ev.preventDefault();
-			//品目入力欄を削除
+			// 品目入力欄を削除
 			var idx = $(self.elem).find(self.option.btn_del).index(ev.target);
 			$(self.elem).find(self.option.area_var).eq(idx).remove();
 
