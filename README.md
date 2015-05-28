@@ -13,8 +13,8 @@ jQuery plugin for adding or deleting Form elements.
 ###### HTML
 ```html
 <head>
-	<script src="http://code.jquery.com/jquery.min.js"></script>
-	<script src="jquery.add-input-area.4.6.2.js"></script>
+	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="jquery.add-input-area.min.js"></script>
 </head>
 <body>
 	<ol id="list1">

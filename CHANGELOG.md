@@ -1,5 +1,9 @@
 # jquery.add-input-area CHANGELOG
 
+## v4.7.2 (2015-05-28)
+-  Create jquery.add-input-area.min.js  
+  (minファイルを作成しました。)
+
 ## v4.7.1 (2014-08-08)
 - Plugin name was changed.  
   (プラグイン名、ファイル名、フォルダ名を変更しました。)

@@ -2,7 +2,7 @@
 	"name": "add-input-area",
 	"title": "jquery.add-input-area", 
 	"description": "jQuery plugin for adding or deleting Form elements.",
-	"version": "4.7.1",
+	"version": "4.7.2",
 	"keywords": [
 		"form",
 		"input"
