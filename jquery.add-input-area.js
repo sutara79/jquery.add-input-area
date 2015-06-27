@@ -1,7 +1,7 @@
 /**
  * @file jQuery Plugin: jquery.add-input-area
  * @version 4.7.2
- * @author Yuusaku Miyazaki [toumin.m7@gmail.com]
+ * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
  * @license MIT License
  */
 (function($) {

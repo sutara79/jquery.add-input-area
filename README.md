@@ -1,12 +1,8 @@
 # jquery.add-input-area
 jQuery plugin for adding or deleting Form elements.
 
-
 ## Demo
 [http://www.usamimi.info/~sutara/sample/add-input-area/](http://www.usamimi.info/~sutara/sample/add-input-area/)
-
-## JSDoc
-[http://www.usamimi.info/~sutara/sample/add-input-area/jsdoc/](http://www.usamimi.info/~sutara/sample/add-input-area/jsdoc/)
 
 ## Usage
 
