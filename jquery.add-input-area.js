@@ -128,7 +128,9 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 				$(self.option.btn_add).hide();
 			}
 			// 追加後の処理があれば実行する
-			if (typeof self.option.after_add == 'function') self.option.after_add();
+			if (typeof self.option.after_add == 'function') {
+			  self.option.after_add.call(new_list);
+                        }
 		});
 	},
 
