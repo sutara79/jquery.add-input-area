@@ -159,6 +159,10 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
 			) {
 				$(self.option.btn_add).show();
 			}
+			// 削除後の処理があれば実行する
+			if (typeof self.option.after_del == 'function') {
+			  self.option.after_del.call();
+                        }
 		});
 	},
 
