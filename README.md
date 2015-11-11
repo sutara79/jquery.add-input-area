@@ -72,7 +72,7 @@ On the other hand, you can set original method of numbering using `name_format` 
 ```
 
 #### How to use on CakePHP
-http://runnable.com/U7vCAlCwvQZzFZBO/
+http://code.runnable.com/U7vCAlCwvQZzFZBO/how-to-use-jquery-add-input-area-on-cakephp
 
 ## Author
 Yuusaku Miyazaki (宮崎 雄策)
