@@ -4,22 +4,25 @@ jQuery plugin for adding or deleting Form elements.
 ## Demo
 [http://www.usamimi.info/~sutara/sample/add-input-area/](http://www.usamimi.info/~sutara/sample/add-input-area/)
 
+## CDN
+[http://www.jsdelivr.com/projects/jquery.add-input-area](http://www.jsdelivr.com/projects/jquery.add-input-area)
+
 ## Usage
 
 ###### HTML
 ```html
 <head>
-	<script src="//code.jquery.com/jquery.min.js"></script>
-	<script src="jquery.add-input-area.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="jquery.add-input-area.min.js"></script>
 </head>
 <body>
-	<ol id="list1">
-		<li class="list1_var">
-			<input type="text" size="40" name="list1_0" id="list1_0">
-			<button class="list1_del">Delete</button>
-		</li>
-	</ol>
-	<input type="button" value="Add" class="list1_add">
+  <ol id="list1">
+    <li class="list1_var">
+      <input type="text" size="40" name="list1_0" id="list1_0">
+      <button class="list1_del">Delete</button>
+    </li>
+  </ol>
+  <input type="button" value="Add" class="list1_add">
 ```
 
 ###### JavaScript
@@ -68,7 +71,7 @@ On the other hand, you can set original method of numbering using `name_format` 
 
 (add)
 <input type="text" name_format="data[posts][mail][%d]" name="data[posts][mail][1]">
-<input type="text" name_format="data[posts][mail][%d]" name="data[posts][mail][2]">	
+<input type="text" name_format="data[posts][mail][%d]" name="data[posts][mail][2]">  
 ```
 
 #### How to use on CakePHP
