@@ -1,105 +1,114 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>jquery.add-input-area</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="demo/sample.css">
-  </head>
-  <body>
-    <header class="jumbotron">
-      <div class="container">
-        <h1>jquery.add-input-area</h1>
-        <p class="lang_en">
-          Add or delete Form elements.
-        </p>
-        <p class="lang_ja">
-          フォーム部品を動的に追加・削除します。
-        </p>
-        <dl class="dl-horizontal">
-          <dt>Version</dt><dd>4.7.2</dd>
-          <dt>Update</dt><dd>2015-05-28</dd>
-          <dt>Author</dt><dd>Yuusaku Miyazaki</dd>
-          <dt>License</dt><dd><a href="//opensource.org/licenses/mit-license.php">MIT License</a></dd>
-        </dl>
-        <a href="//github.com/sutara79/jquery.add-input-area" class="btn btn-primary" role="button">GitHub »</a>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>jquery.add-input-area</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="demo/sample.css">
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="jquery.add-input-area.js"></script><!-- required -->
+<script src="//cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
+<script src="demo/sample.js"></script>
+</head>
+<body>
+<header class="jumbotron">
+  <div class="container">
+    <h1>jquery.add-input-area</h1>
+    <p class="lang_en">
+      Add or delete Form elements.
+    </p>
+    <p class="lang_ja">
+      フォーム部品を動的に追加・削除します。
+    </p>
+    <dl class="dl-horizontal">
+      <dt>Version</dt><dd>4.8.0</dd>
+      <dt>Update</dt><dd>2016-04-06</dd>
+      <dt>Author</dt><dd>Yuusaku Miyazaki</dd>
+      <dt>License</dt><dd><a href="//opensource.org/licenses/mit-license.php">MIT License</a></dd>
+    </dl>
+    <a href="//github.com/sutara79/jquery.add-input-area" class="btn btn-primary" role="button">GitHub »</a>
+  </div>
+</header>
+<div class="container">
+  <div id="contents" class="row">
+    <nav id="index">
+      <div id="language" class="btn-group">
+        <button id="lang_en" class="btn btn-default">English</button>
+        <button id="lang_ja" class="btn btn-default">Japanese</button>
       </div>
-    </header>
-    <div class="container">
-      <div id="contents" class="row">
-        <nav id="index">
-          <div id="language" class="btn-group">
-            <button id="lang_en" class="btn btn-default">English</button>
-            <button id="lang_ja" class="btn btn-default">Japanese</button>
-          </div>
-          <h3>
-            <span class="lang_en">Index</span>
-            <span class="lang_ja">目次</span>
+      <h3>
+        <span class="lang_en">Index</span>
+        <span class="lang_ja">目次</span>
+      </h3>
+      <div class="list-group">
+        <a class="list-group-item" href="#index_01">
+          <span class="lang_en">Basic</span>
+          <span class="lang_ja">基本</span>
+        </a>
+        <a class="list-group-item" href="#index_02">
+          <span class="lang_en">Options</span>
+          <span class="lang_ja">オプション</span>
+        </a>
+        <a class="list-group-item" href="#index_03">
+          <span class="lang_en">The ornament by CSS and images</span>
+          <span class="lang_ja">CSSや画像による装飾</span>
+        </a>
+        <a class="list-group-item" href="#index_04">
+          <span class="lang_en">The list which contains some input areas</span>
+          <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+        </a>
+        <a class="list-group-item" href="#index_05">
+          <span class="lang_en">Maximum number</span>
+          <span class="lang_ja">追加に上限を設ける</span>
+        </a>
+        <a class="list-group-item" href="#index_06">
+          <span class="lang_en">All Form elements</span>
+          <span class="lang_ja">全てのフォーム部品に対応</span>
+        </a>
+        <a class="list-group-item" href="#index_07">
+          <span class="lang_en">Do not format</span>
+          <span class="lang_ja">value値を初期化させない設定</span>
+        </a>
+        <a class="list-group-item" href="#index_08">
+          <span class="lang_en">Initialize correctly</span>
+          <span class="lang_ja">正しい初期化</span>
+        </a>
+        <a class="list-group-item" href="#index_09">
+          <span class="lang_en">Copy jQuery event handlers</span>
+          <span class="lang_ja">jQueryイベントハンドラの複製</span>
+        </a>
+        <a class="list-group-item" href="#index_10">
+          <span class="lang_en">The function which executes after adding</span>
+          <span class="lang_ja">追加後に実行される処理を設定する</span>
+        </a>
+        <a class="list-group-item" href="#index_11">
+          <span class="lang_en">Not to copy events</span>
+          <span class="lang_ja">イベントを複製しないオプション</span>
+        </a>
+      </div>
+    </nav>
+    <article>
+      <section id="index_01" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Basic</span>
+            <span class="lang_ja">基本</span>
           </h3>
-          <div class="list-group">
-            <a class="list-group-item" href="#index_01">
-              <span class="lang_en">Basic</span>
-              <span class="lang_ja">基本</span>
-            </a>
-            <a class="list-group-item" href="#index_02">
-              <span class="lang_en">Options</span>
-              <span class="lang_ja">オプション</span>
-            </a>
-            <a class="list-group-item" href="#index_03">
-              <span class="lang_en">The ornament by CSS and images</span>
-              <span class="lang_ja">CSSや画像による装飾</span>
-            </a>
-            <a class="list-group-item" href="#index_04">
-              <span class="lang_en">The list which contains some input areas</span>
-              <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
-            </a>
-            <a class="list-group-item" href="#index_05">
-              <span class="lang_en">Maximum number</span>
-              <span class="lang_ja">追加に上限を設ける</span>
-            </a>
-            <a class="list-group-item" href="#index_06">
-              <span class="lang_en">All Form elements</span>
-              <span class="lang_ja">全てのフォーム部品に対応</span>
-            </a>
-            <a class="list-group-item" href="#index_07">
-              <span class="lang_en">Do not format</span>
-              <span class="lang_ja">value値を初期化させない設定</span>
-            </a>
-            <a class="list-group-item" href="#index_08">
-              <span class="lang_en">Initialize correctly</span>
-              <span class="lang_ja">正しい初期化</span>
-            </a>
-            <a class="list-group-item" href="#index_09">
-              <span class="lang_en">Make a copy of event</span>
-              <span class="lang_ja">イベントのコピー</span>
-            </a>
-            <a class="list-group-item" href="#index_10">
-              <span class="lang_en">The function which executes after adding</span>
-              <span class="lang_ja">追加後に実行される処理を設定する</span>
-            </a>
-          </div>
-        </nav>
-        <article>
-          <section id="index_01" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Basic</span>
-                <span class="lang_ja">基本</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <form action="demo/result.php" method="POST">
-                <ol id="list1">
-                  <li class="list1_var">
-                    <input type="text" size="40" name="list1_0" id="list1_0">
-                    <button type="button" class="list1_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list1_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>HTML</h6>
+        </div>
+        <div class="panel-body">
+          <form action="demo/result.php" method="POST">
+            <ol id="list1">
+              <li class="list1_var">
+                <input type="text" size="40" name="list1_0" id="list1_0">
+                <button type="button" class="list1_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list1_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+            <h6>HTML</h6>
 <pre>
 &lt;ol id="<span class="green">list1</span>"&gt;
   &lt;li class="<span class="green">list1</span><span class="red">_var</span>"&gt;
@@ -109,41 +118,41 @@
 &lt;/ol&gt;
 &lt;input type="button" value="Add" class="<span class="green">list1</span><span class="red">_add</span>"&gt;
 </pre>
-            <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('<span class="green">#list1</span>').addInputArea();
 </pre>
-              <p class="lang_en">
-                You can save time and effort by following naming convention.
-              </p>
-              <p class="lang_ja">
-                増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
-                命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。
-              </p>
-              <a class="btn btn-success" href="demo/simple/" target="_blank">Simple demo »</a>
-             </div>
-          </section>
+          <p class="lang_en">
+            You can save time and effort by following naming convention.
+          </p>
+          <p class="lang_ja">
+            増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
+            命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。
+          </p>
+          <a class="btn btn-success" href="demo/simple/" target="_blank">Simple demo »</a>
+         </div>
+      </section>
 
-          <section id="index_02" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Options</span>
-                <span class="lang_ja">オプション</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <form action="demo/result.php" method="POST">
-                <ol id="list2">
-                  <li class="var_area02">
-                    <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
-                    <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
-                    <button type="button" class="del_button02">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="add_button02"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>HTML</h6>
+      <section id="index_02" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Options</span>
+            <span class="lang_ja">オプション</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <form action="demo/result.php" method="POST">
+            <ol id="list2">
+              <li class="var_area02">
+                <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
+                <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+                <button type="button" class="del_button02">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="add_button02"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>HTML</h6>
 <pre>
 &lt;ol id="list2"&gt;
   &lt;li class="<span class="green">var_area02</span>"&gt;
@@ -162,7 +171,7 @@ $('<span class="green">#list1</span>').addInputArea();
 &lt;/ol&gt;
 &lt;input type="button" value="Add" class="<span class="green">add_button02</span>"&gt;&lt;br&gt;
 </pre>
-              <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('#list2').addInputArea({
   area_var: '<span class="green">.var_area02</span>',
@@ -170,35 +179,35 @@ $('#list2').addInputArea({
   btn_del: '<span class="green">.del_button02</span>'
 });
 </pre>
-              <p class="lang_en">
-                You can set options for plug-in.<br>
-                Please look at "README" for details.
-              </p>
-              <p class="lang_ja">
-                プラグインにはオプションを渡すことができます。
-              </p>
-            </div>
-          </section>
+          <p class="lang_en">
+            You can set options for plug-in.<br>
+            Please look at "README" for details.
+          </p>
+          <p class="lang_ja">
+            プラグインにはオプションを渡すことができます。
+          </p>
+        </div>
+      </section>
 
-          <section id="index_03" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">The ornament by CSS and images</span>
-                <span class="lang_ja">CSSや画像による装飾</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <form action="demo/result.php" method="POST">
-                <ul id="list3">
-                  <li class="list3_var">
-                    <input type="text" size="40" name="list3_0">
-                    <img class="list3_del" src="demo/img_del.png">
-                  </li>
-                </ul>
-                <a href="javascript:void(0)" class="list3_add btn btn-danger">Add</a><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>HTML</h6>
+      <section id="index_03" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">The ornament by CSS and images</span>
+            <span class="lang_ja">CSSや画像による装飾</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <form action="demo/result.php" method="POST">
+            <ul id="list3">
+              <li class="list3_var">
+                <input type="text" size="40" name="list3_0">
+                <img class="list3_del" src="demo/img_del.png">
+              </li>
+            </ul>
+            <a href="javascript:void(0)" class="list3_add btn btn-danger">Add</a><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>HTML</h6>
 <pre>
 &lt;ul id="list3"&gt;
   &lt;li class="list3_var"&gt;
@@ -209,43 +218,43 @@ $('#list2').addInputArea({
 &lt;!-- <span class="red">Twitter Bootstrap</span> --&gt;
 <span class="green">&lt;a href="javascript:void(0)" class="list3_add <span class="red">btn btn-danger</span>"&gt;Add&lt;/a&gt;</span>&lt;br&gt;
 </pre>
-              <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('#list3').addInputArea();
 </pre>
-            <p class="lang_en">
-              You can decorate add-button and delete-button with CSS or images.
-            </p>
-            <p class="lang_ja">
-              追加ボタン、削除ボタンはCSSや画像で装飾できます。
-            </p>
-          </section>
+        <p class="lang_en">
+          You can decorate add-button and delete-button with CSS or images.
+        </p>
+        <p class="lang_ja">
+          追加ボタン、削除ボタンはCSSや画像で装飾できます。
+        </p>
+      </section>
 
-          <section id="index_04" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">The list which contains some input areas</span>
-                <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <form action="demo/result.php" method="POST">
-                <table id="list4" class="table">
-                  <thead>
-                    <tr><th>Name</th><th>Mail</th><th></th></tr>
-                  </thead>
-                  <tbody>
-                    <tr class="list4_var">
-                      <td><input type="text" name="list4_name_0"></td>
-                      <td><input type="text" name="list4_mail_0"></td>
-                      <td class="del_area04"><button type="button" class="list4_del">Delete</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <input type="button" value="Add" class="list4_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>HTML</h6>
+      <section id="index_04" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">The list which contains some input areas</span>
+            <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <form action="demo/result.php" method="POST">
+            <table id="list4" class="table">
+              <thead>
+                <tr><th>Name</th><th>Mail</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr class="list4_var">
+                  <td><input type="text" name="list4_name_0"></td>
+                  <td><input type="text" name="list4_mail_0"></td>
+                  <td class="del_area04"><button type="button" class="list4_del">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="button" value="Add" class="list4_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>HTML</h6>
 <pre>
 &lt;table id="list4" class="table"&gt;
   &lt;thead&gt;
@@ -260,157 +269,157 @@ $('#list3').addInputArea();
   &lt;/tbody&gt;
 &lt;/table&gt;
 </pre>
-              <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('#list4').addInputArea({
   area_del: '<span class="green">.del_area04</span>'
 });
 </pre>
-            <p class="lang_en">
-              The list can be fluctuated even if how many input-area were contained.
-            </p>
-            <p class="lang_ja">
-              複数の入力欄を扱う場合も、特にオプションを必要としません。
-            </p>
-          </section>
+        <p class="lang_en">
+          The list can be fluctuated even if how many input-area were contained.
+        </p>
+        <p class="lang_ja">
+          複数の入力欄を扱う場合も、特にオプションを必要としません。
+        </p>
+      </section>
 
-          <section id="index_05" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Maximum number</span>
-                <span class="lang_ja">追加に上限を設ける</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                You can set the maximum number of textbox.
-              </p>
-              <p class="lang_ja">
-                追加できるテキストボックスの数に上限を設けることができます。
-              </p>
-              <form action="demo/result.php" method="POST">
-                <ol id="list5">
-                  <li class="list5_var">
-                    <input type="text" size="40" name="list5_0">
-                    <button type="button" class="list5_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list5_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>JavaScript</h6>
+      <section id="index_05" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Maximum number</span>
+            <span class="lang_ja">追加に上限を設ける</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            You can set the maximum number of textbox.
+          </p>
+          <p class="lang_ja">
+            追加できるテキストボックスの数に上限を設けることができます。
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list5">
+              <li class="list5_var">
+                <input type="text" size="40" name="list5_0">
+                <button type="button" class="list5_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list5_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>JavaScript</h6>
 <pre>
 $('#list5').addInputArea({
   <span class="green">maximum</span> : <span class="red">4</span>
 });
 </pre>
-            </div>
-          </section>
+        </div>
+      </section>
 
-          <section id="index_06" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">All Form elements</span>
-                <span class="lang_ja">全てのフォーム部品に対応</span>
-              </h3>
+      <section id="index_06" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">All Form elements</span>
+            <span class="lang_ja">全てのフォーム部品に対応</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            You can add or delete all of Form elements.
+          </p>
+          <p class="lang_ja">
+            テキストボックスだけでなく、すべてのフォーム部品を増減できるようになりました。
+          </p>
+          <div id="list6">
+            <div class="list6_var">
+              <table class="table table-bordered">
+                <thead>
+                  <tr><th>type</th><th>element</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>no-type</td><td><input name="list6_5_0"></td></tr>
+                  <tr><td>text</td><td><input type="text" name="list6_0_0"></td></tr>
+                  <tr><td>textarea</td><td><textarea name="list6_1_0"></textarea></td></tr>
+                  <tr><td>radio</td><td>
+                    <input type="radio" name="list6_2_0" value="aaa">
+                    <input type="radio" name="list6_2_0" value="bbb">
+                    <input type="radio" name="list6_2_0" value="ccc">
+                  </td></tr>
+                  <tr><td>checkbox</td><td>
+                    <input type="checkbox" name="list6_3_a_0" value="aaa">
+                    <input type="checkbox" name="list6_3_b_0" value="bbb">
+                    <input type="checkbox" name="list6_3_c_0" value="ccc">
+                  </td></tr>
+                  <tr><td>select</td><td>
+                    <select name="list6_4_0">
+                      <option value="a">aaa</option>
+                      <option value="b">bbb</option>
+                      <option value="c">ccc</option>
+                    </select>
+                  </td></tr>
+                  <tr><td>hidden</td><td><input type="hidden" name="list6_6_0" value="aaaaa"></td></tr>
+                  <tr><td>search</td><td><input type="search" name="list6_7_0"></td></tr>
+                  <tr><td>tel</td><td><input type="tel" name="list6_8_0"></td></tr>
+                  <tr><td>url</td><td><input type="url" name="list6_9_0"></td></tr>
+                  <tr><td>email</td><td><input type="email" name="list6_10_0"></td></tr>
+                  <tr><td>password</td><td><input type="password" name="list6_11_0"></td></tr>
+                  <tr><td>datetime</td><td><input type="datetime" name="list6_12_0"></td></tr>
+                  <tr><td>date</td><td><input type="date" name="list6_13_0"></td></tr>
+                  <tr><td>month</td><td><input type="month" name="list6_14_0"></td></tr>
+                  <tr><td>week</td><td><input type="week" name="list6_15_0"></td></tr>
+                  <tr><td>time</td><td><input type="time" name="list6_16_0"></td></tr>
+                  <tr><td>datetime-local</td><td><input type="datetime-local" name="list6_17_0"></td></tr>
+                  <tr><td>number</td><td><input type="number" name="list6_18_0"></td></tr>
+                  <tr><td>range</td><td><input type="range" name="list6_19_0" min="0" max="100"></td></tr>
+                  <tr><td>color</td><td><input type="color" name="list6_20_0"></td></tr>
+                  <tr><td>file</td><td><input type="file" name="list6_21_0"></td></tr>
+                  <tr><td>submit</td><td><input type="submit" name="list6_22_0" value="submit"></td></tr>
+                  <tr><td>image</td><td><input type="image" name="list6_23_0"></td></tr>
+                  <tr><td>reset</td><td><input type="reset" name="list6_24_0" value="reset"></td></tr>
+                  <tr><td>button</td><td><input type="button" name="list6_25_0" value="button"></td></tr>
+                  <tr><td>button_tag</td><td><button type="button" name="list6_26_0">button_tag</button></td></tr>
+              </table>
+              <button type="button" class="list6_del">Delete</button>
             </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                You can add or delete all of Form elements.
-              </p>
-              <p class="lang_ja">
-                テキストボックスだけでなく、すべてのフォーム部品を増減できるようになりました。
-              </p>
-              <div id="list6">
-                <div class="list6_var">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr><th>type</th><th>element</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>no-type</td><td><input name="list6_5_0"></td></tr>
-                      <tr><td>text</td><td><input type="text" name="list6_0_0"></td></tr>
-                      <tr><td>textarea</td><td><textarea name="list6_1_0"></textarea></td></tr>
-                      <tr><td>radio</td><td>
-                        <input type="radio" name="list6_2_0" value="aaa">
-                        <input type="radio" name="list6_2_0" value="bbb">
-                        <input type="radio" name="list6_2_0" value="ccc">
-                      </td></tr>
-                      <tr><td>checkbox</td><td>
-                        <input type="checkbox" name="list6_3_a_0" value="aaa">
-                        <input type="checkbox" name="list6_3_b_0" value="bbb">
-                        <input type="checkbox" name="list6_3_c_0" value="ccc">
-                      </td></tr>
-                      <tr><td>select</td><td>
-                        <select name="list6_4_0">
-                          <option value="a">aaa</option>
-                          <option value="b">bbb</option>
-                          <option value="c">ccc</option>
-                        </select>
-                      </td></tr>
-                      <tr><td>hidden</td><td><input type="hidden" name="list6_6_0" value="aaaaa"></td></tr>
-                      <tr><td>search</td><td><input type="search" name="list6_7_0"></td></tr>
-                      <tr><td>tel</td><td><input type="tel" name="list6_8_0"></td></tr>
-                      <tr><td>url</td><td><input type="url" name="list6_9_0"></td></tr>
-                      <tr><td>email</td><td><input type="email" name="list6_10_0"></td></tr>
-                      <tr><td>password</td><td><input type="password" name="list6_11_0"></td></tr>
-                      <tr><td>datetime</td><td><input type="datetime" name="list6_12_0"></td></tr>
-                      <tr><td>date</td><td><input type="date" name="list6_13_0"></td></tr>
-                      <tr><td>month</td><td><input type="month" name="list6_14_0"></td></tr>
-                      <tr><td>week</td><td><input type="week" name="list6_15_0"></td></tr>
-                      <tr><td>time</td><td><input type="time" name="list6_16_0"></td></tr>
-                      <tr><td>datetime-local</td><td><input type="datetime-local" name="list6_17_0"></td></tr>
-                      <tr><td>number</td><td><input type="number" name="list6_18_0"></td></tr>
-                      <tr><td>range</td><td><input type="range" name="list6_19_0" min="0" max="100"></td></tr>
-                      <tr><td>color</td><td><input type="color" name="list6_20_0"></td></tr>
-                      <tr><td>file</td><td><input type="file" name="list6_21_0"></td></tr>
-                      <tr><td>submit</td><td><input type="submit" name="list6_22_0" value="submit"></td></tr>
-                      <tr><td>image</td><td><input type="image" name="list6_23_0"></td></tr>
-                      <tr><td>reset</td><td><input type="reset" name="list6_24_0" value="reset"></td></tr>
-                      <tr><td>button</td><td><input type="button" name="list6_25_0" value="button"></td></tr>
-                      <tr><td>button_tag</td><td><button type="button" name="list6_26_0">button_tag</button></td></tr>
-                  </table>
-                  <button type="button" class="list6_del">Delete</button>
-                </div>
-              </div>
-              <input type="button" value="Add" class="list6_add">
-            </div>
-          </section>
+          </div>
+          <input type="button" value="Add" class="list6_add">
+        </div>
+      </section>
 
-          <section id="index_07" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Do not format</span>
-                <span class="lang_ja">value値を初期化させない設定</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                You can prevent initialization.<br>
-                Please click "Add" button.
-              </p>
-              <p class="lang_ja">
-                入力欄を増やす際、初期化を阻止することができます。
-              </p>
-              <form action="demo/result.php" method="POST">
-                <ol id="list7">
-                  <li class="list7_var">
-                    <input type="text" size="40" name="list7_a_0" value="will be initialized."><br>
-                    <input type="text" size="40" name="list7_b_0" empty_val="false" value="will NOT be initialized."><br>
-                    <button type="button" class="list7_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list7_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <p class="lang_en">
-                However, the following elements and types will certainly be initialized.
-              </p>
-              <p class="lang_ja">
-                ただし、以下の要素、タイプは、必ず初期化されてしまいます。
-              </p>
-              <p class="red bold">textarea, select, file, color</p>
-              <h6>HTML</h6>
+      <section id="index_07" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Do not format</span>
+            <span class="lang_ja">value値を初期化させない設定</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            You can prevent initialization.<br>
+            Please click "Add" button.
+          </p>
+          <p class="lang_ja">
+            入力欄を増やす際、初期化を阻止することができます。
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list7">
+              <li class="list7_var">
+                <input type="text" size="40" name="list7_a_0" value="will be initialized."><br>
+                <input type="text" size="40" name="list7_b_0" empty_val="false" value="will NOT be initialized."><br>
+                <button type="button" class="list7_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list7_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <p class="lang_en">
+            However, the following elements and types will certainly be initialized.
+          </p>
+          <p class="lang_ja">
+            ただし、以下の要素、タイプは、必ず初期化されてしまいます。
+          </p>
+          <p class="red bold">textarea, select, file, color</p>
+          <h6>HTML</h6>
 <pre>
 &lt;li class="list7_var"&gt;
   &lt;input type="text" size="40" name="list7_a_0"
@@ -420,42 +429,42 @@ $('#list5').addInputArea({
   &lt;button class="list7_del"&gt;Delete&lt;/button&gt;
 &lt;/li&gt;
 </pre>
-            <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('#list7').addInputArea();
 </pre>
-            </div>
-          </section>
+        </div>
+      </section>
 
-          <section id="index_08" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Initialize correctly</span>
-                <span class="lang_ja">正しい初期化</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                (v4.2 or later) The added item can be correctly initialized.
-              </p>
-              <p class="lang_ja">
-                (v4.2以降) 追加された要素の初期化が、より正確に行われるようになりました。
-              </p>
-              <form action="demo/result.php" method="POST">
-                <ol id="list8">
-                  <li class="list8_var">
-                    <select name="list8_mask_0">
-                      <option value="able">able</option>
-                      <option value="disable">disable</option>
-                    </select>
-                    <input type="text" size="30" name="list8_text_0">
-                    <button type="button" class="list8_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list8_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>HTML</h6>
+      <section id="index_08" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Initialize correctly</span>
+            <span class="lang_ja">正しい初期化</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            (v4.2 or later) The added item can be correctly initialized.
+          </p>
+          <p class="lang_ja">
+            (v4.2以降) 追加された要素の初期化が、より正確に行われるようになりました。
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list8">
+              <li class="list8_var">
+                <select name="list8_mask_0">
+                  <option value="able">able</option>
+                  <option value="disable">disable</option>
+                </select>
+                <input type="text" size="30" name="list8_text_0">
+                <button type="button" class="list8_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list8_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>HTML</h6>
 <pre>
 &lt;li class="list8_var"&gt;
   &lt;select name="list8_mask_0"&gt;
@@ -466,7 +475,7 @@ $('#list7').addInputArea();
   &lt;button class="list8_del"&gt;Delete&lt;/button&gt;
 &lt;/li&gt;
 </pre>
-              <h6>JavaScript</h6>
+          <h6>JavaScript</h6>
 <pre>
 $('#list8').addInputArea();
 $('#list8').on('change', 'select', function() {
@@ -478,40 +487,40 @@ $('#list8').on('change', 'select', function() {
   }
 });
 </pre>
-            </div>
-          </section>
+        </div>
+      </section>
 
-          <section id="index_09" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">Make a copy of event</span>
-                <span class="lang_ja">イベントのコピー</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                (v4.3 or later)<br>
-                The event at each Form elements can be correctly copied.<br>
-                But, you should set events before applying plugin.
-              </p>
-              <p class="lang_ja">
-                (v4.3 以降)<br>
-                フォーム部品に対して設定したイベントもコピーされます。<br>
-                ただし、クローン元へのイベントは、プラグイン適用前に<br>
-                設定しておかなければなりません。
-              </p>
-              <form action="demo/result.php" method="POST">
-                <ol id="list9">
-                  <li class="list9_var">
-                    <input type="text" size="30" name="list9_0" id="list9_0">
-                    <span></span>
-                    <button type="button" class="list9_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list9_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>JavaScript</h6>
+      <section id="index_09" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Copy jQuery event handlers</span>
+            <span class="lang_ja">jQueryイベントハンドラの複製</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            (v4.3 or later)<br>
+            jQuery event handlers at each Form elements can be correctly copied.<br>
+            But, you should set events before applying plugin.
+          </p>
+          <p class="lang_ja">
+            (v4.3 以降)<br>
+            フォーム部品に対して設定したjQueryのイベントハンドラも複製されます。<br>
+            ただし、クローン元へのイベントは、プラグイン適用前に<br>
+            設定しておかなければなりません。
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list9">
+              <li class="list9_var">
+                <input type="text" size="30" name="list9_0" id="list9_0">
+                <span></span>
+                <button type="button" class="list9_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list9_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>JavaScript</h6>
 <pre>
 <span class="red">// Set events before applying plugin.</span>
 $('#list9_0')
@@ -519,39 +528,39 @@ $('#list9_0')
   .blur(function() { $(this).next().text('Blur!') });
 $('#list9').addInputArea();
 </pre>
-            </div>
-          </section>
+        </div>
+      </section>
 
-          <section id="index_10" class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <span class="lang_en">The function which executes after adding</span>
-                <span class="lang_ja">追加後に実行される処理を設定する</span>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <p class="lang_en">
-                (v4.6 or later)<br>
-                The event at each Form elements can be correctly copied.<br>
-                But it is uncertain in the case of the event which made in other jQuery plugin.<br>
-                You can reset other jQuery plugin to added item by this option.
-              </p>
-              <p class="lang_ja">
-                (v4.6 以降)<br>
-                初期状態でも通常イベントならばクローン先にもコピーされますが、他のjQueryプラグインなどを利用した複雑なイベントはコピーされないことがあります。<br>
-                その場合はこのオプションの中でjQueryプラグインを適用し直してください。<br>
-              </p>
-              <form action="demo/result.php" method="POST">
-                <ol id="list10">
-                  <li class="list10_var">
-                    <input type="text" size="30" name="list10_0" id="list10_0">
-                    <button type="button" class="list10_del">Delete</button>
-                  </li>
-                </ol>
-                <input type="button" value="Add" class="list10_add"><br>
-                <input type="submit" value="Send" name="submit">
-              </form>
-              <h6>JavaScript</h6>
+      <section id="index_10" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">The function which executes after adding</span>
+            <span class="lang_ja">追加後に実行される処理を設定する</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            (v4.6 or later)<br>
+            The event at each Form elements can be correctly copied.<br>
+            But it is uncertain in the case of the event which made in other jQuery plugin.<br>
+            You can reset other jQuery plugin to added item by this option.
+          </p>
+          <p class="lang_ja">
+            (v4.6 以降)<br>
+            初期状態でも通常イベントならばクローン先にもコピーされますが、他のjQueryプラグインなどを利用した複雑なイベントはコピーされないことがあります。<br>
+            その場合はこのオプションの中でjQueryプラグインを適用し直してください。<br>
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list10">
+              <li class="list10_var">
+                <input type="text" size="30" name="list10_0" id="list10_0">
+                <button type="button" class="list10_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list10_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>JavaScript</h6>
 <pre>
 $('#list10').addInputArea({
   <span class="green">after_add</span>: function () {
@@ -559,24 +568,60 @@ $('#list10').addInputArea({
   }
 });
 </pre>
-            </div>
-          </section>
-        </article>
-      </div><!-- .row -->
-    </div><!-- .container -->
-    <footer>
-      <div class="container">
-        powered by <a href="//www.usamimi.info/new/index.html">usamimi.info</a>, <a href="//getbootstrap.com/">Bootstrap</a>
-      </div>
-    </footer>
-    <div id="jump_to_top">
-      <a href="#" class="btn btn-default">Top</a>
-    </div>
+        </div>
+      </section>
 
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
-    <script src="jquery.add-input-area.js"></script><!-- required -->
-    <script src="//cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
-    <script src="demo/sample.js"></script>
-  </body>
+      <section id="index_11" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="lang_en">Not to copy events</span>
+            <span class="lang_ja">イベントを複製しないオプション</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p class="lang_en">
+            (v4.8 or later)<br>
+            You can set not to copy events.<br>
+            For example, to copy correctly an element which applied <a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">"tooltip()" of Bootstrap</a>, you should use this and "after_add" options.
+          </p>
+          <p class="lang_ja">
+            (v4.8 以降)<br>
+            オプションでイベントを複製させないようにできます。<br>
+            たとえば、<a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">Bootstrapの"tooltip()"</a>を適用した要素を正常に複製するには、このオプションと"after_add"オプションを組み合わせて使います。
+          </p>
+          <form action="demo/result.php" method="POST">
+            <ol id="list11">
+              <li class="list11_var">
+                <input type="text" id="list11_0" name="list11_0" class="test-tooltip" data-toggle="tooltip" title="Some tooltip text!" placeholder="Hover over me">
+                <button class="list11_del">Delete</button>
+              </li>
+            </ol>
+            <input type="button" value="Add" class="list11_add"><br>
+            <input type="submit" value="Send" name="submit">
+          </form>
+          <h6>JavaScript</h6>
+<pre>
+<span class="red">// Set events before applying plugin.</span>
+$('#list11 .test-tooltip')<a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">.tooltip()</a>;
+$('#list11').addInputArea({
+  <span class="green">clone_event</span>: <span class="red">false</span>,
+  after_add: function () {
+    $('#list11 .test-tooltip').tooltip();
+  }
+});
+</pre>
+        </div>
+      </section>
+    </article>
+  </div><!-- .row -->
+</div><!-- .container -->
+<footer>
+  <div class="container">
+    powered by <a href="//www.usamimi.info/new/index.html">usamimi.info</a>, <a href="//getbootstrap.com/">Bootstrap</a>
+  </div>
+</footer>
+<div id="jump_to_top">
+  <a href="#" class="btn btn-default">Top</a>
+</div>
+</body>
 </html>

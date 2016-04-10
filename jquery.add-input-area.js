@@ -1,6 +1,6 @@
 /**
  * @file jQuery Plugin: jquery.add-input-area
- * @version 4.7.2
+ * @version 4.8.0
  * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
  * @license MIT License
  */
@@ -17,6 +17,7 @@
  * @param {string} [option.btn_del] - 削除ボタンに共通するCSSクラス名
  * @param {string} [option.btn_add] - 追加ボタンに共通するCSSクラス名
  * @param {Function} [option.after_add] - 追加後に実行する関数
+ * @param {boolean} [option.clone_event] - 要素とともにイベントも複製するかどうか
  * @param {number} [option.maximum] - 最大増加数
  */
 $.fn.addInputArea = function(option) {
@@ -55,13 +56,14 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
   _setOption: function() {
     var id = $(this.elem).attr('id');
     this.option =  $.extend({
-      attr_name : (id) ? id  + '_%d'       : 'aia_%d',
-      area_var  : (id) ? '.' + id + '_var' : '.aia_var',
-      area_del  : '',
-      btn_del   : (id) ? '.' + id + '_del' : '.aia_del',
-      btn_add   : (id) ? '.' + id + '_add' : '.aia_add',
-      after_add : null,
-      maximum   : 0
+      attr_name: (id) ? id  + '_%d' : 'aia_%d',
+      area_var: (id) ? '.' + id + '_var' : '.aia_var',
+      area_del: '',
+      btn_del: (id) ? '.' + id + '_del' : '.aia_del',
+      btn_add: (id) ? '.' + id + '_add' : '.aia_add',
+      after_add: null,
+      clone_event: true,
+      maximum: 0
     }, this.option);
     if (!this.option.area_del) this.option.area_del = this.option.btn_del;
   },
@@ -185,7 +187,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
    * @desc クローン元を保管する
    */
   _saveOriginal: function() {
-    this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(true);
+    this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(this.option.clone_event);
   },
 
   /**
