@@ -2,10 +2,10 @@
 jQuery plugin for adding or deleting Form elements.
 
 ## Demo
-[http://www.usamimi.info/~sutara/sample/add-input-area/](http://www.usamimi.info/~sutara/sample/add-input-area/)
+[//www.usamimi.info/~sutara/sample/add-input-area/](//www.usamimi.info/~sutara/sample/add-input-area/)
 
 ## CDN
-[http://www.jsdelivr.com/projects/jquery.add-input-area](http://www.jsdelivr.com/projects/jquery.add-input-area)
+[//www.jsdelivr.com/projects/jquery.add-input-area](//www.jsdelivr.com/projects/jquery.add-input-area)
 
 ## Usage
 
@@ -81,8 +81,8 @@ http://runnable.com/U7vCAlCwvQZzFZBO/
 Yuusaku Miyazaki (宮崎 雄策)
 
 - Mail: toumin.m7@gmail.com
-- [Blog](http://d.hatena.ne.jp/sutara_lumpur/20120509/1336556562)
+- [Blog](//d.hatena.ne.jp/sutara_lumpur/20120509/1336556562)
 
 
 ## License
-[MIT License](http://www.opensource.org/licenses/mit-license.php)
+[MIT License](//www.opensource.org/licenses/mit-license.php)
