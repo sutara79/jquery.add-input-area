@@ -1,0 +1,14 @@
+{
+  "name": "add-input-area",
+  "description": "jQuery plugin for adding or deleting Form elements.",
+  "main": "jquery.add-input-area.js",
+  "authors": [
+    "Yuusaku Miyazaki"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sutara79/jquery.add-input-area",
+  "ignore": [
+    "index.html",
+    "demo/"
+  ],
+}
