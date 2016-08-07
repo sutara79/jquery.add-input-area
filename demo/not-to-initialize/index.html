@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Not to initialize</title>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="../../jquery.add-input-area.min.js"></script>
+<script src="../form-serialize.js"></script>
+<script>
+$(function () {
+  $('#list').addInputArea();
+});
+</script>
+</head>
+<body>
+<h1>Not to initialize</h1>
+<form class="form-serialize">
+  <ol id="list">
+    <li class="list_var">
+      <input type="text" size="40" name="list_a_0" value="will be initialized."><br>
+      <input type="text" size="40" name="list_b_0" empty_val="false" value="will NOT be initialized."><br>
+      <button type="button" class="list_del">Delete</button>
+    </li>
+  </ol>
+  <input type="button" value="Add" class="list_add"><br>
+  <input type="submit" value="Send" name="submit">
+</form>
+</body>
+</html>

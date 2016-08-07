@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Initialize correctly</title>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="../../jquery.add-input-area.min.js"></script>
+<script src="../form-serialize.js"></script>
+<script>
+$(function () {
+  $('#list').addInputArea();
+
+  // toggle disabled attribute
+  $('#list select').on('change', function() {
+    $(this).parents('li').find('[type="text"]').prop('disabled', $(this).val() == 'disable');
+  });
+});
+</script>
+</head>
+<body>
+<h1>Initialize correctly</h1>
+<form class="form-serialize">
+  <ol id="list">
+    <li class="list_var">
+      <select name="list_mask_0">
+        <option value="able">enable</option>
+        <option value="disable">disable</option>
+      </select>
+      <input type="text" size="30" name="list_text_0">
+      <button type="button" class="list_del">Delete</button>
+    </li>
+  </ol>
+  <input type="button" value="Add" class="list_add"><br>
+  <input type="submit" value="Send" name="submit">
+</form>
+</body>
+</html>

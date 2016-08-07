@@ -69,7 +69,7 @@
           <span class="lang_ja">全てのフォーム部品に対応</span>
         </a>
         <a class="list-group-item" href="#index_07">
-          <span class="lang_en">Do not format</span>
+          <span class="lang_en">Not to initialize</span>
           <span class="lang_ja">value値を初期化させない設定</span>
         </a>
         <a class="list-group-item" href="#index_08">
@@ -91,6 +91,7 @@
       </div>
     </nav>
     <article>
+      <!-- ################################################################ -->
       <section id="index_01" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -131,9 +132,9 @@ $('<span class="green">#list1</span>').addInputArea();
             命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。
           </p>
           <a class="btn btn-success" href="demo/simple/" target="_blank">Simple demo »</a>
-         </div>
+        </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_02" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -189,7 +190,7 @@ $('#list2').addInputArea({
           </p>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_03" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -230,7 +231,7 @@ $('#list3').addInputArea();
           追加ボタン、削除ボタンはCSSや画像で装飾できます。
         </p>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_04" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -283,7 +284,7 @@ $('#list4').addInputArea({
           複数の入力欄を扱う場合も、特にオプションを必要としません。
         </p>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_05" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -316,7 +317,7 @@ $('#list5').addInputArea({
 </pre>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_06" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -386,11 +387,11 @@ $('#list5').addInputArea({
           <input type="button" value="Add" class="list6_add">
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_07" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <span class="lang_en">Do not format</span>
+            <span class="lang_en">Not to initialize</span>
             <span class="lang_ja">value値を初期化させない設定</span>
           </h3>
         </div>
@@ -413,13 +414,6 @@ $('#list5').addInputArea({
             <input type="button" value="Add" class="list7_add"><br>
             <input type="submit" value="Send" name="submit">
           </form>
-          <p class="lang_en">
-            However, the following elements and types will certainly be initialized.
-          </p>
-          <p class="lang_ja">
-            ただし、以下の要素、タイプは、必ず初期化されてしまいます。
-          </p>
-          <p class="red bold">textarea, select, file, color</p>
           <h6>HTML</h6>
 <pre>
 &lt;li class="list7_var"&gt;
@@ -434,9 +428,10 @@ $('#list5').addInputArea({
 <pre>
 $('#list7').addInputArea();
 </pre>
+          <a class="btn btn-success" href="demo/not-to-initialize/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_08" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -455,7 +450,7 @@ $('#list7').addInputArea();
             <ol id="list8">
               <li class="list8_var">
                 <select name="list8_mask_0">
-                  <option value="able">able</option>
+                  <option value="enable">able</option>
                   <option value="disable">disable</option>
                 </select>
                 <input type="text" size="30" name="list8_text_0">
@@ -469,7 +464,7 @@ $('#list7').addInputArea();
 <pre>
 &lt;li class="list8_var"&gt;
   &lt;select name="list8_mask_0"&gt;
-    &lt;option value="able"&gt;able&lt;/option&gt;
+    &lt;option value="enable"&gt;able&lt;/option&gt;
     &lt;option value="disable"&gt;disable&lt;/option&gt;
   &lt;/select&gt;
   &lt;input type="text" size="30" name="list8_text_0"&gt;
@@ -479,18 +474,16 @@ $('#list7').addInputArea();
           <h6>JavaScript</h6>
 <pre>
 $('#list8').addInputArea();
-$('#list8').on('change', 'select', function() {
-  var input = $(this).parents('li').find('[type="text"]');
-  if ($(this).val() == 'disable') {
-    $(input).attr('disabled', 'disabled');
-  } else {
-    else $(input).removeAttr('disabled');
-  }
+
+// toggle disabled attribute
+$('#list8 select').on('change', function() {
+  $(this).parents('li').find('[type="text"]').prop('disabled', $(this).val() == 'disable');
 });
 </pre>
+          <a class="btn btn-success" href="demo/initialize-correctly/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_09" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -529,9 +522,10 @@ $('#list9_0')
   .blur(function() { $(this).next().text('Blur!') });
 $('#list9').addInputArea();
 </pre>
+          <a class="btn btn-success" href="demo/copy-jquery-event-handlers/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_10" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -569,9 +563,10 @@ $('#list10').addInputArea({
   }
 });
 </pre>
+          <a class="btn btn-success" href="demo/after-add/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-
+      <!-- ################################################################ -->
       <section id="index_11" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -611,6 +606,7 @@ $('#list11').addInputArea({
   }
 });
 </pre>
+          <a class="btn btn-success" href="demo/not-to-copy-events/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
     </article>
