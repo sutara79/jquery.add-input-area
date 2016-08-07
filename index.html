@@ -11,6 +11,7 @@
 <script src="jquery.add-input-area.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
 <script src="demo/sample.js"></script>
+<script src="demo/form-serialize.js"></script>
 </head>
 <body>
 <header class="jumbotron">
@@ -100,7 +101,7 @@
           </h3>
         </div>
         <div class="panel-body">
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list1">
               <li class="list1_var">
                 <input type="text" size="40" name="list1_0" id="list1_0">
@@ -143,7 +144,7 @@ $('<span class="green">#list1</span>').addInputArea();
           </h3>
         </div>
         <div class="panel-body">
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list2">
               <li class="var_area02">
                 <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
@@ -200,7 +201,7 @@ $('#list2').addInputArea({
           </h3>
         </div>
         <div class="panel-body">
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ul id="list3">
               <li class="list3_var">
                 <input type="text" size="40" name="list3_0">
@@ -242,7 +243,7 @@ $('#list3').addInputArea();
           </h3>
         </div>
         <div class="panel-body">
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <table id="list4" class="table">
               <thead>
                 <tr><th>Name</th><th>Mail</th><th></th></tr>
@@ -302,7 +303,7 @@ $('#list4').addInputArea({
           <p class="lang_ja">
             追加できるテキストボックスの数に上限を設けることができます。
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list5">
               <li class="list5_var">
                 <input type="text" size="40" name="list5_0">
@@ -407,7 +408,7 @@ $('#list5').addInputArea({
           <p class="lang_ja">
             入力欄を増やす際、初期化を阻止することができます。
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list7">
               <li class="list7_var">
                 <input type="text" size="40" name="list7_a_0" value="will be initialized."><br>
@@ -450,7 +451,7 @@ $('#list7').addInputArea();
           <p class="lang_ja">
             (v4.2以降) 追加された要素の初期化が、より正確に行われるようになりました。
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list8">
               <li class="list8_var">
                 <select name="list8_mask_0">
@@ -507,7 +508,7 @@ $('#list8 select').on('change', function() {
             ただし、クローン元へのイベントは、プラグイン適用前に<br>
             設定しておかなければなりません。
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list9">
               <li class="list9_var">
                 <input type="text" size="30" name="list9_0" id="list9_0">
@@ -549,7 +550,7 @@ $('#list9').addInputArea();
             初期状態でも通常イベントならばクローン先にもコピーされますが、他のjQueryプラグインなどを利用した複雑なイベントはコピーされないことがあります。<br>
             その場合はこのオプションの中でjQueryプラグインを適用し直してください。<br>
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list10">
               <li class="list10_var">
                 <input type="text" size="30" name="list10_0" id="list10_0">
@@ -589,7 +590,7 @@ $('#list10').addInputArea({
             オプションでイベントを複製させないようにできます。<br>
             たとえば、<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">Bootstrapの"tooltip()"</a>を適用した要素を正常に複製するには、このオプションと"after_add"オプションを組み合わせて使います。
           </p>
-          <form action="demo/result.php" method="POST">
+          <form class="form-serialize">
             <ol id="list11">
               <li class="list11_var">
                 <input type="text" id="list11_0" name="list11_0" class="test-tooltip" data-toggle="tooltip" title="Some tooltip text!" placeholder="Hover over me">
