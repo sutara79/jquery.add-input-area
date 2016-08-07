@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>jquery.add-input-area</title>
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//cdn.jsdelivr.net/jquery.add-input-area/4.8.0/jquery.add-input-area.min.js"></script>
+<title>Simple</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="../../jquery.add-input-area.min.js"></script>
+<script src="../form-serialize.js"></script>
 <script>
 $(function () {
-  $('#list1').addInputArea();
+  $('#list').addInputArea();
 });
 </script>
 </head>
 <body>
-<h1>Simple Demo</h1>
-<form action="result.php" method="post">
-  <ol id="list1">
-    <li class="list1_var">
-      <input type="text" size="40" name="list1_0" id="list1_0">
-      <button class="list1_del">Delete</button>
+<h1>Simple</h1>
+<form class="form-serialize">
+  <ol id="list">
+    <li class="list_var">
+      <input type="text" size="30" name="list_0" id="list_0">
+      <button type="button" class="list_del">Delete</button>
     </li>
   </ol>
-  <button type="button" class="list1_add">Add</button>
-  <p><button type="submit" name="submit">Submit</button></p>
+  <input type="button" value="Add" class="list_add"><br>
+  <input type="submit" value="Send" name="submit">
 </form>
 </body>
 </html>

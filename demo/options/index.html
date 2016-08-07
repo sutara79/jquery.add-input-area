@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>After add</title>
+<title>Options</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="../../jquery.add-input-area.min.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
 $(function () {
   $('#list').addInputArea({
-    after_add: function () {
-      alert('Added!');
-    }
+    area_var: '.var_area02',
+    btn_add: '.add_button02',
+    btn_del: '.del_button02'
   });
 });
 </script>
 </head>
 <body>
-<h1>After add</h1>
+<h1>Options</h1>
 <form class="form-serialize">
   <ol id="list">
-    <li class="list_var">
-      <input type="text" size="30" name="list_0" id="list_0">
-      <button type="button" class="list_del">Delete</button>
+    <li class="var_area02">
+      <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
+      <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+      <button type="button" class="del_button02">Delete</button>
     </li>
   </ol>
-  <input type="button" value="Add" class="list_add"><br>
+  <input type="button" value="Add" class="add_button02"><br>
   <input type="submit" value="Send" name="submit">
 </form>
 </body>

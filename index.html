@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>jquery.add-input-area</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="demo/sample.css">
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="jquery.add-input-area.js"></script><!-- required -->
-<script src="//cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="jquery.add-input-area.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
 <script src="demo/sample.js"></script>
 </head>
 <body>
@@ -26,10 +26,10 @@
       <dt>Version</dt><dd>4.8.0</dd>
       <dt>Update</dt><dd>2016-04-06</dd>
       <dt>Author</dt><dd>Yuusaku Miyazaki</dd>
-      <dt>License</dt><dd><a target="_blank" href="//opensource.org/licenses/mit-license.php">MIT License</a></dd>
+      <dt>License</dt><dd><a target="_blank" href="https://opensource.org/licenses/mit-license.php">MIT License</a></dd>
     </dl>
-    <a target="_blank" class="btn btn-primary" role="button" href="//github.com/sutara79/jquery.add-input-area">GitHub »</a>
-    <a target="_blank" class="btn btn-primary" role="button" href="//www.jsdelivr.com/projects/jquery.add-input-area">CDN »</a>
+    <a target="_blank" class="btn btn-primary" role="button" href="https://github.com/sutara79/jquery.add-input-area">GitHub »</a>
+    <a target="_blank" class="btn btn-primary" role="button" href="https://www.jsdelivr.com/projects/jquery.add-input-area">CDN »</a>
   </div>
 </header>
 <div class="container">
@@ -131,7 +131,7 @@ $('<span class="green">#list1</span>').addInputArea();
             増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
             命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。
           </p>
-          <a class="btn btn-success" href="demo/simple/" target="_blank">Simple demo »</a>
+          <a class="btn btn-success" href="demo/simple/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
       <!-- ################################################################ -->
@@ -188,6 +188,7 @@ $('#list2').addInputArea({
           <p class="lang_ja">
             プラグインにはオプションを渡すことができます。
           </p>
+          <a class="btn btn-success" href="demo/options/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
       <!-- ################################################################ -->
@@ -230,6 +231,7 @@ $('#list3').addInputArea();
         <p class="lang_ja">
           追加ボタン、削除ボタンはCSSや画像で装飾できます。
         </p>
+        <a class="btn btn-success" href="demo/css-and-image/" target="_blank">View demo in a new tab »</a>
       </section>
       <!-- ################################################################ -->
       <section id="index_04" class="panel panel-primary">
@@ -283,6 +285,7 @@ $('#list4').addInputArea({
         <p class="lang_ja">
           複数の入力欄を扱う場合も、特にオプションを必要としません。
         </p>
+        <a class="btn btn-success" href="demo/multiple/" target="_blank">View demo in a new tab »</a>
       </section>
       <!-- ################################################################ -->
       <section id="index_05" class="panel panel-primary">
@@ -315,6 +318,7 @@ $('#list5').addInputArea({
   <span class="green">maximum</span> : <span class="red">4</span>
 });
 </pre>
+          <a class="btn btn-success" href="demo/maximum/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
       <!-- ################################################################ -->
@@ -578,12 +582,12 @@ $('#list10').addInputArea({
           <p class="lang_en">
             (v4.8 or later)<br>
             You can set not to copy events.<br>
-            For example, to copy correctly an element which applied <a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">"tooltip()" of Bootstrap</a>, you should use this and "after_add" options.
+            For example, to copy correctly an element which applied <a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">"tooltip()" of Bootstrap</a>, you should use this and "after_add" options.
           </p>
           <p class="lang_ja">
             (v4.8 以降)<br>
             オプションでイベントを複製させないようにできます。<br>
-            たとえば、<a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">Bootstrapの"tooltip()"</a>を適用した要素を正常に複製するには、このオプションと"after_add"オプションを組み合わせて使います。
+            たとえば、<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">Bootstrapの"tooltip()"</a>を適用した要素を正常に複製するには、このオプションと"after_add"オプションを組み合わせて使います。
           </p>
           <form action="demo/result.php" method="POST">
             <ol id="list11">
@@ -598,7 +602,7 @@ $('#list10').addInputArea({
           <h6>JavaScript</h6>
 <pre>
 <span class="red">// Set events before applying plugin.</span>
-$('#list11 .test-tooltip')<a title="Tooltips · Bootstrap" href="//getbootstrap.com/javascript/#tooltips" target="_blank">.tooltip()</a>;
+$('#list11 .test-tooltip')<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">.tooltip()</a>;
 $('#list11').addInputArea({
   <span class="green">clone_event</span>: <span class="red">false</span>,
   after_add: function () {
@@ -614,7 +618,7 @@ $('#list11').addInputArea({
 </div><!-- .container -->
 <footer>
   <div class="container">
-    powered by <a target="_blank" href="//www.usamimi.info/new/index.html">usamimi.info</a>, <a target="_blank" href="//getbootstrap.com/">Bootstrap</a>
+    powered by <a target="_blank" href="http://www.usamimi.info/new/index.html">usamimi.info</a>, <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
   </div>
 </footer>
 <div id="jump_to_top">

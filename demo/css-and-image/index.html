@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Not to initialize</title>
+<title>CSS and image</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="../../jquery.add-input-area.min.js"></script>
 <script src="../form-serialize.js"></script>
@@ -13,16 +14,15 @@ $(function () {
 </script>
 </head>
 <body>
-<h1>Not to initialize</h1>
+<h1>CSS and image</h1>
 <form class="form-serialize">
-  <ol id="list">
+  <ul id="list">
     <li class="list_var">
-      <input type="text" size="40" name="list_a_0" value="will be initialized."><br>
-      <input type="text" size="40" name="list_b_0" empty_val="false" value="will NOT be initialized."><br>
-      <button type="button" class="list_del">Delete</button>
+      <input type="text" size="40" name="list_0">
+      <img class="list_del" src="../img_del.png">
     </li>
-  </ol>
-  <input type="button" value="Add" class="list_add"><br>
+  </ul>
+  <a href="javascript:void(0)" class="list_add btn btn-danger">Add</a><br>
   <input type="submit" value="Send" name="submit">
 </form>
 </body>

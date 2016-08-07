@@ -12,7 +12,7 @@ http://www.jsdelivr.com/projects/jquery.add-input-area
 ###### HTML
 ```html
 <head>
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="jquery.add-input-area.min.js"></script>
 </head>
 <body>
