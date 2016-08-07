@@ -104,6 +104,7 @@ $.extend(AddInputArea.prototype, /** @lends AddInputArea.prototype */ {
             ) {
               obj.checked = false;
             } else if (
+              $(obj).prop('tagName') != 'SELECT' &&
               $(obj).attr('type') != 'submit' &&
               $(obj).attr('type') != 'reset'  &&
               $(obj).attr('type') != 'image'  &&

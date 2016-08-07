@@ -9,6 +9,7 @@
 <script>
 $(function () {
   $('#list').addInputArea();
+  console.log($('[name=list_mask_0]').prop('tagName'));
 
   // toggle disabled attribute
   $('#list select').on('change', function() {
@@ -23,7 +24,7 @@ $(function () {
   <ol id="list">
     <li class="list_var">
       <select name="list_mask_0">
-        <option value="able">enable</option>
+        <option value="enable">enable</option>
         <option value="disable">disable</option>
       </select>
       <input type="text" size="30" name="list_text_0">
