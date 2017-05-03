@@ -2,21 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Copy jQuery event handlers</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>Copy jQuery event handlers: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
+$(function() {
+  // Set events before apply plugin.
   $('#list_0')
-    .focus(function() { $(this).next().text('Focus!') })
-    .blur(function() { $(this).next().text('Blur!') });
+    .focus(function() {
+      $(this).next().text('Focus!');
+    })
+    .blur(function() {
+      $(this).next().text('Blur!');
+    });
   $('#list').addInputArea();
+
+  // You would better write like this.
+  // $('#list')
+  //   .addInputArea()
+  //   .on('focus', '[type=text]', function() {
+  //     $(this).next().text('Focus!');
+  //   })
+  //   .on('blur', '[type=text]', function() {
+  //     $(this).next().text('Blur!');
+  //   });
 });
 </script>
 </head>
 <body>
-<h1>Copy jQuery event handlers</h1>
+<h1>Copy jQuery event handlers: jquery.add-input-area</h1>
 <form class="form-serialize">
   <ol id="list">
     <li class="list_var">

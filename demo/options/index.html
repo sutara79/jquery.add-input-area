@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Options</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>Options: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
+$(function() {
   $('#list').addInputArea({
     area_var: '.var_area02',
     btn_add: '.add_button02',
@@ -17,12 +17,15 @@ $(function () {
 </script>
 </head>
 <body>
-<h1>Options</h1>
+<h1>Options: jquery.add-input-area</h1>
 <form class="form-serialize">
   <ol id="list">
     <li class="var_area02">
-      <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
-      <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+      <label for="posts_0_mail" data-id-format="posts_%d_mail">Mail</label>
+      <textarea id="posts_0_mail" data-id-format="posts_%d_mail" data-name-format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
+      <!-- NOTE: id_format and name_format are deprecated (since v4.9.0) -->
+      <!-- <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label> -->
+      <!-- <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea> -->
       <button type="button" class="del_button02">Delete</button>
     </li>
   </ol>

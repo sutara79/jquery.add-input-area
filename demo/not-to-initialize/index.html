@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Not to initialize</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>Not to initialize: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
+$(function() {
   $('#list').addInputArea();
 });
 </script>
 </head>
 <body>
-<h1>Not to initialize</h1>
+<h1>Not to initialize: jquery.add-input-area</h1>
 <form class="form-serialize">
   <ol id="list">
     <li class="list_var">
       <input type="text" size="40" name="list_a_0" value="will be initialized."><br>
-      <input type="text" size="40" name="list_b_0" empty_val="false" value="will NOT be initialized."><br>
+      <input type="text" size="40" name="list_b_0" data-empty-val="false" value="will NOT be initialized."><br>
+      <!-- NOTE: empty_val is deprecated (since v4.9.0) -->
+      <!-- <input type="text" size="40" name="list_b_0" empty_val="false" value="will NOT be initialized."><br> -->
       <button type="button" class="list_del">Delete</button>
     </li>
   </ol>

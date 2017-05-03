@@ -1,14 +1,21 @@
 {
   "name": "jquery.add-input-area",
-  "description": "jQuery plugin for adding or deleting Form elements.",
-  "main": "jquery.add-input-area.js",
+  "description": "jQuery plugin to add or delete Form elements.",
+  "main": "dist/jquery.add-input-area.min.js",
   "authors": [
     "Yuusaku Miyazaki"
   ],
   "license": "MIT",
   "homepage": "https://github.com/sutara79/jquery.add-input-area",
   "ignore": [
+    "demo/",
+    "test/",
+    ".*",
     "index.html",
-    "demo/"
-  ]
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": ">=3.0.0"
+  },
 }

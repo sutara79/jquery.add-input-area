@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simple: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
+<script src="../form-serialize.js"></script>
+<script>
+$(function() {
+  $('#list').addInputArea();
+});
+</script>
+</head>
+<body>
+<h1>Simple: jquery.add-input-area</h1>
+<form class="form-serialize">
+  <div id="list">
+    <div class="list_var">
+      <table class="table table-bordered">
+        <thead>
+          <tr><th>type</th><th>element</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>no-type</td><td><input name="list_no-type_0"></td></tr>
+          <tr><td>text</td><td><input type="text" name="list_text_0"></td></tr>
+          <tr><td>textarea</td><td><textarea name="list_textarea_0"></textarea></td></tr>
+          <tr><td>radio</td><td>
+            <input type="radio" name="list_radio_0" value="AAA">
+            <input type="radio" name="list_radio_0" value="BBB">
+            <input type="radio" name="list_radio_0" value="CCC">
+          </td></tr>
+          <tr><td>checkbox</td><td>
+            <input type="checkbox" name="list_checkbox_a_0" value="AAA">
+            <input type="checkbox" name="list_checkbox_b_0" value="BBB">
+            <input type="checkbox" name="list_checkbox_c_0" value="CCC">
+          </td></tr>
+          <tr><td>select</td><td>
+            <select name="list_select_0">
+              <option value="AAA">AAA</option>
+              <option value="BBB">BBB</option>
+              <option value="CCC">CCC</option>
+            </select>
+          </td></tr>
+          <tr><td>hidden</td><td><input type="hidden" name="list_hidden_0" value="hidden-value"></td></tr>
+          <tr><td>search</td><td><input type="search" name="list_search_0"></td></tr>
+          <tr><td>tel</td><td><input type="tel" name="list_tel_0"></td></tr>
+          <tr><td>url</td><td><input type="url" name="list_url_0"></td></tr>
+          <tr><td>email</td><td><input type="email" name="list_email_0"></td></tr>
+          <tr><td>password</td><td><input type="password" name="list_password_0"></td></tr>
+          <tr><td>datetime</td><td><input type="datetime" name="list_datetime_0"></td></tr>
+          <tr><td>date</td><td><input type="date" name="list_date_0"></td></tr>
+          <tr><td>month</td><td><input type="month" name="list_month_0"></td></tr>
+          <tr><td>week</td><td><input type="week" name="list_week_0"></td></tr>
+          <tr><td>time</td><td><input type="time" name="list_time_0"></td></tr>
+          <tr><td>datetime-local</td><td><input type="datetime-local" name="list_datetime-local_0"></td></tr>
+          <tr><td>number</td><td><input type="number" name="list_number_0"></td></tr>
+          <tr><td>range</td><td><input type="range" name="list_range_0" min="0" max="100"></td></tr>
+          <tr><td>color</td><td><input type="color" name="list_color_0"></td></tr>
+          <tr><td>file</td><td><input type="file" name="list_file_0"></td></tr>
+          <tr><td>submit</td><td><input type="submit" name="list_submit_0" value="submit"></td></tr>
+          <tr><td>image</td><td><input type="image" name="list_image_0"></td></tr>
+          <tr><td>reset</td><td><input type="reset" name="list_reset_0" value="reset"></td></tr>
+          <tr><td>button</td><td><input type="button" name="list_button_0" value="button"></td></tr>
+          <tr><td>button_tag</td><td><button type="button" name="list_button_0">button_tag</button></td></tr>
+        </tbody>
+      </table>
+      <button type="button" class="list_del">Delete</button>
+      <hr>
+    </div>
+  </div>
+  <input type="button" value="Add" class="list_add"><br>
+  <input type="submit" value="Send" name="submit">
+</form>
+</body>
+</html>

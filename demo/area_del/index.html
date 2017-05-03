@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Multiple</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>Wrapper for del-button: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
+$(function() {
   $('#list').addInputArea({
     area_del: '.del-area'
   });
@@ -15,7 +15,7 @@ $(function () {
 </script>
 </head>
 <body>
-<h1>Multiple</h1>
+<h1>Wrapper for del-button: jquery.add-input-area</h1>
 <form class="form-serialize">
   <table id="list" class="table">
     <thead>
@@ -23,8 +23,8 @@ $(function () {
     </thead>
     <tbody>
       <tr class="list_var">
-        <td><input type="text" name="list_name_0"></td>
-        <td><input type="text" name="list_mail_0"></td>
+        <td><input type="text" name="list-name_0"></td>
+        <td><input type="text" name="list-mail_0"></td>
         <td class="del-area"><button type="button" class="list_del">Delete</button></td>
       </tr>
     </tbody>

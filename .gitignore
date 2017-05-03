@@ -1,0 +1,6 @@
+.AppleDouble/
+*.DS_Store
+node_modules/
+out/
+coverage/
+temp/

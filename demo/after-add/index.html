@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>After add</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>After add: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
+$(function() {
   $('#list').addInputArea({
-    after_add: function () {
+    after_add: function() {
       alert('Added!');
     }
   });
@@ -17,7 +17,7 @@ $(function () {
 </script>
 </head>
 <body>
-<h1>After add</h1>
+<h1>After add: jquery.add-input-area</h1>
 <form class="form-serialize">
   <ol id="list">
     <li class="list_var">

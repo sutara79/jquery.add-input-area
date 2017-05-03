@@ -3,7 +3,7 @@
  */
 
 // 各サンプルの設定
-$(function () {
+$(function() {
   $('#list1').addInputArea();
   $('#list2').addInputArea({
     area_var : '.var_area02',
@@ -39,26 +39,26 @@ $(function () {
     });
   $('#list9').addInputArea();
   $('#list10').addInputArea({
-    after_add: function () {
+    after_add: function() {
       alert('Added!');
     }
   });
   $('#list11 .test-tooltip').tooltip();
   $('#list11').addInputArea({
     clone_event: false,
-    after_add: function () {
+    after_add: function() {
       $('#list11 .test-tooltip').tooltip();
     }
   });
 });
 
-$(function () {
+$(function() {
   // ページ内リンクのスクロール
-  $('a[href^="#"]').click(function() {
-    var href= $(this).attr("href");
-    var target = $(href == "#" || href === "" ? 'html' : href);
-    var position = target.offset().top - 10;
-    $('body,html').animate({scrollTop: position}, 200, 'swing');
+  $(document).on('click', 'a[href^="#"]', function() {
+    var href= $(this).attr('href');
+    var target = $((href == '#' || href === '') ? 'html' : href);
+    var position = target.offset().top;
+    $('body, html').animate({scrollTop: position}, 200, 'swing');
     history.pushState('', '', $(this)[0].href);
     return false;
   });
@@ -76,5 +76,12 @@ $(function () {
   $('nav').simpleScrollFollow({
     min_width: 992,
     limit_elem: $('article')
+  });
+
+  // 見出し横のリンクを生成
+  $('section.panel-primary').each(function() {
+    var link = $('<a class="js-anchor"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>');
+    $(link).attr('href', '#' + $(this).attr('id'));
+    $(this).find('h3.panel-title').prepend(link);
   });
 });

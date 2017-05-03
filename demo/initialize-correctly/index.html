@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Initialize correctly</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="../../jquery.add-input-area.min.js"></script>
+<title>Initialize correctly: jquery.add-input-area</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../../dist/jquery.add-input-area.js"></script>
 <script src="../form-serialize.js"></script>
 <script>
-$(function () {
-  $('#list').addInputArea();
-  console.log($('[name=list_mask_0]').prop('tagName'));
-
-  // toggle disabled attribute
-  $('#list select').on('change', function() {
-    $(this).parents('li').find('[type="text"]').prop('disabled', $(this).val() == 'disable');
-  });
+$(function() {
+  $('#list')
+    .addInputArea()
+    .on('change', 'select', function() {
+      $(this).next().prop('disabled', $(this).val() == 'disable');
+    });
 });
 </script>
 </head>
 <body>
-<h1>Initialize correctly</h1>
+<h1>Initialize correctly: jquery.add-input-area</h1>
 <form class="form-serialize">
   <ol id="list">
     <li class="list_var">

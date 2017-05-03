@@ -4,39 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>jquery.add-input-area</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="demo/sample.css">
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="jquery.add-input-area.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.simple-scroll-follow/2.0.3/jquery.simple-scroll-follow.min.js"></script>
+<script src="https://cdn.jsdelivr.net/g/jquery@3.2.1,bootstrap@3.3.7,jquery.simple-scroll-follow@3.0.0"></script>
+<script src="dist/jquery.add-input-area.js"></script>
 <script src="demo/sample.js"></script>
-<script src="demo/form-serialize.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
 <header class="jumbotron">
   <div class="container">
     <h1>jquery.add-input-area</h1>
     <p class="lang_en">
-      Add or delete Form elements.
+      jQuery plugin to add or delete Form elements.
     </p>
     <p class="lang_ja">
       フォーム部品を動的に追加・削除します。
     </p>
     <dl class="dl-horizontal">
+      <dt>Version</dt><dd><a href="https://badge.fury.io/js/jquery.add-input-area"><img src="https://badge.fury.io/js/jquery.add-input-area.svg" alt="npm version" height="20"></a></dd>
       <dt>Author</dt><dd>Yuusaku Miyazaki</dd>
-      <dt>License</dt><dd><a target="_blank" href="https://opensource.org/licenses/mit-license.php">MIT License</a></dd>
+      <dt>License</dt><dd><a class="jumbotron-link" href="https://opensource.org/licenses/mit-license.php">MIT</a></dd>
     </dl>
-    <a target="_blank" class="btn btn-primary" role="button" href="https://github.com/sutara79/jquery.add-input-area">GitHub »</a>
-    <a target="_blank" class="btn btn-primary" role="button" href="https://www.jsdelivr.com/projects/jquery.add-input-area">CDN »</a>
+    <p>
+      <a class="github-button" href="https://github.com/sutara79/jquery.add-input-area" data-style="mega" data-count-href="/sutara79/jquery.add-input-area/stargazers" data-count-api="/repos/sutara79/jquery.add-input-area#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star sutara79/jquery.add-input-area on GitHub">GitHub</a>
+      <a class="github-button" href="https://github.com/sutara79/jquery.add-input-area/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download sutara79/jquery.add-input-area on GitHub">Download</a>
+    </p>
   </div>
 </header>
 <div class="container">
   <div id="contents" class="row">
     <nav id="index">
       <div id="language" class="btn-group">
-        <button id="lang_en" class="btn btn-default">English</button>
-        <button id="lang_ja" class="btn btn-default">Japanese</button>
+        <button id="lang_en" class="btn btn-primary">English</button>
+        <button id="lang_ja" class="btn btn-primary">日本語</button>
       </div>
       <h3>
         <span class="lang_en">Index</span>
@@ -48,16 +49,16 @@
           <span class="lang_ja">基本</span>
         </a>
         <a class="list-group-item" href="#index_02">
-          <span class="lang_en">Options</span>
-          <span class="lang_ja">オプション</span>
+          <span class="lang_en">Change naming convention</span>
+          <span class="lang_ja">命名規則を変更する</span>
         </a>
         <a class="list-group-item" href="#index_03">
-          <span class="lang_en">The ornament by CSS and images</span>
+          <span class="lang_en">CSS and images</span>
           <span class="lang_ja">CSSや画像による装飾</span>
         </a>
         <a class="list-group-item" href="#index_04">
-          <span class="lang_en">The list which contains some input areas</span>
-          <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+          <span class="lang_en">Wrapper for del-button</span>
+          <span class="lang_ja">削除ボタンのラッパー要素</span>
         </a>
         <a class="list-group-item" href="#index_05">
           <span class="lang_en">Maximum number</span>
@@ -80,8 +81,8 @@
           <span class="lang_ja">jQueryイベントハンドラの複製</span>
         </a>
         <a class="list-group-item" href="#index_10">
-          <span class="lang_en">The function which executes after adding</span>
-          <span class="lang_ja">追加後に実行される処理を設定する</span>
+          <span class="lang_en">Run after add</span>
+          <span class="lang_ja">追加後に処理を実行する</span>
         </a>
         <a class="list-group-item" href="#index_11">
           <span class="lang_en">Not to copy events</span>
@@ -90,7 +91,7 @@
       </div>
     </nav>
     <article>
-      <!-- ################################################################ -->
+
       <section id="index_01" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -99,73 +100,81 @@
           </h3>
         </div>
         <div class="panel-body">
-          <form class="form-serialize">
-            <ol id="list1">
-              <li class="list1_var">
-                <input type="text" size="40" name="list1_0" id="list1_0">
-                <button type="button" class="list1_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list1_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
-            <h6>HTML</h6>
-<pre>
-&lt;ol id="<span class="green">list1</span>"&gt;
-  &lt;li class="<span class="green">list1</span><span class="red">_var</span>"&gt;
-    &lt;input type="text" size="40" name="<span class="green">list1</span><span class="red">_0</span>" id="<span class="green">list1</span><span class="red">_0</span>"&gt;
-    &lt;button class="<span class="green">list1</span><span class="red">_del</span>"&gt;Delete&lt;/button&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-&lt;input type="button" value="Add" class="<span class="green">list1</span><span class="red">_add</span>"&gt;
-</pre>
-          <h6>JavaScript</h6>
-<pre>
-$('<span class="green">#list1</span>').addInputArea();
-</pre>
+          <div class="btn-container"><a class="btn btn-primary" href="demo/basic/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
           <p class="lang_en">
-            You can save time and effort by following naming convention.
+            Please follow the naming convention below.
           </p>
           <p class="lang_ja">
             増減させる対象のエリア、追加ボタン、削除ボタンのCSSクラス名は、<br>
             命名規則に従うことでプラグインに渡すオプションの数を減らすことができます。
           </p>
-          <a class="btn btn-success" href="demo/simple/" target="_blank">View demo in a new tab »</a>
+          <h6>HTML</h6>
+<pre>
+&lt;ol id="<span class="green">list</span>"&gt;
+  &lt;li class="<span class="green">list</span><span class="red">_var</span>"&gt;
+    &lt;input type="text" size="40" name="<span class="green">list</span><span class="red">_0</span>" id="<span class="green">list</span><span class="red">_0</span>"&gt;
+    &lt;button class="<span class="green">list</span><span class="red">_del</span>"&gt;Delete&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;input type="button" value="Add" class="<span class="green">list</span><span class="red">_add</span>"&gt;
+
+&lt;script src="https://code.jquery.com/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.add-input-area.min.js"&gt;&lt;/script&gt;
+</pre>
+          <h6>JavaScript</h6>
+<pre>
+$('<span class="green">#list</span>').addInputArea();
+</pre>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_02" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <span class="lang_en">Options</span>
-            <span class="lang_ja">オプション</span>
+            <span class="lang_en">Change naming convention</span>
+            <span class="lang_ja">命名規則を変更する</span>
           </h3>
         </div>
         <div class="panel-body">
-          <form class="form-serialize">
-            <ol id="list2">
-              <li class="var_area02">
-                <label for="posts_0_mail" id_format="posts_%d_mail">Mail</label>
-                <textarea id="posts_0_mail" id_format="posts_%d_mail" name_format="data[posts][mail][%d]" name="data[posts][mail][0]"></textarea>
-                <button type="button" class="del_button02">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="add_button02"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
-          <h6>HTML</h6>
+          <div class="btn-container"><a class="btn btn-primary" href="demo/options/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <div class="lang_en">
+            <p>
+              You can change naming convention by setting options.<br>
+              Please look at "README" for details.
+            </p>
+            <div>
+              <strong>Note</strong>: (since v4.9.0)
+              <ul>
+                <li>Recommend: <code>data-id-format</code>, <code>data-name-format</code></li>
+                <li>Deprecated: <code>id_format</code>, <code>name_format</code></li>
+              </ul>
+            </div>
+          </div>
+          <div class="lang_ja">
+            <p>
+              命名規則はオプションで変更できます。<br>
+              詳しくは"README"をご覧ください。
+            </p>
+            <div>
+              <strong>注意</strong>: (since v4.9.0)
+              <ul>
+                <li>推奨: <code>data-id-format</code>, <code>data-name-format</code></li>
+                <li>非推奨: <code>id_format</code>, <code>name_format</code></li>
+              </ul>
+            </div>
+          </div>
 <pre>
-&lt;ol id="list2"&gt;
+&lt;ol id="list"&gt;
   &lt;li class="<span class="green">var_area02</span>"&gt;
     &lt;label
       <span class="red">for</span>="<span class="green">posts_0_mail</span>"
-      <span class="red">id_format</span>="<span class="green">posts_%d_mail</span>"
+      <span class="red">data-id-format</span>="<span class="green">posts_%d_mail</span>"
     &gt;Mail&lt;/label&gt;
     &lt;textarea
       <span class="red">id</span>="<span class="green">posts_0_mail</span>"
-      <span class="red">id_format</span>="<span class="green">posts_%d_mail</span>"
+      <span class="red">data-id-format</span>="<span class="green">posts_%d_mail</span>"
       <span class="red">name</span>="<span class="green">data[posts][mail][0]</span>"
-      <span class="red">name_format</span>="<span class="green">data[posts][mail][%d]</span>"
+      <span class="red">data-name-format</span>="<span class="green">data[posts][mail][%d]</span>"
     &gt;&lt;/textarea&gt;
     &lt;button class="<span class="green">del_button02</span>"&gt;Delete&lt;/button&gt;
   &lt;/li&gt;
@@ -174,119 +183,87 @@ $('<span class="green">#list1</span>').addInputArea();
 </pre>
           <h6>JavaScript</h6>
 <pre>
-$('#list2').addInputArea({
+$('#list').addInputArea({
   area_var: '<span class="green">.var_area02</span>',
   btn_add: '<span class="green">.add_button02</span>',
   btn_del: '<span class="green">.del_button02</span>'
 });
 </pre>
-          <p class="lang_en">
-            You can set options for plug-in.<br>
-            Please look at "README" for details.
-          </p>
-          <p class="lang_ja">
-            プラグインにはオプションを渡すことができます。
-          </p>
-          <a class="btn btn-success" href="demo/options/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_03" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <span class="lang_en">The ornament by CSS and images</span>
+            <span class="lang_en">CSS and images</span>
             <span class="lang_ja">CSSや画像による装飾</span>
           </h3>
         </div>
         <div class="panel-body">
-          <form class="form-serialize">
-            <ul id="list3">
-              <li class="list3_var">
-                <input type="text" size="40" name="list3_0">
-                <img class="list3_del" src="demo/img_del.png">
-              </li>
-            </ul>
-            <a href="javascript:void(0)" class="list3_add btn btn-danger">Add</a><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
+          <div class="btn-container"><a class="btn btn-primary" href="demo/css-and-image/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p class="lang_en">
+            You can use freely CSS and images.
+          </p>
+          <p class="lang_ja">
+            追加ボタン、削除ボタンはCSSや画像で自由に装飾できます。
+          </p>
           <h6>HTML</h6>
 <pre>
-&lt;ul id="list3"&gt;
-  &lt;li class="list3_var"&gt;
-    &lt;input type="text" size="40" name="list3_0"&gt;
-    <span class="green">&lt;img class="list3_del" src="demo/img_del.png"&gt;</span>
+&lt;ul id="list"&gt;
+  &lt;li class="list_var"&gt;
+    &lt;input type="text" size="40" name="list_0"&gt;
+    <span class="green">&lt;img class="list_del" src="demo/img_del.png"&gt;</span>
   &lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- <span class="red">Twitter Bootstrap</span> --&gt;
-<span class="green">&lt;a href="javascript:void(0)" class="list3_add <span class="red">btn btn-danger</span>"&gt;Add&lt;/a&gt;</span>&lt;br&gt;
+<span class="green">&lt;a href="javascript:void(0)" class="list_add <span class="red">btn btn-danger</span>"&gt;Add&lt;/a&gt;</span>&lt;br&gt;
 </pre>
           <h6>JavaScript</h6>
 <pre>
-$('#list3').addInputArea();
+$('#list').addInputArea();
 </pre>
-        <p class="lang_en">
-          You can decorate add-button and delete-button with CSS or images.
-        </p>
-        <p class="lang_ja">
-          追加ボタン、削除ボタンはCSSや画像で装飾できます。
-        </p>
-        <a class="btn btn-success" href="demo/css-and-image/" target="_blank">View demo in a new tab »</a>
+        </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_04" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <span class="lang_en">The list which contains some input areas</span>
-            <span class="lang_ja">複数の入力欄を包含する増減エリア</span>
+            <span class="lang_en">Wrapper for del-button</span>
+            <span class="lang_ja">削除ボタンのラッパー要素</span>
           </h3>
         </div>
         <div class="panel-body">
-          <form class="form-serialize">
-            <table id="list4" class="table">
-              <thead>
-                <tr><th>Name</th><th>Mail</th><th></th></tr>
-              </thead>
-              <tbody>
-                <tr class="list4_var">
-                  <td><input type="text" name="list4_name_0"></td>
-                  <td><input type="text" name="list4_mail_0"></td>
-                  <td class="del_area04"><button type="button" class="list4_del">Delete</button></td>
-                </tr>
-              </tbody>
-            </table>
-            <input type="button" value="Add" class="list4_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
+          <div class="btn-container"><a class="btn btn-primary" href="demo/area_del/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p class="lang_en">
+            If ther wrapper for del-button exists, set <code>area_del</code> option.
+          </p>
+          <p class="lang_ja">
+            削除ボタンが裸でなくラッパーが存在する場合は、<code>area_del</code>オプションを設定してください。
+          </p>
           <h6>HTML</h6>
 <pre>
-&lt;table id="list4" class="table"&gt;
+&lt;table id="list" class="table"&gt;
   &lt;thead&gt;
     &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Mail&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr class="list4_var"&gt;
-      &lt;td&gt;&lt;input type="text" name="list4_name_0"&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;input type="text" name="list4_mail_0"&gt;&lt;/td&gt;
-      &lt;td class="<span class="green">del_area04</span>"&gt;&lt;button class="list4_del"&gt;Delete&lt;/button&gt;&lt;/td&gt;
+    &lt;tr class="list_var"&gt;
+      &lt;td&gt;&lt;input type="text" name="list-name_0"&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="list-mail_0"&gt;&lt;/td&gt;
+      &lt;td class="<span class="green">del-area</span>"&gt;&lt;button class="list_del"&gt;Delete&lt;/button&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 </pre>
           <h6>JavaScript</h6>
 <pre>
-$('#list4').addInputArea({
-  area_del: '<span class="green">.del_area04</span>'
+$('#list').addInputArea({
+  area_del: '<span class="green">.del-area</span>'
 });
 </pre>
-        <p class="lang_en">
-          The list can be fluctuated even if how many input-area were contained.
-        </p>
-        <p class="lang_ja">
-          複数の入力欄を扱う場合も、特にオプションを必要としません。
-        </p>
-        <a class="btn btn-success" href="demo/multiple/" target="_blank">View demo in a new tab »</a>
+        </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_05" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -295,32 +272,22 @@ $('#list4').addInputArea({
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/maximum/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
           <p class="lang_en">
             You can set the maximum number of textbox.
           </p>
           <p class="lang_ja">
             追加できるテキストボックスの数に上限を設けることができます。
           </p>
-          <form class="form-serialize">
-            <ol id="list5">
-              <li class="list5_var">
-                <input type="text" size="40" name="list5_0">
-                <button type="button" class="list5_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list5_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
           <h6>JavaScript</h6>
 <pre>
-$('#list5').addInputArea({
+$('#list').addInputArea({
   <span class="green">maximum</span> : <span class="red">4</span>
 });
 </pre>
-          <a class="btn btn-success" href="demo/maximum/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_06" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -329,68 +296,31 @@ $('#list5').addInputArea({
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/all-form-elements/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
           <p class="lang_en">
             You can add or delete all of Form elements.
           </p>
           <p class="lang_ja">
             テキストボックスだけでなく、すべてのフォーム部品を増減できるようになりました。
           </p>
-          <div id="list6">
-            <div class="list6_var">
-              <table class="table table-bordered">
-                <thead>
-                  <tr><th>type</th><th>element</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>no-type</td><td><input name="list6_5_0"></td></tr>
-                  <tr><td>text</td><td><input type="text" name="list6_0_0"></td></tr>
-                  <tr><td>textarea</td><td><textarea name="list6_1_0"></textarea></td></tr>
-                  <tr><td>radio</td><td>
-                    <input type="radio" name="list6_2_0" value="aaa">
-                    <input type="radio" name="list6_2_0" value="bbb">
-                    <input type="radio" name="list6_2_0" value="ccc">
-                  </td></tr>
-                  <tr><td>checkbox</td><td>
-                    <input type="checkbox" name="list6_3_a_0" value="aaa">
-                    <input type="checkbox" name="list6_3_b_0" value="bbb">
-                    <input type="checkbox" name="list6_3_c_0" value="ccc">
-                  </td></tr>
-                  <tr><td>select</td><td>
-                    <select name="list6_4_0">
-                      <option value="a">aaa</option>
-                      <option value="b">bbb</option>
-                      <option value="c">ccc</option>
-                    </select>
-                  </td></tr>
-                  <tr><td>hidden</td><td><input type="hidden" name="list6_6_0" value="aaaaa"></td></tr>
-                  <tr><td>search</td><td><input type="search" name="list6_7_0"></td></tr>
-                  <tr><td>tel</td><td><input type="tel" name="list6_8_0"></td></tr>
-                  <tr><td>url</td><td><input type="url" name="list6_9_0"></td></tr>
-                  <tr><td>email</td><td><input type="email" name="list6_10_0"></td></tr>
-                  <tr><td>password</td><td><input type="password" name="list6_11_0"></td></tr>
-                  <tr><td>datetime</td><td><input type="datetime" name="list6_12_0"></td></tr>
-                  <tr><td>date</td><td><input type="date" name="list6_13_0"></td></tr>
-                  <tr><td>month</td><td><input type="month" name="list6_14_0"></td></tr>
-                  <tr><td>week</td><td><input type="week" name="list6_15_0"></td></tr>
-                  <tr><td>time</td><td><input type="time" name="list6_16_0"></td></tr>
-                  <tr><td>datetime-local</td><td><input type="datetime-local" name="list6_17_0"></td></tr>
-                  <tr><td>number</td><td><input type="number" name="list6_18_0"></td></tr>
-                  <tr><td>range</td><td><input type="range" name="list6_19_0" min="0" max="100"></td></tr>
-                  <tr><td>color</td><td><input type="color" name="list6_20_0"></td></tr>
-                  <tr><td>file</td><td><input type="file" name="list6_21_0"></td></tr>
-                  <tr><td>submit</td><td><input type="submit" name="list6_22_0" value="submit"></td></tr>
-                  <tr><td>image</td><td><input type="image" name="list6_23_0"></td></tr>
-                  <tr><td>reset</td><td><input type="reset" name="list6_24_0" value="reset"></td></tr>
-                  <tr><td>button</td><td><input type="button" name="list6_25_0" value="button"></td></tr>
-                  <tr><td>button_tag</td><td><button type="button" name="list6_26_0">button_tag</button></td></tr>
-              </table>
-              <button type="button" class="list6_del">Delete</button>
-            </div>
-          </div>
-          <input type="button" value="Add" class="list6_add">
+          <h6>HTML</h6>
+<pre>
+&lt;div id="<span class="green">list</span>"&gt;
+  &lt;div class="list_var"&gt;
+
+    &lt;input type="checkbox" name="<span class="green">list_checkbox_a</span><span class="red">_0</span>" value="AAA"&gt;
+    &lt;input type="checkbox" name="<span class="green">list_checkbox_b</span><span class="red">_0</span>" value="BBB"&gt;
+    &lt;input type="checkbox" name="<span class="green">list_checkbox_c</span><span class="red">_0</span>" value="CCC"&gt;
+
+    &lt;select name="<span class="green">list_select</span><span class="red">_0</span>"&gt;
+      &lt;option value="AAA"&gt;AAA&lt;/option&gt;
+      &lt;option value="BBB"&gt;BBB&lt;/option&gt;
+      &lt;option value="CCC"&gt;CCC&lt;/option&gt;
+    &lt;/select&gt;
+</pre>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_07" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -399,42 +329,25 @@ $('#list5').addInputArea({
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/not-to-initialize/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
           <p class="lang_en">
             You can prevent initialization.<br>
-            Please click "Add" button.
+            <strong>Note</strong>: Since v4.9.0, <code>empty_val</code> is deprecated. Use <code>data-empty-val</code>.
           </p>
           <p class="lang_ja">
-            入力欄を増やす際、初期化を阻止することができます。
+            入力欄を増やす際、初期化を阻止できます。<br>
+            <strong>注意</strong>: v4.9.0以降、<code>empty_val</code>は非推奨です。<code>data-empty-val</code>を使ってください。
           </p>
-          <form class="form-serialize">
-            <ol id="list7">
-              <li class="list7_var">
-                <input type="text" size="40" name="list7_a_0" value="will be initialized."><br>
-                <input type="text" size="40" name="list7_b_0" empty_val="false" value="will NOT be initialized."><br>
-                <button type="button" class="list7_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list7_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
           <h6>HTML</h6>
 <pre>
-&lt;li class="list7_var"&gt;
-  &lt;input type="text" size="40" name="list7_a_0"
-    value="will be initialized."&gt;&lt;br&gt;
-  &lt;input type="text" size="40" name="list7_b_0"
-    value="will NOT be initialized." <span class="green">empty_val</span>="<span class="red">false</span>"&gt;&lt;br&gt;
-  &lt;button class="list7_del"&gt;Delete&lt;/button&gt;
+&lt;li class="list_var"&gt;
+  &lt;input type="text" name="list_a_0" &gt;
+  &lt;input type="text" name="list_b_0" <span class="green">data-empty-val</span>="<span class="red">false</span>"&gt;
 &lt;/li&gt;
 </pre>
-          <h6>JavaScript</h6>
-<pre>
-$('#list7').addInputArea();
-</pre>
-          <a class="btn btn-success" href="demo/not-to-initialize/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_08" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -443,50 +356,35 @@ $('#list7').addInputArea();
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/initialize-correctly/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p>(since: v4.2)</p>
           <p class="lang_en">
-            (v4.2 or later) The added item can be correctly initialized.
+             The added item can be correctly initialized.
           </p>
           <p class="lang_ja">
-            (v4.2以降) 追加された要素の初期化が、より正確に行われるようになりました。
+            追加された要素の初期化が、より正確に行われるようになりました。
           </p>
-          <form class="form-serialize">
-            <ol id="list8">
-              <li class="list8_var">
-                <select name="list8_mask_0">
-                  <option value="enable">able</option>
-                  <option value="disable">disable</option>
-                </select>
-                <input type="text" size="30" name="list8_text_0">
-                <button type="button" class="list8_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list8_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
           <h6>HTML</h6>
 <pre>
-&lt;li class="list8_var"&gt;
-  &lt;select name="list8_mask_0"&gt;
-    &lt;option value="enable"&gt;able&lt;/option&gt;
-    &lt;option value="disable"&gt;disable&lt;/option&gt;
+&lt;li class="list_var"&gt;
+  &lt;select name="list_mask_0"&gt;
+    &lt;option value="<span class="green">enable</span>"&gt;enable&lt;/option&gt;
+    &lt;option value="<span class="red">disable</span>"&gt;disable&lt;/option&gt;
   &lt;/select&gt;
-  &lt;input type="text" size="30" name="list8_text_0"&gt;
-  &lt;button class="list8_del"&gt;Delete&lt;/button&gt;
+  &lt;input type="text" name="list_text_0"&gt;
 &lt;/li&gt;
 </pre>
           <h6>JavaScript</h6>
 <pre>
-$('#list8').addInputArea();
-
-// toggle disabled attribute
-$('#list8 select').on('change', function() {
-  $(this).parents('li').find('[type="text"]').prop('disabled', $(this).val() == 'disable');
-});
+$('#list')
+  .addInputArea()
+  .on('change', 'select', function() {
+    $(this).next().prop('disabled', $(this).val() == '<span class="red">disable</span>');
+  });
 </pre>
-          <a class="btn btn-success" href="demo/initialize-correctly/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_09" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -495,81 +393,74 @@ $('#list8 select').on('change', function() {
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/copy-jquery-event-handlers/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p>(since: v4.3)</p>
           <p class="lang_en">
-            (v4.3 or later)<br>
-            jQuery event handlers at each Form elements can be correctly copied.<br>
+            jQuery event handlers at each form elements can be correctly copied.<br>
             But, you should set events before applying plugin.
           </p>
           <p class="lang_ja">
-            (v4.3 以降)<br>
             フォーム部品に対して設定したjQueryのイベントハンドラも複製されます。<br>
             ただし、クローン元へのイベントは、プラグイン適用前に<br>
             設定しておかなければなりません。
           </p>
-          <form class="form-serialize">
-            <ol id="list9">
-              <li class="list9_var">
-                <input type="text" size="30" name="list9_0" id="list9_0">
-                <span></span>
-                <button type="button" class="list9_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list9_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
-          <h6>JavaScript</h6>
+          <h6>JavaScript (1)</h6>
 <pre>
-<span class="red">// Set events before applying plugin.</span>
-$('#list9_0')
-  .focus(function() { $(this).next().text('Focus!') })
-  .blur(function() { $(this).next().text('Blur!') });
-$('#list9').addInputArea();
+<span class="red">// Set events before apply plugin.</span>
+$('<span class="red">#list_0</span>')
+  .focus(function() {
+    $(this).next().text('Focus!');
+  })
+  .blur(function() {
+    $(this).next().text('Blur!');
+  });
+$('#list').addInputArea();
 </pre>
-          <a class="btn btn-success" href="demo/copy-jquery-event-handlers/" target="_blank">View demo in a new tab »</a>
+          <h6>JavaScript (2)</h6>
+<pre>
+<span class="green">// You would better write like this.</span>
+$('#list')
+  .addInputArea()
+  .on('focus', '[type=text]', function() {
+    $(this).next().text('Focus!');
+  })
+  .on('blur', '[type=text]', function() {
+    $(this).next().text('Blur!');
+  });
+</pre>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_10" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <span class="lang_en">The function which executes after adding</span>
-            <span class="lang_ja">追加後に実行される処理を設定する</span>
+            <span class="lang_en">Run after add</span>
+            <span class="lang_ja">追加後に処理を実行する</span>
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/after-add/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p>(since v4.6)</p>
           <p class="lang_en">
-            (v4.6 or later)<br>
             The event at each Form elements can be correctly copied.<br>
             But it is uncertain in the case of the event which made in other jQuery plugin.<br>
             You can reset other jQuery plugin to added item by this option.
           </p>
           <p class="lang_ja">
-            (v4.6 以降)<br>
             初期状態でも通常イベントならばクローン先にもコピーされますが、他のjQueryプラグインなどを利用した複雑なイベントはコピーされないことがあります。<br>
             その場合はこのオプションの中でjQueryプラグインを適用し直してください。<br>
           </p>
-          <form class="form-serialize">
-            <ol id="list10">
-              <li class="list10_var">
-                <input type="text" size="30" name="list10_0" id="list10_0">
-                <button type="button" class="list10_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list10_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
           <h6>JavaScript</h6>
 <pre>
-$('#list10').addInputArea({
+$('#list').addInputArea({
   <span class="green">after_add</span>: function () {
     alert('Added!');
   }
 });
 </pre>
-          <a class="btn btn-success" href="demo/after-add/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
-      <!-- ################################################################ -->
+
       <section id="index_11" class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -578,38 +469,27 @@ $('#list10').addInputArea({
           </h3>
         </div>
         <div class="panel-body">
+          <div class="btn-container"><a class="btn btn-primary" href="demo/not-to-copy-events/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+          <p>(since: v4.8)</p>
           <p class="lang_en">
-            (v4.8 or later)<br>
             You can set not to copy events.<br>
             For example, to copy correctly an element which applied <a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">"tooltip()" of Bootstrap</a>, you should use this and "after_add" options.
           </p>
           <p class="lang_ja">
-            (v4.8 以降)<br>
             オプションでイベントを複製させないようにできます。<br>
             たとえば、<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">Bootstrapの"tooltip()"</a>を適用した要素を正常に複製するには、このオプションと"after_add"オプションを組み合わせて使います。
           </p>
-          <form class="form-serialize">
-            <ol id="list11">
-              <li class="list11_var">
-                <input type="text" id="list11_0" name="list11_0" class="test-tooltip" data-toggle="tooltip" title="Some tooltip text!" placeholder="Hover over me">
-                <button class="list11_del">Delete</button>
-              </li>
-            </ol>
-            <input type="button" value="Add" class="list11_add"><br>
-            <input type="submit" value="Send" name="submit">
-          </form>
           <h6>JavaScript</h6>
 <pre>
-<span class="red">// Set events before applying plugin.</span>
-$('#list11 .test-tooltip')<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">.tooltip()</a>;
-$('#list11').addInputArea({
+<span class="red">// Set Bootstrap tooltip before apply plugin.</span>
+$('#list .test-tooltip')<a title="Tooltips · Bootstrap" href="http://getbootstrap.com/javascript/#tooltips" target="_blank">.tooltip()</a>;
+$('#list').addInputArea({
   <span class="green">clone_event</span>: <span class="red">false</span>,
   after_add: function () {
-    $('#list11 .test-tooltip').tooltip();
+    $('#list .test-tooltip').tooltip();
   }
 });
 </pre>
-          <a class="btn btn-success" href="demo/not-to-copy-events/" target="_blank">View demo in a new tab »</a>
         </div>
       </section>
     </article>
@@ -617,11 +497,11 @@ $('#list11').addInputArea({
 </div><!-- .container -->
 <footer>
   <div class="container">
-    powered by <a target="_blank" href="http://www.usamimi.info/new/index.html">usamimi.info</a>, <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
+    powered by <a href="https://getbootstrap.com/">Bootstrap</a>
   </div>
 </footer>
 <div id="jump_to_top">
-  <a href="#" class="btn btn-default">Top</a>
+  <a href="#" class="glyphicon glyphicon-upload" aria-hidden="true"></a>
 </div>
 </body>
 </html>
