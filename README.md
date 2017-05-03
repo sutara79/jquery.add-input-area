@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/sutara79/jquery.add-input-area/badge.svg?branch=master)](https://coveralls.io/github/sutara79/jquery.add-input-area?branch=master)
 [![dependencies Status](https://david-dm.org/sutara79/jquery.add-input-area/status.svg)](https://david-dm.org/sutara79/jquery.add-input-area)
 
-jQuery plugin for adding or deleting Form elements.
+jQuery plugin to add or delete form fields.
 
 ![Sample image](demo/image.png)
 
