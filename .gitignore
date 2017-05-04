@@ -4,3 +4,4 @@ node_modules/
 out/
 coverage/
 temp/
+npm-debug.log
