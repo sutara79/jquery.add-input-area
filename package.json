@@ -29,6 +29,6 @@
     "test": "grunt qunit",
     "uglify": "grunt uglify",
     "coveralls": "grunt coveralls",
-    "validate-json": "pjv && node bower.json.validate.js"
+    "validate-json": "pjv && node bower-json.validate.js"
   }
 }
