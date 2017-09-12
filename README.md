@@ -18,12 +18,12 @@ https://sutara79.github.io/jquery.add-input-area/
 - [npm](https://www.npmjs.com/package/jquery.add-input-area): `npm i jquery.add-input-area`
 - [CDN (jsDelivr)](http://www.jsdelivr.com/projects/jquery.add-input-area):
     ```javascript
-    <script src="https://cdn.jsdelivr.net/jquery.add-input-area/4.9.0/jquery.add-input-area.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.9.1/dist/jquery.add-input-area.min.js"></script>
     ```
   You can load jQuery and this plugin with single HTTP request.  
   See [jsDelivr's document](https://github.com/jsdelivr/jsdelivr#load-multiple-files-with-single-http-request)
     ```javascript
-    <script src="https://cdn.jsdelivr.net/g/jquery@3.2.1,jquery.add-input-area@4.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.2.1,npm/jquery.add-input-area@4.9.1"></script>
     ```
 
 ## Usage
