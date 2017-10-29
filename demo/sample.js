@@ -1,13 +1,3 @@
-// ページ内リンクのスクロール
-$(document).on('click', 'a[href^="#"]', function() {
-  var href= $(this).attr('href');
-  var target = $((href == '#' || href === '') ? 'html' : href);
-  var position = target.offset().top;
-  $('body, html').animate({scrollTop: position}, 200, 'swing');
-  history.pushState('', '', $(this)[0].href);
-  return false;
-});
-
 // 英語・日本語切り替え
 $('#language button').click(function(ev) {
   $('*[class*="lang_"]').hide();
