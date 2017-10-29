@@ -1,5 +1,6 @@
 # jquery.add-input-area
 
+[![npm version](https://img.shields.io/npm/v/jquery.add-input-area.svg)](https://www.npmjs.com/package/jquery.add-input-area)
 [![Build Status](https://travis-ci.org/sutara79/jquery.add-input-area.svg?branch=master)](https://travis-ci.org/sutara79/jquery.add-input-area)
 [![Coverage Status](https://coveralls.io/repos/github/sutara79/jquery.add-input-area/badge.svg?branch=master)](https://coveralls.io/github/sutara79/jquery.add-input-area?branch=master)
 [![dependencies Status](https://david-dm.org/sutara79/jquery.add-input-area/status.svg)](https://david-dm.org/sutara79/jquery.add-input-area)
@@ -16,15 +17,9 @@ https://sutara79.github.io/jquery.add-input-area/
 ## Install
 - [GitHub](https://github.com/sutara79/jquery.add-input-area): Clone or download.
 - [npm](https://www.npmjs.com/package/jquery.add-input-area): `npm i jquery.add-input-area`
-- [CDN (jsDelivr)](http://www.jsdelivr.com/projects/jquery.add-input-area):
-    ```javascript
-    <script src="https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.9.1/dist/jquery.add-input-area.min.js"></script>
-    ```
-  You can load jQuery and this plugin with single HTTP request.  
-  See [jsDelivr's document](https://github.com/jsdelivr/jsdelivr#load-multiple-files-with-single-http-request)
-    ```javascript
-    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.2.1,npm/jquery.add-input-area@4.9.1"></script>
-    ```
+- CDN [(jsDelivr)](https://www.jsdelivr.com/):
+    - [jquery.add-input-area.min.js (v4.9.2)](https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.9.2/dist/jquery.add-input-area.min.js)
+
 
 ## Usage
 

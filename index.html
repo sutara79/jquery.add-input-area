@@ -4,11 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>jquery.add-input-area</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link rel="stylesheet" href="demo/sample.css">
-<script src="https://cdn.jsdelivr.net/g/jquery@3.2.1,bootstrap@3.3.7,jquery.simple-scroll-follow@3.0.0"></script>
-<script src="demo/sample.js"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
 <header class="jumbotron">
@@ -20,86 +17,85 @@
     <p class="lang_ja">
       フォーム部品を動的に追加・削除します。
     </p>
-    <dl class="dl-horizontal">
-      <dt>Version</dt><dd><a href="https://badge.fury.io/js/jquery.add-input-area"><img src="https://badge.fury.io/js/jquery.add-input-area.svg" alt="npm version" height="20"></a></dd>
-      <dt>Author</dt><dd>Yuusaku Miyazaki</dd>
-      <dt>License</dt><dd><a class="jumbotron-link" href="https://opensource.org/licenses/mit-license.php">MIT</a></dd>
-    </dl>
     <p>
-      <a class="github-button" href="https://github.com/sutara79/jquery.add-input-area" data-style="mega" data-count-href="/sutara79/jquery.add-input-area/stargazers" data-count-api="/repos/sutara79/jquery.add-input-area#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star sutara79/jquery.add-input-area on GitHub">GitHub</a>
-      <a class="github-button" href="https://github.com/sutara79/jquery.add-input-area/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download sutara79/jquery.add-input-area on GitHub">Download</a>
+      <a href="https://github.com/sutara79/jquery.add-input-area"><img src="https://img.shields.io/github/stars/sutara79/jquery.add-input-area.svg?style=social&label=Stars" alt="github repository"></a>
+      <a href="https://www.npmjs.com/package/jquery.add-input-area"><img src="https://img.shields.io/npm/v/jquery.add-input-area.svg" alt="npm version"></a>
     </p>
   </div>
 </header>
 <div class="container">
   <div id="contents" class="row">
-    <nav id="index">
-      <div id="language" class="btn-group">
-        <button id="lang_en" class="btn btn-primary">English</button>
-        <button id="lang_ja" class="btn btn-primary">日本語</button>
-      </div>
-      <h3>
-        <span class="lang_en">Index</span>
-        <span class="lang_ja">目次</span>
-      </h3>
-      <div class="list-group">
-        <a class="list-group-item" href="#index_01">
-          <span class="lang_en">Basic</span>
-          <span class="lang_ja">基本</span>
-        </a>
-        <a class="list-group-item" href="#index_02">
-          <span class="lang_en">Change naming convention</span>
-          <span class="lang_ja">命名規則を変更する</span>
-        </a>
-        <a class="list-group-item" href="#index_03">
-          <span class="lang_en">CSS and images</span>
-          <span class="lang_ja">CSSや画像による装飾</span>
-        </a>
-        <a class="list-group-item" href="#index_04">
-          <span class="lang_en">Wrapper for del-button</span>
-          <span class="lang_ja">削除ボタンのラッパー要素</span>
-        </a>
-        <a class="list-group-item" href="#index_05">
-          <span class="lang_en">Maximum number</span>
-          <span class="lang_ja">追加に上限を設ける</span>
-        </a>
-        <a class="list-group-item" href="#index_06">
-          <span class="lang_en">All Form elements</span>
-          <span class="lang_ja">全てのフォーム部品に対応</span>
-        </a>
-        <a class="list-group-item" href="#index_07">
-          <span class="lang_en">Not to initialize</span>
-          <span class="lang_ja">value値を初期化させない設定</span>
-        </a>
-        <a class="list-group-item" href="#index_08">
-          <span class="lang_en">Initialize correctly</span>
-          <span class="lang_ja">正しい初期化</span>
-        </a>
-        <a class="list-group-item" href="#index_09">
-          <span class="lang_en">Copy jQuery event handlers</span>
-          <span class="lang_ja">jQueryイベントハンドラの複製</span>
-        </a>
-        <a class="list-group-item" href="#index_10">
-          <span class="lang_en">Run after add</span>
-          <span class="lang_ja">追加後に処理を実行する</span>
-        </a>
-        <a class="list-group-item" href="#index_11">
-          <span class="lang_en">Not to copy events</span>
-          <span class="lang_ja">イベントを複製しないオプション</span>
-        </a>
-      </div>
-    </nav>
-    <article>
-
-      <section id="index_01" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
+    <nav id="index" class="col-lg-4 mb-3">
+      <div id="js-menu-follow">
+        <div id="language" class="btn-group">
+          <button id="lang_en" class="btn btn-primary">English</button>
+          <button id="lang_ja" class="btn btn-primary">日本語</button>
+        </div>
+        <h5 class="mt-2">
+          <span class="lang_en">Index</span>
+          <span class="lang_ja">目次</span>
+        </h5>
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" href="#index_01">
             <span class="lang_en">Basic</span>
             <span class="lang_ja">基本</span>
-          </h3>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_02">
+            <span class="lang_en">Change naming convention</span>
+            <span class="lang_ja">命名規則を変更する</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_03">
+            <span class="lang_en">CSS and images</span>
+            <span class="lang_ja">CSSや画像による装飾</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_04">
+            <span class="lang_en">Wrapper for del-button</span>
+            <span class="lang_ja">削除ボタンのラッパー要素</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_05">
+            <span class="lang_en">Maximum number</span>
+            <span class="lang_ja">追加に上限を設ける</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_06">
+            <span class="lang_en">All Form elements</span>
+            <span class="lang_ja">全てのフォーム部品に対応</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_07">
+            <span class="lang_en">Not to initialize</span>
+            <span class="lang_ja">value値を初期化させない設定</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_08">
+            <span class="lang_en">Initialize correctly</span>
+            <span class="lang_ja">正しい初期化</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_09">
+            <span class="lang_en">Copy jQuery event handlers</span>
+            <span class="lang_ja">jQueryイベントハンドラの複製</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_10">
+            <span class="lang_en">Run after add</span>
+            <span class="lang_ja">追加後に処理を実行する</span>
+          </a>
+          <a class="list-group-item list-group-item-action" href="#index_11">
+            <span class="lang_en">Not to copy events</span>
+            <span class="lang_ja">イベントを複製しないオプション</span>
+          </a>
         </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/basic/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      </div>
+    </nav>
+    <article class="col-lg-8">
+      <section id="index_01" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Basic</span>
+          <span class="lang_ja">基本</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/basic/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             Please follow the naming convention below.
           </p>
@@ -127,15 +123,18 @@ $('<span class="green">#list</span>').addInputArea();
         </div>
       </section>
 
-      <section id="index_02" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Change naming convention</span>
-            <span class="lang_ja">命名規則を変更する</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/options/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_02" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Change naming convention</span>
+          <span class="lang_ja">命名規則を変更する</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/options/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <div class="lang_en">
             <p>
               You can change naming convention by setting options.<br>
@@ -191,15 +190,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_03" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">CSS and images</span>
-            <span class="lang_ja">CSSや画像による装飾</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/css-and-image/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_03" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">CSS and images</span>
+          <span class="lang_ja">CSSや画像による装飾</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/css-and-image/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             You can use freely CSS and images.
           </p>
@@ -224,15 +226,18 @@ $('#list').addInputArea();
         </div>
       </section>
 
-      <section id="index_04" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Wrapper for del-button</span>
-            <span class="lang_ja">削除ボタンのラッパー要素</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/area_del/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_04" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Wrapper for del-button</span>
+          <span class="lang_ja">削除ボタンのラッパー要素</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/area_del/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             If ther wrapper for del-button exists, set <code>area_del</code> option.
           </p>
@@ -263,15 +268,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_05" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Maximum number</span>
-            <span class="lang_ja">追加に上限を設ける</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/maximum/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_05" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Maximum number</span>
+          <span class="lang_ja">追加に上限を設ける</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/maximum/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             You can set the maximum number of textbox.
           </p>
@@ -287,15 +295,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_06" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">All Form elements</span>
-            <span class="lang_ja">全てのフォーム部品に対応</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/all-form-elements/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_06" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">All Form elements</span>
+          <span class="lang_ja">全てのフォーム部品に対応</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/all-form-elements/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             You can add or delete all of Form elements.
           </p>
@@ -320,15 +331,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_07" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Not to initialize</span>
-            <span class="lang_ja">value値を初期化させない設定</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/not-to-initialize/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_07" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Not to initialize</span>
+          <span class="lang_ja">value値を初期化させない設定</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/not-to-initialize/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p class="lang_en">
             You can prevent initialization.<br>
             <strong>Note</strong>: Since v4.9.0, <code>empty_val</code> is deprecated. Use <code>data-empty-val</code>.
@@ -347,15 +361,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_08" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Initialize correctly</span>
-            <span class="lang_ja">正しい初期化</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/initialize-correctly/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_08" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Initialize correctly</span>
+          <span class="lang_ja">正しい初期化</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/initialize-correctly/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p>(since: v4.2)</p>
           <p class="lang_en">
              The added item can be correctly initialized.
@@ -384,15 +401,18 @@ $('#list')
         </div>
       </section>
 
-      <section id="index_09" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Copy jQuery event handlers</span>
-            <span class="lang_ja">jQueryイベントハンドラの複製</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/copy-jquery-event-handlers/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_09" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Copy jQuery event handlers</span>
+          <span class="lang_ja">jQueryイベントハンドラの複製</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/copy-jquery-event-handlers/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p>(since: v4.3)</p>
           <p class="lang_en">
             jQuery event handlers at each form elements can be correctly copied.<br>
@@ -430,15 +450,18 @@ $('#list')
         </div>
       </section>
 
-      <section id="index_10" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Run after add</span>
-            <span class="lang_ja">追加後に処理を実行する</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/after-add/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_10" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Run after add</span>
+          <span class="lang_ja">追加後に処理を実行する</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/after-add/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p>(since v4.6)</p>
           <p class="lang_en">
             The event at each Form elements can be correctly copied.<br>
@@ -460,15 +483,18 @@ $('#list').addInputArea({
         </div>
       </section>
 
-      <section id="index_11" class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <span class="lang_en">Not to copy events</span>
-            <span class="lang_ja">イベントを複製しないオプション</span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <div class="btn-container"><a class="btn btn-primary" href="demo/not-to-copy-events/" target="_blank">Sample <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></div>
+      <section id="index_11" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Not to copy events</span>
+          <span class="lang_ja">イベントを複製しないオプション</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/not-to-copy-events/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
           <p>(since: v4.8)</p>
           <p class="lang_en">
             You can set not to copy events.<br>
@@ -502,5 +528,12 @@ $('#list').addInputArea({
 <div id="jump_to_top">
   <a href="#" class="glyphicon glyphicon-upload" aria-hidden="true"></a>
 </div>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.simple-scroll-follow@3.1.1/dist/jquery.simple-scroll-follow.min.js"></script>
+<script src="demo/sample.js"></script>
 </body>
 </html>
