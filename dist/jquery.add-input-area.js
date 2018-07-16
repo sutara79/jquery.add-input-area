@@ -215,7 +215,7 @@ $.extend($.addInputArea.prototype, /** @lends external:jQuery.addInputArea.proto
       }).end()
       // Rename "for" attribute.
       .find('[for]').each(function() {
-        $(this).attr('id', self._getValOfAttr(this, idx, 'for'));
+        $(this).attr('for', self._getValOfAttr(this, idx, 'for'));
       });
   },
 
