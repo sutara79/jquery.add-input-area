@@ -15,20 +15,16 @@
     "form"
   ],
   "dependencies": {
-    "jquery": "3.2.1"
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
-    "bower-json": "^0.8.1",
-    "grunt": "^1.0.3",
-    "grunt-contrib-uglify": "^3.3.0",
-    "grunt-coveralls": "^1.0.1",
-    "grunt-qunit-istanbul": "^0.6.0",
-    "package-json-validator": "^0.6.3"
+    "mocha": "^5.2.0",
+    "power-assert": "^1.6.0",
+    "connect": "^3.6.6",
+    "serve-static": "^1.13.2",
+    "puppeteer": "^1.6.0"
   },
   "scripts": {
-    "test": "grunt qunit",
-    "uglify": "grunt uglify",
-    "coveralls": "grunt coveralls",
-    "validate-json": "pjv && node bower-json.validate.js"
+    "test": "node ./test/test.js"
   }
 }
