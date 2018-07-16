@@ -1,7 +1,7 @@
 {
   "name": "jquery.add-input-area",
   "description": "jQuery plugin to add or delete form fields.",
-  "version": "4.9.2",
+  "version": "4.9.3",
   "license": "MIT",
   "author": "Yuusaku Miyazaki <toumin.m7@gmail.com>",
   "homepage": "https://github.com/sutara79/jquery.add-input-area",
@@ -15,15 +15,15 @@
     "form"
   ],
   "dependencies": {
-    "jquery": ">=3.0.0"
+    "jquery": "3.2.1"
   },
   "devDependencies": {
     "bower-json": "^0.8.1",
-    "grunt": "^1.0.1",
-    "grunt-contrib-uglify": "^3.1.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-coveralls": "^1.0.1",
     "grunt-qunit-istanbul": "^0.6.0",
-    "package-json-validator": "^0.6.2"
+    "package-json-validator": "^0.6.3"
   },
   "scripts": {
     "test": "grunt qunit",

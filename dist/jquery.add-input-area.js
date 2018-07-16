@@ -1,6 +1,6 @@
 /**
  * @file jquery.add-input-area
- * @version 4.9.2
+ * @version 4.9.3
  * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
  * @license MIT
  */
