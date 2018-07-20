@@ -22,9 +22,9 @@ module.exports = {
     console.log(
       '\n' +
       '# Unit testing\n\n' +
-      'Goto: ' + url + '\n' +
-      stas + '\n\n' +
-      main
+      'Goto: ' + url + '\n\n' +
+      main + '\n' +
+      stas
     );
 
     if (fail != '0') {
