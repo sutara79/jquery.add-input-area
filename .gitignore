@@ -1,7 +1,30 @@
 .AppleDouble/
 *.DS_Store
-node_modules/
 out/
-coverage/
 temp/
 npm-debug.log
+*.map
+
+# npm
+node_modules/*
+package-lock.json
+
+# Mocha
+!node_modules/mocha/
+node_modules/mocha/*
+!node_modules/mocha/mocha.css
+!node_modules/mocha/mocha.js
+
+# power-assert
+!node_modules/power-assert/
+node_modules/power-assert/*
+!node_modules/power-assert/build/
+node_modules/power-assert/build/*
+!node_modules/power-assert/build/power-assert.js
+
+# jQuery
+!node_modules/jquery/
+node_modules/jquery/*
+!node_modules/jquery/dist/
+node_modules/jquery/dist/*
+!node_modules/jquery/dist/jquery.min.js
