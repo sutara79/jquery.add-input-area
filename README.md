@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/jquery.add-input-area.svg)](https://www.npmjs.com/package/jquery.add-input-area)
 [![Build Status](https://travis-ci.org/sutara79/jquery.add-input-area.svg?branch=master)](https://travis-ci.org/sutara79/jquery.add-input-area)
-[![dependencies Status](https://david-dm.org/sutara79/jquery.add-input-area/status.svg)](https://david-dm.org/sutara79/jquery.add-input-area)
 
 jQuery plugin to add or delete form fields.
 
@@ -32,7 +31,7 @@ https://sutara79.github.io/jquery.add-input-area/
 </ol>
 <input type="button" value="Add" class="list_add"><!-- .(id)_add -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="jquery.add-input-area.min.js"></script>
 ```
 
