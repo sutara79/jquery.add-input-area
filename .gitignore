@@ -3,6 +3,7 @@
 out/
 temp/
 npm-debug.log
+*.map
 
 # npm
 node_modules/*

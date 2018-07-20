@@ -1,64 +1,6 @@
-/**
- * @file jquery.add-input-area
- * @version 4.9.3
- * @author Yuusaku Miyazaki <toumin.m7@gmail.com>
- * @license MIT
- */
-/** @external "jQuery.fn" */
-/** @external jQuery */
-(function (factory) {
-  if(typeof module === 'object' && typeof module.exports === 'object') {
-    factory(require('jquery'), window, document);
-  } else {
-    factory(jQuery, window, document);
-  }
-}(function($, window, document, undefined) {
-
-/**
- * @function external:"jQuery.fn".addInputArea
- * @arg {Object}   [option]                      - Options user sent.
- * @arg {string}   [option.area_var='.(id)_var'] - CSS class selector for wrapper of form fields.
- * @arg {string}   [option.btn_add='.(id)_add']  - CSS class selector for add button.
- * @arg {string}   [option.btn_del='.(id)_del']  - CSS class selector for delete button.
- * @arg {string}   [option.area_del=(btn_del)]   - CSS class selector for wrapper of delete button.
- * @arg {Function} [option.after_add=null]       - A callback function to be called after adding.
- * @arg {boolean}  [option.clone_event=true]     - If event will be copied or not.
- * @arg {number}   [option.maximum=0]            - Max number of wrapper of form fields. "0" means unlimited.
- * @return {Object} jQuery object for method chaining.
- */
-$.fn.addInputArea = function(option) {
-  return this.each(function() {
-    new $.addInputArea(this, option);
-  });
-};
-
-/**
- * @class external:jQuery.addInputArea
- * @arg  {Object} elem   - HTML element which applied this plugin.
- * @arg  {Object} option - Options user sent.
- * @prop {Object} elem   - HTML element which applied this plugin.
- * @prop {Object} option - initialized options.
- */
-$.addInputArea = function(elem, option) {
-  this.elem = elem;
-  this.option = this._setOption(option, $(this.elem).attr('id'));
-  this._setDelBtnVisibility();
-
-  var self = this;
-  $(document).on('click', this.option.btn_add, function() {
-    self._ehAddBtn.call(self);
-  });
-  $(self.elem).on('click', self.option.btn_del, function(ev) {
-    self._ehDelBtn.call(self, ev);
-  });
-
-  this._renumberFieldAll();
-
-  // Save original
-  this.option.original = $(this.elem).find(this.option.area_var).eq(0).clone(this.option.clone_event);
-};
-
-$.extend($.addInputArea.prototype, /** @lends external:jQuery.addInputArea.prototype */ {
+/*global $*/
+/** @lends external:jQuery.addInputArea.prototype */
+export default {
   /**
    * Initialize option
    * @private
@@ -248,6 +190,4 @@ $.extend($.addInputArea.prototype, /** @lends external:jQuery.addInputArea.proto
     }
     return newVal;
   }
-});
-
-}));
+};
