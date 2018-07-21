@@ -80,6 +80,10 @@
             <span class="lang_en">Not to copy events</span>
             <span class="lang_ja">イベントを複製しないオプション</span>
           </a>
+          <a class="list-group-item list-group-item-action" href="#index_12">
+            <span class="lang_en">Not to copy elements</span>
+            <span class="lang_ja">HTML要素を複製しないオプション</span>
+          </a>
         </div>
       </div>
     </nav>
@@ -513,6 +517,41 @@ $('#list').addInputArea({
   after_add: function () {
     $('#list .test-tooltip').tooltip();
   }
+});
+</pre>
+        </div>
+      </section>
+
+      <section id="index_12" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Not to copy elements</span>
+          <span class="lang_ja">HTML要素を複製しないオプション</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/dont-clone/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
+          <p>(since: v4.10)</p>
+          <p class="lang_en">
+            You can prevent to copy certain elements.<br>
+            Set <code>dont_clone</code> option.
+          </p>
+          <p class="lang_ja">
+            特定のHTML要素を複製させないようにできます。<br>
+            <code>dont_clone</code>オプションを設定してください。
+          </p>
+          <h6>HTML</h6>
+<pre>
+&lt;div&gt;This will be cloned.&lt;/div&gt;
+&lt;div <span class="red">class="dont_clone"</span>&gt;This will NOT be cloned.&lt;/div&gt;
+</pre>
+          <h6>JavaScript</h6>
+<pre>
+$('#list').addInputArea({
+  <span class="green">dont_clone</span>: <span class="red">'.dont_clone'</span>
 });
 </pre>
         </div>

@@ -16,7 +16,7 @@ https://sutara79.github.io/jquery.add-input-area/
 - [GitHub](https://github.com/sutara79/jquery.add-input-area): Clone or download.
 - [npm](https://www.npmjs.com/package/jquery.add-input-area): `npm i jquery.add-input-area`
 - CDN [(jsDelivr)](https://www.jsdelivr.com/):
-    - [jquery.add-input-area.min.js (v4.9.4)](https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.9.4/dist/jquery.add-input-area.min.js)
+    - [jquery.add-input-area.min.js (v4.10.0)](https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.10.0/dist/jquery.add-input-area.min.js)
 
 
 ## Usage
@@ -95,6 +95,8 @@ You can use original naming convention by setting custom data attribute, "data-n
 |[after_add](https://sutara79.github.io/jquery.add-input-area/#index_10)  |function|null       |A callback function to be called after adding.|
 |[clone_event](https://sutara79.github.io/jquery.add-input-area/#index_11)|boolean |true       |If event will be copied or not.               |
 |[maximum](https://sutara79.github.io/jquery.add-input-area/#index_05)    |number  |0          |Max number of wrapper of form fields. "0" means unlimited.|
+|[dont_clone](https://sutara79.github.io/jquery.add-input-area/#index_12)    |string  |null       |CSS selector to avoid cloning.|
+
 
 
 ## License

@@ -4,16 +4,16 @@
 describe('Integration Testing', function () {
   var target;
   beforeEach(function () {
-    target = $(
-      '<ol id="list">' +
-        '<li class="list_var">' +
-          '<label for="list_0">Text</label>' +
-          '<input type="text" size="30" name="list_0" id="list_0">' +
-          '<button type="button" class="list_del">Delete</button>' +
-        '</li>' +
-      '</ol>' +
-      '<input type="button" value="Add" class="list_add" id="add-button">'
-    ).appendTo('body');
+    target = $(`
+      <ol id="list">
+        <li class="list_var">
+          <label for="list_0">Text</label>
+          <input type="text" size="30" name="list_0" id="list_0">
+          <button type="button" class="list_del">Delete</button>
+        </li>
+      </ol>
+      <input type="button" value="Add" class="list_add" id="add-button">
+    `).appendTo('body');
   });
 
   afterEach(function () {

@@ -1,7 +1,7 @@
 {
   "name": "jquery.add-input-area",
   "description": "jQuery plugin to add or delete form fields.",
-  "version": "4.9.4",
+  "version": "4.10.0",
   "license": "MIT",
   "author": "Yuusaku Miyazaki <toumin.m7@gmail.com>",
   "homepage": "https://github.com/sutara79/jquery.add-input-area",

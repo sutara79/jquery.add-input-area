@@ -7,12 +7,13 @@ module.exports = {
   /**
    * Get element from web page
    *
-   * @param  {String} url     Web page running mocha in the browser
+   * @param  {String} url      Web page running mocha in the browser
    */
-  report: async function (url) {
+  report: async function (url, waitTime) {
     let browser = await puppeteer.launch({args: ['--no-sandbox']});
     this.page = await browser.newPage();
     await this.page.goto(url, {waitUntil: 'load'});
+    await this.page.waitForSelector('#done');
 
     let stas = await this._getStats();
     let main = await this._getReport();

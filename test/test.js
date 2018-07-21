@@ -9,6 +9,6 @@ config.set();
 
 (async () => {
   await server.start(process.env.MY_PORT);
-  await unit.report(process.env.MY_UNIT_URL);
+  await unit.report(process.env.MY_UNIT_URL, process.env.MY_WAIT_TIME);
   process.exit();
 })();

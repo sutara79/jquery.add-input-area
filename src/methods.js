@@ -10,13 +10,14 @@ export default {
    */
   _setOption: function(option, id) {
     option =  $.extend({
-      btn_del:   (id) ? '.' + id + '_del' : '.aia_del',
-      btn_add:   (id) ? '.' + id + '_add' : '.aia_add',
-      area_var:  (id) ? '.' + id + '_var' : '.aia_var',
-      area_del: null,
-      after_add: null,
+      btn_del:     (id) ? '.' + id + '_del' : '.aia_del',
+      btn_add:     (id) ? '.' + id + '_add' : '.aia_add',
+      area_var:    (id) ? '.' + id + '_var' : '.aia_var',
+      area_del:    null,
+      after_add:   null,
       clone_event: true,
-      maximum: 0
+      maximum:     0,
+      dont_clone:  null
     }, option);
     if (!option.area_del) {
       option.area_del = option.btn_del;

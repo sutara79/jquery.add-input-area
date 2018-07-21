@@ -5,14 +5,14 @@ describe('$.addInputArea._renumberFieldEach', function () {
   var target;
 
   beforeEach(function () {
-    target = $(
-      '<li class="list_var">' +
-        '<label for="list-a_0">Text</label>' +
-        '<input type="text" size="30" name="list-a_0" id="list-a_0">' +
-        '<label for="list-b_0">Text</label>' +
-        '<input type="text" size="30" name="list-b_0" id="list-b_0">' +
-      '</li>'
-    ).appendTo('body');
+    target = $(`
+      <li class="list_var">
+        <label for="list-a_0">Text</label>
+        <input type="text" size="30" name="list-a_0" id="list-a_0">
+        <label for="list-b_0">Text</label>
+        <input type="text" size="30" name="list-b_0" id="list-b_0">
+      </li>
+    `).appendTo('body');
   });
 
   afterEach(function () {

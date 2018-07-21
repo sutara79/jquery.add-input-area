@@ -8,6 +8,7 @@
  * @arg {Function} [option.after_add=null]       - A callback function to be called after adding.
  * @arg {boolean}  [option.clone_event=true]     - If event will be copied or not.
  * @arg {number}   [option.maximum=0]            - Max number of wrapper of form fields. "0" means unlimited.
+ * @arg {String}   [option.dont_clone=null]      - CSS selector to avoid cloning.
  * @return {Object} jQuery object for method chaining.
  */
 /*global $*/

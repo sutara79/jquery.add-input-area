@@ -28,7 +28,12 @@ mocha.reporter('html');
 <script src="jQuery.addInputArea/getValOfAttr.js"></script>
 <script src="jQuery.addInputArea/renumberFieldEach.js"></script>
 <script src="integration/test.js"></script>
+<script src="integration/dont_clone.js"></script>
 
-<script>mocha.run()</script>
+<script>
+mocha.run(function (err) {
+  $('<div id="done">').appendTo('body');
+});
+</script>
 </body>
 </html>
