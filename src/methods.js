@@ -115,7 +115,7 @@ export default {
     ev.preventDefault();
 
     // Delete the wrapper
-    var idx = $(this.elem).find(this.option.btn_del).index(ev.target);
+    var idx = $(this.elem).find(this.option.btn_del).index(ev.currentTarget);
     $(this.elem).find(this.option.area_var).eq(idx).remove();
 
     // If the wrapper is single, del-button is not displayed.

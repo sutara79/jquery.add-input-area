@@ -16,7 +16,7 @@ https://sutara79.github.io/jquery.add-input-area/
 - [GitHub](https://github.com/sutara79/jquery.add-input-area): Clone or download.
 - [npm](https://www.npmjs.com/package/jquery.add-input-area): `npm i jquery.add-input-area`
 - CDN [(jsDelivr)](https://www.jsdelivr.com/):
-    - [jquery.add-input-area.min.js (v4.10.0)](https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.10.0/dist/jquery.add-input-area.min.js)
+    - [jquery.add-input-area.min.js (v4.10.1)](https://cdn.jsdelivr.net/npm/jquery.add-input-area@4.10.1/dist/jquery.add-input-area.min.js)
 
 
 ## Usage
