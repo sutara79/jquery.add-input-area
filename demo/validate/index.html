@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Validate: jquery.add-input-area</title>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../dist/jquery.add-input-area.min.js"></script>
+<script src="../form-serialize.js"></script>
+<script>
+/*global $*/
+$(function() {
+  $('#list').addInputArea({
+    validate: function () { // Should return boolean.
+      // Call checkValidity() method of HTML5.
+      // See: https://www.w3.org/TR/html50/forms.html#dom-form-checkvalidity
+      if (!$('.form-serialize')[0].checkValidity()) {
+        $('#submit').click();
+        return false;
+      }
+      return true;
+    }
+  });
+});
+</script>
+</head>
+<body>
+<body>
+<h1>Validate: jquery.add-input-area</h1>
+<form class="form-serialize">
+  <ol id="list">
+    <li class="list_var">
+      <input type="text" size="30" name="list-text_0" id="list-text_0" required>
+      <label><input type="radio" name="list-radio_0" id="list-radio-aaa_0" required>AAA</label>
+      <label><input type="radio" name="list-radio_0" id="list-radio-bbb_0">BBB</label>
+      <button type="button" class="list_del">Delete</button>
+    </li>
+  </ol>
+  <input type="button" value="Add" class="list_add"><br>
+  <input type="submit" value="Send" name="submit" id="submit">
+</form>
+</body>
+</html>

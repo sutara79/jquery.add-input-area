@@ -1,8 +1,13 @@
 # CHANGELOG: jquery.add-input-area
 
+## v4.11.0
+#### New option
+`validate` option is added to fix #9.  
+See [documentation](https://sutara79.github.io/jquery.add-input-area/#index_13).
+
 ## v4.10.0
-### New option
-`dont_clone` option is added to fix #8 .  
+#### New option
+`dont_clone` option is added to fix #8.  
 See [documentation](https://sutara79.github.io/jquery.add-input-area/#index_12).
 
 ## v4.9.0

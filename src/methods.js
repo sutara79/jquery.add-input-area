@@ -17,7 +17,8 @@ export default {
       after_add:   null,
       clone_event: true,
       maximum:     0,
-      dont_clone:  null
+      dont_clone:  null,
+      validate:    null
     }, option);
     if (!option.area_del) {
       option.area_del = option.btn_del;
@@ -40,6 +41,11 @@ export default {
    * @private
    */
   _ehAddBtn: function() {
+    // Check validity
+    if (this.option.validate && !this.option.validate()) {
+      return;
+    }
+
     // Add new wrapper.
     this._addNewArea();
 

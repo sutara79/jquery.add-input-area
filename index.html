@@ -84,6 +84,10 @@
             <span class="lang_en">Not to copy elements</span>
             <span class="lang_ja">HTML要素を複製しないオプション</span>
           </a>
+          <a class="list-group-item list-group-item-action" href="#index_13">
+            <span class="lang_en">Validation</span>
+            <span class="lang_ja">バリデーション</span>
+          </a>
         </div>
       </div>
     </nav>
@@ -552,6 +556,53 @@ $('#list').addInputArea({
 <pre>
 $('#list').addInputArea({
   <span class="green">dont_clone</span>: <span class="red">'.dont_clone'</span>
+});
+</pre>
+        </div>
+      </section>
+
+      <section id="index_13" class="card">
+        <h5 class="card-header">
+          <span class="lang_en">Validation</span>
+          <span class="lang_ja">バリデーション</span>
+        </h5>
+        <div class="card-body">
+          <div class="btn-container">
+            <a class="btn btn-primary" href="demo/validate/" target="_blank">
+              Sample
+              <svg class="octicon octicon-link-external" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11 10h1v3c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h3v1H1v10h10v-3zM6 2l2.25 2.25L5 7.5 6.5 9l3.25-3.25L12 8V2H6z"></path></svg>
+            </a>
+          </div>
+          <p>(since: v4.11)</p>
+          <p class="lang_en">
+            You can validate before adding.<br>
+            Set <code>validate</code> option that returns boolean.
+          </p>
+          <p class="lang_ja">
+            入力欄の追加の前にバリデーションを実行できます。<br>
+            真偽値を返す<code>validate</code>オプションを設定してください。
+          </p>
+          <p class="lang_en">
+            The sample above uses <a href="https://www.w3.org/TR/html50/forms.html#dom-form-checkvalidity">checkValidity()</a> method of HTML5.<br>
+            In this case, you must create <code>&lt;form&gt;</code> and submit-button.<br>
+            You can use other validation method as well.
+          </p>
+          <p class="lang_ja">
+            上のサンプルではHTML5の<a href="https://www.w3.org/TR/html50/forms.html#dom-form-checkvalidity">checkValidity()</a>メソッドを利用しています。<br>
+            この場合は、<code>&lt;form&gt;</code>と送信ボタンが必要です。<br>
+            HTML5以外のバリデーションを利用することもできます。
+          </p>
+          <h6>JavaScript</h6>
+<pre>
+$('#list').addInputArea({
+  <span class="green">validate</span>: function () { <span class="red">// Should return boolean.</span>
+    // Call checkValidity() method of HTML5.
+    if (!$('.form-serialize')[0].checkValidity()) {
+      $('#submit').click();
+      return false;
+    }
+    return true;
+  }
 });
 </pre>
         </div>
