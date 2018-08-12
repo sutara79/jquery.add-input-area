@@ -1,43 +1,43 @@
 /**
  * @file Unit Testing
  */
-describe('$.addInputArea._initFieldVal', function () {
-  var target;
+describe('$.addInputArea._initFieldVal', () => {
+  let target;
 
   afterEach(function () {
     target.remove();
   });
 
-  it('should not change the value', function () {
+  it('should not change the value', () => {
     target = $('<input empty_val="false">');
-    var returns = $.addInputArea.prototype._initFieldVal(target);
-    assert.equal(returns, false);
+    const res = $.addInputArea.prototype._initFieldVal(target);
+    assert.equal(res, false);
   });
 
-  it('should not change the value', function () {
+  it('should not change the value', () => {
     target = $('<input data-empty-val="false">');
-    var returns = $.addInputArea.prototype._initFieldVal(target);
-    assert.equal(returns, false);
+    const res = $.addInputArea.prototype._initFieldVal(target);
+    assert.equal(res, false);
   });
 
-  it('init checkbox', function () {
+  it('init checkbox', () => {
     target = $('<input type="checkbox">');
-    var returns = $.addInputArea.prototype._initFieldVal(target);
-    assert.equal(returns, true);
+    const res = $.addInputArea.prototype._initFieldVal(target);
+    assert.equal(res, true);
     assert.equal(target.checked, false);
   });
 
-  it('init text-box', function () {
+  it('init text-box', () => {
     target = $('<input type="text" value="foo">');
-    var returns = $.addInputArea.prototype._initFieldVal(target);
-    assert.equal(returns, true);
+    const res = $.addInputArea.prototype._initFieldVal(target);
+    assert.equal(res, true);
     assert.equal(target.val(), '');
   });
 
-  it('should not init value of submit-button', function () {
+  it('should not init value of submit-button', () => {
     target = $('<input type="submit" value="Send!">');
-    var returns = $.addInputArea.prototype._initFieldVal(target);
-    assert.equal(returns, true);
+    const res = $.addInputArea.prototype._initFieldVal(target);
+    assert.equal(res, true);
     assert.equal(target.val(), 'Send!');
   });
 });

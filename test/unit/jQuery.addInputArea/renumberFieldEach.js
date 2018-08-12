@@ -1,10 +1,10 @@
 /**
  * @file Unit Testing
  */
-describe('$.addInputArea._renumberFieldEach', function () {
-  var target;
+describe('$.addInputArea._renumberFieldEach', () => {
+  let target;
 
-  beforeEach(function () {
+  beforeEach(() => {
     target = $(`
       <li class="list_var">
         <label for="list-a_0">Text</label>
@@ -15,11 +15,11 @@ describe('$.addInputArea._renumberFieldEach', function () {
     `).appendTo('body');
   });
 
-  afterEach(function () {
+  afterEach(() => {
     target.remove();
   });
 
-  it('should renumber', function() {
+  it('should renumber', () => {
     $.addInputArea.prototype._renumberFieldEach(456, target);
     assert.equal($('.list_var input').eq(0).attr('name'), 'list-a_456');
     assert.equal($('.list_var input').eq(0).attr('id'),   'list-a_456');

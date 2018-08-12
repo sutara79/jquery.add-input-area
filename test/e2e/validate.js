@@ -21,12 +21,12 @@ describe(path, function () {
     browser.close();
   });
 
-  describe('Validation', function () {
+  describe('Option: validate', function () {
     it('should prevent from adding', async function () {
       await page.click('.list_add');
       await page.waitFor(50);
       let elem = await page.$$('.list_var');
-      assert.equal(elem.length, 1);
+      assert.equal(elem.length, 1, 'Both text-box and radio-button are not filled.');
     });
 
     it('should prevent from adding', async function () {
@@ -34,7 +34,7 @@ describe(path, function () {
       await page.click('.list_add');
       await page.waitFor(50);
       let elem = await page.$$('.list_var');
-      assert.equal(elem.length, 1);
+      assert.equal(elem.length, 1, 'Radio-button is not filled.');
     });
 
     it('should allow to add', async function () {
@@ -42,7 +42,7 @@ describe(path, function () {
       await page.click('.list_add');
       await page.waitFor(50);
       let elem = await page.$$('.list_var');
-      assert.equal(elem.length, 2);
+      assert.equal(elem.length, 2, 'Both are filled.');
     });
   });
 });

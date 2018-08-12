@@ -9,9 +9,10 @@ module.exports = {
   /**
    * Run E2E testing
    *
-   * @return {String}         Report of testing
+   * @param {String} testDir - Directory that contains mocha files
+   * @return {Object} Failures of testing
    */
-  report: function () {
+  report: function (testDir) {
     console.log('\n# E2E testing');
 
     const mocha = new Mocha({
@@ -19,7 +20,6 @@ module.exports = {
       ui: 'bdd',
       reporter: 'spec'
     });
-    const testDir = './test/e2e';
 
     // Mocha: addFile
     fs.readdirSync(testDir).filter(function (file) {

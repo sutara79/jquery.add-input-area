@@ -1,5 +1,5 @@
 /**
- * @function external:jQuery.prototype.addInputArea
+ * @function external:"jQuery.fn".addInputArea
  * @arg {Object}   [option]                      - Options user sent.
  * @arg {string}   [option.area_var='.(id)_var'] - CSS class selector for wrapper of form fields.
  * @arg {string}   [option.btn_add='.(id)_add']  - CSS class selector for add button.
